@@ -2,9 +2,9 @@
 
 Groep 12 -->
 
-Luna Schütz - game art\n
-Ezra Spillekom - game art\n
-Bao Jian Rispens - game dev\n
-Tim de Smidt - game dev\n
-Siebe Beerkens - game des\n
-Tim Drost - game des\n
+Luna Schütz - game art<br>
+Ezra Spillekom - game art<br>
+Bao Jian Rispens - game dev<br>
+Tim de Smidt - game dev<br>
+Siebe Beerkens - game des<br>
+Tim Drost - game des<br>
