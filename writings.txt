@@ -1,0 +1,5 @@
+note: het kan misschien zijn dat de project name voor mij te lang is 
+als ik het wil builden maar lowkey idk erm we cross that bridge when we get there lowkey.
+
+tenminste is de project name nu goed.
+idee: move GITHUB folder waneer je net je pc open hebt.
