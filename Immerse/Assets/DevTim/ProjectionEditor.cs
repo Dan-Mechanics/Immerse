@@ -1,66 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace WebcamUnity
+namespace Immerse
 {
-    public class RectMovement : MonoBehaviour
+    public class ProjectionEditor : MonoBehaviour
     {
-     //   [SerializeField] private RectTransform rect = default;
-        [SerializeField, Min(0.1f)] private float pixelsPerSecond = default;
+        [SerializeField, Min(0.1f)] private float speed = 1f;
+        [SerializeField] private float growthFactor = 1.005f;
+        [SerializeField] private float shrinkageFactor = 0.995f;
 
         private void FixedUpdate()
         {
             if (Input.GetKey(KeyCode.A)) 
-                transform.Translate(pixelsPerSecond * Time.fixedDeltaTime * Vector3.left);
+                transform.Translate(speed * Time.fixedDeltaTime * Vector3.left);
 
             if (Input.GetKey(KeyCode.D))
-                transform.Translate(pixelsPerSecond * Time.fixedDeltaTime * Vector3.right);
+                transform.Translate(speed * Time.fixedDeltaTime * Vector3.right);
 
             if (Input.GetKey(KeyCode.W))
-                transform.Translate(pixelsPerSecond * Time.fixedDeltaTime * Vector3.up);
+                transform.Translate(speed * Time.fixedDeltaTime * Vector3.up);
 
             if (Input.GetKey(KeyCode.S))
-                transform.Translate(pixelsPerSecond * Time.fixedDeltaTime * Vector3.down);
+                transform.Translate(speed * Time.fixedDeltaTime * Vector3.down);
 
             if (Input.GetKey(KeyCode.Space))
-                transform.localScale *= 1.005f * Vector2.one;
+                transform.localScale *= growthFactor;
 
             if (Input.GetKey(KeyCode.LeftShift))
-                transform.localScale *= 0.995f * Vector2.one;
+                transform.localScale *= shrinkageFactor;
 
             // ===
 
             if (Input.GetKey(KeyCode.LeftArrow)) 
             {
                 Vector3 scale = transform.localScale;
-                scale.x *= 0.995f;
+                scale.x *= shrinkageFactor;
                 transform.localScale = scale;
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 Vector3 scale = transform.localScale;
-                scale.x *= 1.005f;
+                scale.x *= growthFactor;
                 transform.localScale = scale;
             }
 
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 Vector3 scale = transform.localScale;
-                scale.y *= 1.005f;
+                scale.y *= growthFactor;
                 transform.localScale = scale;
             }
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 Vector3 scale = transform.localScale;
-                scale.y *= 0.995f;
+                scale.y *= shrinkageFactor;
                 transform.localScale = scale;
             }
         }
-
-        /*private Vector3 pass(Vector3 wdwd)
-        { return wdwd; }*/
     }
 }
