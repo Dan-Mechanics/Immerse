@@ -15,7 +15,7 @@ C:/Users/Dan-Mechanics/Development/GITHUB/Immerse/Immerse
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-53420
+55082
 Successfully changed project path to: C:/Users/Dan-Mechanics/Development/GITHUB/Immerse/Immerse
 C:/Users/Dan-Mechanics/Development/GITHUB/Immerse/Immerse
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,14 +49,14 @@ C:/Users/Dan-Mechanics/Development/GITHUB/Immerse/Immerse
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [18416]  Target information:
+Player connection [9880]  Target information:
 
-Player connection [18416]  * "[IP] 192.168.81.187 [Port] 0 [Flags] 2 [Guid] 134308293 [EditorId] 134308293 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-U6NUIV5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [9880]  * "[IP] 192.168.81.187 [Port] 0 [Flags] 2 [Guid] 3525302629 [EditorId] 3525302629 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-U6NUIV5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [18416] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [18416] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [9880] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [9880] Host joined alternative multi-casting on [225.0.0.222:34997]...
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-Refreshing native plugins compatible for Editor in 83.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.43f1 (85497d293fa1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/Resources/UnitySubsystems
@@ -72,45 +72,45 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56300
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56980
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.315781 seconds.
-- Loaded All Assemblies, in  6.861 seconds
+Registered in 0.011384 seconds.
+- Loaded All Assemblies, in  0.368 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.231 seconds
-Domain Reload Profiling: 7090ms
-	BeginReloadAssembly (5010ms)
+- Finished resetting the current domain, in  0.263 seconds
+Domain Reload Profiling: 629ms
+	BeginReloadAssembly (110ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (430ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (364ms)
-	LoadAllAssembliesAndSetupDomain (1042ms)
-		LoadAssemblies (5007ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (151ms)
+		LoadAssemblies (108ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1040ms)
-			TypeCache.Refresh (1039ms)
-				TypeCache.ScanAssembly (756ms)
+		AnalyzeDomain (149ms)
+			TypeCache.Refresh (148ms)
+				TypeCache.ScanAssembly (135ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (232ms)
+	FinalizeReload (264ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (193ms)
+		SetupLoadedEditorAssemblies (220ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (133ms)
+			ProcessInitializeOnLoadAttributes (157ms)
 			ProcessInitializeOnLoadMethodAttributes (43ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
@@ -120,51 +120,51 @@ Domain Reload Profiling: 7090ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.020 seconds
+- Loaded All Assemblies, in  0.335 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.285 seconds
-Domain Reload Profiling: 1303ms
-	BeginReloadAssembly (124ms)
+- Finished resetting the current domain, in  0.333 seconds
+Domain Reload Profiling: 666ms
+	BeginReloadAssembly (152ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (17ms)
-	RebuildCommonClasses (28ms)
+		CreateAndSetChildDomain (19ms)
+	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (34ms)
-	LoadAllAssembliesAndSetupDomain (822ms)
-		LoadAssemblies (879ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (100ms)
+		LoadAssemblies (174ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (17ms)
-			TypeCache.Refresh (14ms)
-				TypeCache.ScanAssembly (7ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (15ms)
+				TypeCache.ScanAssembly (8ms)
 			ScanForSourceGeneratedMonoScriptInfo (2ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (285ms)
+	FinalizeReload (334ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (190ms)
+		SetupLoadedEditorAssemblies (225ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
-			SetLoadedEditorAssemblies (2ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (32ms)
-			ProcessInitializeOnLoadAttributes (123ms)
-			ProcessInitializeOnLoadMethodAttributes (17ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			BeforeProcessingInitializeOnLoad (42ms)
+			ProcessInitializeOnLoadAttributes (139ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.68 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 334 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 8 unused Assets / (49.4 KB). Loaded Objects now: 809.
-Memory consumption went from 56.7 MB to 56.7 MB.
-Total: 1.937100 ms (FindLiveObjects: 0.055100 ms CreateObjectMapping: 0.011500 ms MarkObjects: 1.815200 ms  DeleteObjects: 0.054800 ms)
+Unloading 8 unused Assets / (49.4 KB). Loaded Objects now: 813.
+Memory consumption went from 57.4 MB to 57.4 MB.
+Total: 3.353000 ms (FindLiveObjects: 0.067900 ms CreateObjectMapping: 0.014700 ms MarkObjects: 3.185900 ms  DeleteObjects: 0.083100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
@@ -181,52 +181,82 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 98796.179138 seconds.
+  Time since last request: 116984.586515 seconds.
+  path: Assets/DevTim/Materials/miku.png
+  artifactKey: Guid(bc549ac9214c48046bfdd17b9f9df846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DevTim/Materials/miku.png using Guid(bc549ac9214c48046bfdd17b9f9df846) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f665e31c6a92ce9466ae79501ddc0e35') in 0.102608 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.007128 seconds.
+  path: Assets/DevTim/Materials/ceiling.mat
+  artifactKey: Guid(9de757b02d6be244a88c02f3bca68e37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DevTim/Materials/ceiling.mat using Guid(9de757b02d6be244a88c02f3bca68e37) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '191e0660add68eab36ee3e582564c167') in 0.144875 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
   path: Assets/DevTim/Materials/Screenshot 2025-09-19 at 11-27-39 backrooms texture - Google Search.png
   artifactKey: Guid(5481a321ccf0fc14f994b10ae43ed4a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/DevTim/Materials/Screenshot 2025-09-19 at 11-27-39 backrooms texture - Google Search.png using Guid(5481a321ccf0fc14f994b10ae43ed4a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '91d5d1565e46c8fd762ba3e09e1c4d5b') in 0.064468 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 34.636065 seconds.
-  path: Assets/DevTim/Materials/Screenshot 2025-09-19 at 11-28-06 backrooms texture - Google Search.png
-  artifactKey: Guid(c9c064ffc6a1b634ba21109409bae7db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Materials/Screenshot 2025-09-19 at 11-28-06 backrooms texture - Google Search.png using Guid(c9c064ffc6a1b634ba21109409bae7db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'ca9e5880faf877512194ef60b307cab5') in 0.020907 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 15.172374 seconds.
-  path: Assets/DevTim/Materials/floor.mat
-  artifactKey: Guid(9c549f4819d34e9488a62b5ae5731abb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Materials/floor.mat using Guid(9c549f4819d34e9488a62b5ae5731abb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '1a79396b61e5b6424a2bd83ce7f6a0af') in 0.190314 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 47.935132 seconds.
-  path: Assets/DevTim/Materials/wall.mat
-  artifactKey: Guid(cebc6d716ec82af4b95906ef6dabe8ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Materials/wall.mat using Guid(cebc6d716ec82af4b95906ef6dabe8ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '06c448b01b5f45b4e31b535f37d9aecd') in 0.013988 seconds
+ -> (artifact id: '5ce7bbab7460460e190644bbffd55760') in 0.021845 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Prepare
-Refreshing native plugins compatible for Editor in 0.70 ms, found 0 plugins.
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.302 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.365 seconds
+Domain Reload Profiling: 665ms
+	BeginReloadAssembly (131ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (17ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (95ms)
+		LoadAssemblies (172ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (6ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (366ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (203ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (34ms)
+			ProcessInitializeOnLoadAttributes (132ms)
+			ProcessInitializeOnLoadMethodAttributes (18ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 1 unused Assets / (0.9 KB). Loaded Objects now: 853.
-Memory consumption went from 55.6 MB to 55.6 MB.
-Total: 3.747900 ms (FindLiveObjects: 0.089800 ms CreateObjectMapping: 0.029500 ms MarkObjects: 3.600400 ms  DeleteObjects: 0.027000 ms)
+Unloading 329 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4 unused Assets / (23.3 KB). Loaded Objects now: 860.
+Memory consumption went from 61.1 MB to 61.1 MB.
+Total: 2.515700 ms (FindLiveObjects: 0.082500 ms CreateObjectMapping: 0.021300 ms MarkObjects: 2.384200 ms  DeleteObjects: 0.026800 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -240,968 +270,75 @@ AssetImportParameters requested are different than current active one (requested
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 0f93ea92bd1d7653d6a81886312aba71 -> aae715d2daafb3f2026e02377efbee67
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-========================================================================
-Received Import Request.
-  Time since last request: 493.536141 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_hook_i.prefab
-  artifactKey: Guid(21ba0b684fdf1ac4ebcd483e74d033e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_hook_i.prefab using Guid(21ba0b684fdf1ac4ebcd483e74d033e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9d24098bc5313ed129dcdf614dcbfd2c') in 0.269451 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_straight hook_i.prefab
-  artifactKey: Guid(4885829c69c62a549afeb04005cbb64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_straight hook_i.prefab using Guid(4885829c69c62a549afeb04005cbb64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'd01ec19940e566c013d84514966ec2bd') in 0.045578 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_short blade_i.prefab
-  artifactKey: Guid(12cbbbe4000915041b26cd5d565292c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Knives/Knife_short blade_i.prefab using Guid(12cbbbe4000915041b26cd5d565292c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '80217cdbdee1503496d98b801cae20a8') in 0.040334 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 1.582447 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Axe-collar S_i.prefab
-  artifactKey: Guid(16cf511941f27244ebc4c389beed4e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Axe-collar S_i.prefab using Guid(16cf511941f27244ebc4c389beed4e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '2e2c8c3ded8a400c1e2dccb2b161a463') in 0.015020 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.003798 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Axe-sheath_hunters_i.prefab
-  artifactKey: Guid(b4ca4e3385e229449ac0ea402f52dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Axe-sheath_hunters_i.prefab using Guid(b4ca4e3385e229449ac0ea402f52dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e7d2512d2fe6b848db20310bbd9c2862') in 0.015527 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Rope_i.prefab
-  artifactKey: Guid(09ed8697b133e1048a27309898546124) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Rope_i.prefab using Guid(09ed8697b133e1048a27309898546124) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'bd3827b42914c26ab9b8b63a15e20727') in 0.016900 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Carved_spoon_i.prefab
-  artifactKey: Guid(e463189a231bff2438eb230daf67c70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Carved_spoon_i.prefab using Guid(e463189a231bff2438eb230daf67c70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9a1e2e5c84f1f5e828a42fdd165ea28b') in 0.016917 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Pot_billy complete_handle-up_i.prefab
-  artifactKey: Guid(4050483de51e2a442b268e20937faf05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Pot_billy complete_handle-up_i.prefab using Guid(4050483de51e2a442b268e20937faf05) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9e423fd922c9e65ab5e75879b5070271') in 0.016670 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Pot_billy_i.prefab
-  artifactKey: Guid(9f892e92edbde8f449e67b08b8a5ba06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Pot_billy_i.prefab using Guid(9f892e92edbde8f449e67b08b8a5ba06) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'fe233ce46ad2bfc6277c6c1dfcd0f732') in 0.015628 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Fire steel_SF_i.prefab
-  artifactKey: Guid(97f07489072b10b49a38e79fb22b93c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Fire steel_SF_i.prefab using Guid(97f07489072b10b49a38e79fb22b93c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'f3229a3c159b7aea28fd89aab40b8539') in 0.016438 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Knife-sheath_regular blade_i.prefab
-  artifactKey: Guid(8d9cb049436bc01419abe86a073c4651) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Knife-sheath_regular blade_i.prefab using Guid(8d9cb049436bc01419abe86a073c4651) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '678f7fba7d43033475930ffb22f92084') in 0.014683 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Stick-peg_i.prefab
-  artifactKey: Guid(7c763e682f531dc498a5ff712fcd6352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Stick-peg_i.prefab using Guid(7c763e682f531dc498a5ff712fcd6352) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '8d86e81fbf94a40ceae017206021c1fc') in 0.247707 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Tarp-flat_i.prefab
-  artifactKey: Guid(3e3f8821a3f1a6a40a0789cadecba638) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Miscellaneous/Tarp-flat_i.prefab using Guid(3e3f8821a3f1a6a40a0789cadecba638) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '730cd50ff0cb48813e317740e537da02') in 0.020365 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.784457 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-3tier log_i.prefab
-  artifactKey: Guid(d6511004a8cf910449f788cdb891d112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-3tier log_i.prefab using Guid(d6511004a8cf910449f788cdb891d112) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0047940e89375e3e734e12e2f1554470') in 0.015199 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-log slice_i.prefab
-  artifactKey: Guid(a8a9c288d363d8f4795ba03974ac73a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-log slice_i.prefab using Guid(a8a9c288d363d8f4795ba03974ac73a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '78d909b6cffde44b31341078f45eb53b') in 0.016023 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-10tier log_i.prefab
-  artifactKey: Guid(45672331dd202134c820d2f37888bbb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArtisticMechanics/Bush Craft Starter Pack/Prefabs/Illustrated/Wood/Wood-10tier log_i.prefab using Guid(45672331dd202134c820d2f37888bbb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '69d7597277b6ea842f5d5db54a0c008c') in 0.014539 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 16.014798 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_regular blade sheathed_s.prefab
-  artifactKey: Guid(7bc8d76eacd4ac54fb7eb0c0b72dc027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_regular blade sheathed_s.prefab using Guid(7bc8d76eacd4ac54fb7eb0c0b72dc027) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '1da847ccf9851ea9307f5ec495c877ce') in 0.084906 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_short blade_s.prefab
-  artifactKey: Guid(a83d1051db41937429eb543dbd915382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_short blade_s.prefab using Guid(a83d1051db41937429eb543dbd915382) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'ec2101edc47af01fd249e94c57ee39ad') in 0.192017 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 4.863870 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_bare L_s.prefab
-  artifactKey: Guid(86e3d20d2c57911409ca371551117cbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_bare L_s.prefab using Guid(86e3d20d2c57911409ca371551117cbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0cb98e52cb1b19cde34ca0f507059b0f') in 0.017077 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-collar S_n.prefab
-  artifactKey: Guid(fc82992f5da56ad43bf51d997f898501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-collar S_n.prefab using Guid(fc82992f5da56ad43bf51d997f898501) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '354cc056c1069a8b916428c9d7c333ab') in 0.018372 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Hunters axe/Axe-hunters_collared S_i.prefab
-  artifactKey: Guid(6ff1c0e31ef7d1c42abf22322dc60888) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Hunters axe/Axe-hunters_collared S_i.prefab using Guid(6ff1c0e31ef7d1c42abf22322dc60888) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'ab698e83a0719ea548a3fb80697c833a') in 0.050610 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_sheathed L_n.prefab
-  artifactKey: Guid(bf9c37c08330046488c59fc59af8379b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_sheathed L_n.prefab using Guid(bf9c37c08330046488c59fc59af8379b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'b938b663e68780b9c3bc27371e935a36') in 0.027451 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Hunters axe/Axe-hunters_bare S_i.prefab
-  artifactKey: Guid(b81eda840282d5146ba153876eed81e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Hunters axe/Axe-hunters_bare S_i.prefab using Guid(b81eda840282d5146ba153876eed81e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '6caeb10e5948bb995cb3cec9fd00929d') in 0.053427 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare M_s.prefab
-  artifactKey: Guid(1af0d5deac8e97b4db2871c979332a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare M_s.prefab using Guid(1af0d5deac8e97b4db2871c979332a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'dbffa98606b9c6b5e9dd6e246414b26e') in 0.020608 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared L_s.prefab
-  artifactKey: Guid(62c4db7c1b6a470438fe6707671d84bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared L_s.prefab using Guid(62c4db7c1b6a470438fe6707671d84bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0221fdb82f4ea7e72806a72b9c378478') in 0.043096 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar M_s.prefab
-  artifactKey: Guid(460917c0092289648ac770ee6fa75c0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar M_s.prefab using Guid(460917c0092289648ac770ee6fa75c0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '1f019c83addb6c6e42ad12aa50a49445') in 0.025024 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_n.prefab
-  artifactKey: Guid(4feef11e23c877545bfd5f5c60ac4cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_n.prefab using Guid(4feef11e23c877545bfd5f5c60ac4cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'ab623cd5f904b16ce3af35fc455b0ae9') in 0.041522 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_bare S_i.prefab
-  artifactKey: Guid(775a824b72525054da3a4d0b9d3fd783) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_bare S_i.prefab using Guid(775a824b72525054da3a4d0b9d3fd783) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '65cb3f5e34a1c61a3f3dd5716dc23956') in 0.028343 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_i.prefab
-  artifactKey: Guid(3558b07427403ab4494b0efbda3cd2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_i.prefab using Guid(3558b07427403ab4494b0efbda3cd2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '41feac47fa2f5d4a2cc2a7dd368f9ed9') in 0.038704 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed M_n.prefab
-  artifactKey: Guid(fb27fc06e5f5013488c6a82fd89ed820) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed M_n.prefab using Guid(fb27fc06e5f5013488c6a82fd89ed820) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'a345f6900c989be88a8d9c73efb27669') in 0.016494 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_sheathed S_s.prefab
-  artifactKey: Guid(59e322c995437654384c05b1889c7d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_sheathed S_s.prefab using Guid(59e322c995437654384c05b1889c7d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '3368e9a0077669e62e11195ea597a41c') in 0.015684 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_collared L_n.prefab
-  artifactKey: Guid(3d0c4f05c9b6c4a4c94ba60e00c5799a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_collared L_n.prefab using Guid(3d0c4f05c9b6c4a4c94ba60e00c5799a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '48ede331f05ff2446116f9780176c7c2') in 0.015995 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_collared&sheathed M_s.prefab
-  artifactKey: Guid(55cc40776201a674d9e0382541ef0b0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_collared&sheathed M_s.prefab using Guid(55cc40776201a674d9e0382541ef0b0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '3828a61e03bd3c5ab5ef56a84e1c02b3') in 0.016649 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar S_s.prefab
-  artifactKey: Guid(8f9d99ee77f455948b1eaedbab9bc76e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar S_s.prefab using Guid(8f9d99ee77f455948b1eaedbab9bc76e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '806c305feeb448073ec6a9cd69a173b3') in 0.016241 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_collared S_n.prefab
-  artifactKey: Guid(b4b59894c7e8e3b4ca742b5d495afe69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_collared S_n.prefab using Guid(b4b59894c7e8e3b4ca742b5d495afe69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'baa14c3f17b522ab8284e84895beda2a') in 0.015726 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_collared M_i.prefab
-  artifactKey: Guid(7474da04eefe90541a0365db4fb1d57b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Carpenters axe/Axe-carpenters_collared M_i.prefab using Guid(7474da04eefe90541a0365db4fb1d57b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '6d2dffbaad9412e7e6d09c296616314f') in 0.015655 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-collar M_n.prefab
-  artifactKey: Guid(40217df51d21c4946b5be55f5056e78f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-collar M_n.prefab using Guid(40217df51d21c4946b5be55f5056e78f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '003edac1096854e7b9a8dc3d0d05f589') in 0.013914 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 1.629774 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-sheath_hunters_n.prefab
-  artifactKey: Guid(1e6bd801ce376b44db2c8b96d96c730e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-sheath_hunters_n.prefab using Guid(1e6bd801ce376b44db2c8b96d96c730e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '021b4313bc8ad2225332c044d1392416') in 0.016045 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-sheath_wildlife_n.prefab
-  artifactKey: Guid(076f24bd781b04841a3be76d6ae7de4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Axe-sheath_wildlife_n.prefab using Guid(076f24bd781b04841a3be76d6ae7de4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0fc9dbebba53e657adb00f48c0bfbe3e') in 0.016933 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_bare M_i.prefab
-  artifactKey: Guid(59da477bcfb59284092fbe8d62603cfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_bare M_i.prefab using Guid(59da477bcfb59284092fbe8d62603cfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '1591c7f7efe4acd5d3c8af8795fc5d2e') in 0.017033 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_bare M_n.prefab
-  artifactKey: Guid(44f7c2371deb4d84aa356151bf9f2260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_bare M_n.prefab using Guid(44f7c2371deb4d84aa356151bf9f2260) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9a97e5d6e0fde17173a26c167e8417ce') in 0.013911 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.468766 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared L_i.prefab
-  artifactKey: Guid(7c299a8e18efe7c4cb13bd42874a3b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared L_i.prefab using Guid(7c299a8e18efe7c4cb13bd42874a3b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0da2c1877cae42df621a99b3a6e2d6df') in 0.017972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared S_i.prefab
-  artifactKey: Guid(b22c3f01d37c7ed42a85330e36a4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared S_i.prefab using Guid(b22c3f01d37c7ed42a85330e36a4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '216dc5b6384b4d10ea23b975994f4a36') in 0.017684 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed L_s.prefab
-  artifactKey: Guid(6e657261134c8684ba5efd0a69c2b742) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed L_s.prefab using Guid(6e657261134c8684ba5efd0a69c2b742) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e1dd8bbd91295c90fb8ab1d08b968bc5') in 0.021255 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_s.prefab
-  artifactKey: Guid(1edabee40ae6c7b4989698ce60eba8e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_s.prefab using Guid(1edabee40ae6c7b4989698ce60eba8e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e4c57ae65ad4bfea6b1f50fb8b4bdc1c') in 0.020456 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared S_n.prefab
-  artifactKey: Guid(274886bf48e2dd04f848657c44a0c8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared S_n.prefab using Guid(274886bf48e2dd04f848657c44a0c8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'fab542bbbeb4b2450bfaabfb3e087ee0') in 0.016922 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_i.prefab
-  artifactKey: Guid(71847365519bb9d48b22bc3bdd8dbfc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Illustrated/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_i.prefab using Guid(71847365519bb9d48b22bc3bdd8dbfc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '7430624b410b53de656ee7866590908b') in 0.020679 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared M_n.prefab
-  artifactKey: Guid(1ab5400ebeac41e49913771d6367ae83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared M_n.prefab using Guid(1ab5400ebeac41e49913771d6367ae83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '15e17a7ed2dc8acc9a1049bc2aac8654') in 0.020042 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_sheathed S_s.prefab
-  artifactKey: Guid(3c9dc0c4ffa3222489e92d7a4026c455) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_sheathed S_s.prefab using Guid(3c9dc0c4ffa3222489e92d7a4026c455) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'd8ae6ebce02ad51b1e30fa5c0df0a576') in 0.015027 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed M_s.prefab
-  artifactKey: Guid(47337f1cf9382374bbccdbdec6286d23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_collared&sheathed M_s.prefab using Guid(47337f1cf9382374bbccdbdec6286d23) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'dd30aad537553a3a89c8a5d280d18939') in 0.017486 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.329096 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Carved_spoon_n.prefab
-  artifactKey: Guid(ea0fba0d8308601459f402995eb17051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Carved_spoon_n.prefab using Guid(ea0fba0d8308601459f402995eb17051) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'f59119a6cf5b9a0b795bdf93a696452b') in 0.024035 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Knife-sheath_regular blade_s.prefab
-  artifactKey: Guid(cb7b14419a451104387e61390d853cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Knife-sheath_regular blade_s.prefab using Guid(cb7b14419a451104387e61390d853cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '6a61d22375a0d162c21e8d46d7a95696') in 0.035196 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Fire steel_SF_s.prefab
-  artifactKey: Guid(b770d477776c46648bbc93586525189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Fire steel_SF_s.prefab using Guid(b770d477776c46648bbc93586525189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'efd3bca9da59aa3705aa9605d0f9f42f') in 0.016577 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade_n.prefab
-  artifactKey: Guid(1db77d336845abc4f9bb5a3c06024561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade_n.prefab using Guid(1db77d336845abc4f9bb5a3c06024561) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '339f48a6bd76fb149ce4ab0e5d3c8348') in 0.020825 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_straight hook_n.prefab
-  artifactKey: Guid(d3abd086cb46fc948b2efce228c59a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_straight hook_n.prefab using Guid(d3abd086cb46fc948b2efce228c59a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '51215134497bc77e09ad315ddc53b50d') in 0.015406 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.239767 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Pot_billy complete_handle-up_n.prefab
-  artifactKey: Guid(c25af0de457e3d246bf5c088c7fab99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Pot_billy complete_handle-up_n.prefab using Guid(c25af0de457e3d246bf5c088c7fab99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0db00f62d4fe80b05f8693d2662c77ed') in 0.023232 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Pot_billy lid_n.prefab
-  artifactKey: Guid(9308113418b933b47aefa87b149b63c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Pot_billy lid_n.prefab using Guid(9308113418b933b47aefa87b149b63c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9f28d0cdaf1241453be27ec61d4cf5c2') in 0.021529 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.014445 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy_s.prefab
-  artifactKey: Guid(fa95f7572b4b774468f7a4fe87698e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy_s.prefab using Guid(fa95f7572b4b774468f7a4fe87698e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '2ca198362b0d60663973ccf1cdaa6fd4') in 0.018477 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Spear-straightpoint_s.prefab
-  artifactKey: Guid(7c71c4ce325537948b0d6b0013da4622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Spear-straightpoint_s.prefab using Guid(7c71c4ce325537948b0d6b0013da4622) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '4c78c2ff6fd00e047961d1968d24ed1c') in 0.027494 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Tarp-flat_n.prefab
-  artifactKey: Guid(21a8c5928f0337c4a9e13bd9d34dda19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Tarp-flat_n.prefab using Guid(21a8c5928f0337c4a9e13bd9d34dda19) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e170d6bad589ce7600f165ca170cdeb9') in 0.018840 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Wood/Wood-2tier log_n.prefab
-  artifactKey: Guid(2ca5d0240f70cf148bde4753c75f5cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Wood/Wood-2tier log_n.prefab using Guid(2ca5d0240f70cf148bde4753c75f5cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '2e087aef2decdfba90ede8f636f5dfa5') in 0.025594 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-10tier log_s.prefab
-  artifactKey: Guid(21d08f8013f43c742b5a97cdfa1a0d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-10tier log_s.prefab using Guid(21d08f8013f43c742b5a97cdfa1a0d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0d188bdd8b2629e184aaca2416f4b3b6') in 0.016217 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.005642 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-log slice_s.prefab
-  artifactKey: Guid(3ffb85cb99571cd49ad1648833952bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-log slice_s.prefab using Guid(3ffb85cb99571cd49ad1648833952bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '74d9987b02f166a4d1a8c87c67901413') in 0.015982 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 22.923635 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Carved_spoon_n.prefab
-  artifactKey: Guid(ea0fba0d8308601459f402995eb17051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Carved_spoon_n.prefab using Guid(ea0fba0d8308601459f402995eb17051) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'f75b3c3b75c68835dcf4e8a84ebda629') in 0.008716 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Fire steel_SF_n.prefab
-  artifactKey: Guid(9e8d3c2fefd1b144caae582ba6494d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Miscellaneous/Fire steel_SF_n.prefab using Guid(9e8d3c2fefd1b144caae582ba6494d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '59082f3b054826ec3741100a2a8d9cbd') in 0.008321 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy lid_s.prefab
-  artifactKey: Guid(778fdd09e570e6d488a73c7be0bb7622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy lid_s.prefab using Guid(778fdd09e570e6d488a73c7be0bb7622) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'da32aa1949526e103b26d12929615ec6') in 0.008333 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Wood/Wood-2tier log_n.prefab
-  artifactKey: Guid(2ca5d0240f70cf148bde4753c75f5cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Wood/Wood-2tier log_n.prefab using Guid(2ca5d0240f70cf148bde4753c75f5cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e8664b1a0e9f283a7e7bef25f6a75ed6') in 0.011201 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade_n.prefab
-  artifactKey: Guid(1db77d336845abc4f9bb5a3c06024561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade_n.prefab using Guid(1db77d336845abc4f9bb5a3c06024561) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '19de35c0f0e55a015f108e9f88105ad6') in 0.008536 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000069 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_hook_s.prefab
-  artifactKey: Guid(512c2deea2704cc4b80d7621095dc988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Knives/Knife_hook_s.prefab using Guid(512c2deea2704cc4b80d7621095dc988) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'b82196f62095959155e2e19597a6df7f') in 0.009857 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade sheathed_n.prefab
-  artifactKey: Guid(509369f7b4deede4e80df5ccbb41794e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Knives/Knife_regular blade sheathed_n.prefab using Guid(509369f7b4deede4e80df5ccbb41794e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '7e9478bea70c0408e42126ae02a7928c') in 0.009164 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy_handle-up_s.prefab
-  artifactKey: Guid(8edd94efe97b97f44aec46dfe9d2a9fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Pot_billy_handle-up_s.prefab using Guid(8edd94efe97b97f44aec46dfe9d2a9fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '452ae418af11b5d2ced77e221fa99168') in 0.012661 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Rope_s.prefab
-  artifactKey: Guid(f216d35751688c7489b75fdefedc762e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Rope_s.prefab using Guid(f216d35751688c7489b75fdefedc762e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '3df7187daeed8ff61d9936eddf832ae5') in 0.008666 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-10tier log_s.prefab
-  artifactKey: Guid(21d08f8013f43c742b5a97cdfa1a0d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Wood/Wood-10tier log_s.prefab using Guid(21d08f8013f43c742b5a97cdfa1a0d10) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '455ad453942a06e4752881c38d0cfb6a') in 0.009181 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Fire steel_SF_s.prefab
-  artifactKey: Guid(b770d477776c46648bbc93586525189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Fire steel_SF_s.prefab using Guid(b770d477776c46648bbc93586525189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '16f7c6321fe8b88edad8343509a7f01f') in 0.007317 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 1.506244 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_n.prefab
-  artifactKey: Guid(4ced94eddb2e9394cb501effcff79459) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared&sheathed S_n.prefab using Guid(4ced94eddb2e9394cb501effcff79459) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e06484a8a845f605996f4e40ba7e0473') in 0.013341 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_sheathed L_s.prefab
-  artifactKey: Guid(27854313e96fcb8498c8a6a4ac85410e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_sheathed L_s.prefab using Guid(27854313e96fcb8498c8a6a4ac85410e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '08050c817a728e2ddf12f15daa5e13e4') in 0.021168 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.014890 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared L_n.prefab
-  artifactKey: Guid(7509ebf31426eb84ea7aa8872e0925e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared L_n.prefab using Guid(7509ebf31426eb84ea7aa8872e0925e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'd3439a1f8a1660fe06a716018a7ad551') in 0.012519 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared S_n.prefab
-  artifactKey: Guid(274886bf48e2dd04f848657c44a0c8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared S_n.prefab using Guid(274886bf48e2dd04f848657c44a0c8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'b31f98f38eaa8b7e2a37a3f724c1adb4') in 0.014412 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared M_n.prefab
-  artifactKey: Guid(1ab5400ebeac41e49913771d6367ae83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Wildlife axe/Axe-wildlife_collared M_n.prefab using Guid(1ab5400ebeac41e49913771d6367ae83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0bf27e3ec39f2712bbd0a4d02851018f') in 0.027443 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.391816 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-sheath_carpenters_s.prefab
-  artifactKey: Guid(f36b2ba7c41ccca42931cf6b167ef92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-sheath_carpenters_s.prefab using Guid(f36b2ba7c41ccca42931cf6b167ef92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '112ea021259dd4f0db6f7615b1b8f0b8') in 0.016254 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_bare L_s.prefab
-  artifactKey: Guid(e35e516a9b8c89a49a7f280c604a021a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Wildlife axe/Axe-wildlife_bare L_s.prefab using Guid(e35e516a9b8c89a49a7f280c604a021a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '897ade52788693024cac09841de5164c') in 0.025544 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared&sheathed L_s.prefab
-  artifactKey: Guid(e6150050d0240d74d925a9b0355f001b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared&sheathed L_s.prefab using Guid(e6150050d0240d74d925a9b0355f001b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'fc3f9fefce790fab918509ecdb105b79') in 0.085788 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare M_s.prefab
-  artifactKey: Guid(1af0d5deac8e97b4db2871c979332a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare M_s.prefab using Guid(1af0d5deac8e97b4db2871c979332a6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'cdd13f92ef87a1d66b46d5d030602819') in 0.046751 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_sheathed S_n.prefab
-  artifactKey: Guid(77bbe04b50c96a44a9a7a5d687811b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Hunters axe/Axe-hunters_sheathed S_n.prefab using Guid(77bbe04b50c96a44a9a7a5d687811b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9a2e1d6a52243b9a1e2e8c670aa62bd4') in 0.022709 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared M_s.prefab
-  artifactKey: Guid(f7c19e466ec02b048846897c09b95f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_collared M_s.prefab using Guid(f7c19e466ec02b048846897c09b95f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '9829712264fe9921c6278a85ebd8d3ef') in 0.009010 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare S_s.prefab
-  artifactKey: Guid(9a2971fc54fb41b4b9d6c5107b4e572b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Hunters axe/Axe-hunters_bare S_s.prefab using Guid(9a2971fc54fb41b4b9d6c5107b4e572b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e977c9de16763b43980f1706a52071cc') in 0.006735 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.166789 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_sheathed S_s.prefab
-  artifactKey: Guid(59e322c995437654384c05b1889c7d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_sheathed S_s.prefab using Guid(59e322c995437654384c05b1889c7d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '6ddbd87e64ad0f7bdb8a264030db73c0') in 0.008236 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar L_s.prefab
-  artifactKey: Guid(4e2b3e3f74db7f14296068eccdf6b1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar L_s.prefab using Guid(4e2b3e3f74db7f14296068eccdf6b1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'dbcbe944b19240ba52e82319a8da8f93') in 0.007913 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar S_s.prefab
-  artifactKey: Guid(8f9d99ee77f455948b1eaedbab9bc76e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Miscellaneous/Axe-collar S_s.prefab using Guid(8f9d99ee77f455948b1eaedbab9bc76e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '0a0611a440d06cbac9e28b77048a6864') in 0.008712 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.015894 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_n.prefab
-  artifactKey: Guid(4feef11e23c877545bfd5f5c60ac4cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed L_n.prefab using Guid(4feef11e23c877545bfd5f5c60ac4cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '77d32b1cedc62008d7f2457b6185ad14') in 0.007865 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed S_n.prefab
-  artifactKey: Guid(5ee0ab86d5848a14e86166a1eb067920) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_collared&sheathed S_n.prefab using Guid(5ee0ab86d5848a14e86166a1eb067920) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e8a8ac2ba70c522108961934f9e6a5c7') in 0.011212 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.011671 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_bare M_n.prefab
-  artifactKey: Guid(118d1981e5a957f4a9b2de1476e8f42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_bare M_n.prefab using Guid(118d1981e5a957f4a9b2de1476e8f42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '7dab855543022948aa09ae606f57df69') in 0.008143 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000012 seconds.
-  path: Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_collared M_s.prefab
-  artifactKey: Guid(ea8f25042f38c5b42b4f883982c61eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Stealth/Axes/Carpenters axe/Axe-carpenters_collared M_s.prefab using Guid(ea8f25042f38c5b42b4f883982c61eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '7fe66efa2385849640222b5d504b1fe5') in 0.007877 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_bare S_n.prefab
-  artifactKey: Guid(c192fe6355f99044a8cbf02f5af1e77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Prefabs/Natural/Axes/Carpenters axe/Axe-carpenters_bare S_n.prefab using Guid(c192fe6355f99044a8cbf02f5af1e77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '35824d5fcd91d93a32d1bac737e11ef5') in 0.010555 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 221.132783 seconds.
-  path: Assets/DevTim/Props/Materials/Bushcraft_natural.mat
-  artifactKey: Guid(2476e841ff5fd194c883065f540af40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Materials/Bushcraft_natural.mat using Guid(2476e841ff5fd194c883065f540af40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '445ff43f2ba09c3942d97432dcb73b9a') in 0.021354 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/DevTim/Props/Materials/illustrated_01.mat
-  artifactKey: Guid(a7019b9f081b0654ba32205a2bc3d987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DevTim/Props/Materials/illustrated_01.mat using Guid(a7019b9f081b0654ba32205a2bc3d987) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '3ac140821698525f4073ccd5eb146b16') in 0.076027 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+  custom:scripting/monoscript/fileName/VoicelineManager.cs: 57851eb87dd9000b3a362d9f34f007d3 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.291 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.366 seconds
+Domain Reload Profiling: 655ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (17ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (88ms)
+		LoadAssemblies (165ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (6ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (366ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (226ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (43ms)
+			ProcessInitializeOnLoadAttributes (140ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 2.15 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 330 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4 unused Assets / (23.3 KB). Loaded Objects now: 863.
+Memory consumption went from 61.4 MB to 61.4 MB.
+Total: 2.740600 ms (FindLiveObjects: 0.078400 ms CreateObjectMapping: 0.023700 ms MarkObjects: 2.597500 ms  DeleteObjects: 0.039600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 899e322ee577a8cece775a23df51c159 -> aae715d2daafb3f2026e02377efbee67
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/VoicelineManager.cs: 79fc99c8dbc4cda89f10a435117eca9e -> 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
 AssetImportWorker is now disconnected from the server
