@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Immerse
 {
@@ -64,21 +65,22 @@ namespace Immerse
         /// Dev Tim: you could use reflection to make
         /// this cleaner but that has a performance cost.
         /// </summary>
-        public void Filter(string name)
+        public void Filter(string command)
         {
-            name = name.ToLowerInvariant();
+            command = command.ToLowerInvariant();
+            command = command.Replace(" ", string.Empty);
 
-            if (!name.Contains(splitToken))
+            if (!command.Contains(splitToken))
             {
-                Add(name);
+                Add(command);
                 return;
             }
 
-            string[] split = name.Split(splitToken, 3, System.StringSplitOptions.RemoveEmptyEntries);
+            string[] split = command.Split(splitToken, 3, StringSplitOptions.RemoveEmptyEntries);
 
             if (split.Length != 2)
             {
-                Debug.LogWarning($"'{name}' is invalid.");
+                Debug.LogWarning($"'{command}' is invalid.");
                 return;
             }
 
@@ -95,7 +97,7 @@ namespace Immerse
                     Mix(split[0]);
                     break;
                 default:
-                    Debug.LogWarning($"I don't know {split[1]}...");
+                    Debug.LogWarning($"I don't know '{split[1]}'...");
                     break;
             }
         }
