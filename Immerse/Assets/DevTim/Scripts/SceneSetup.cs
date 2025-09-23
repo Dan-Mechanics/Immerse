@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Spellfight
+namespace Immerse
 {
     public class SceneSetup : MonoBehaviour
     {
@@ -14,6 +14,8 @@ namespace Spellfight
             Time.fixedDeltaTime = 1f / fixedUpdateRate;
             Cursor.visible = !locked;
             Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+
+            Destroy(gameObject);
         }
     }
 }

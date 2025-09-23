@@ -1,0 +1,16 @@
+todos:
+
+V maak script import systeem
+2. make textwrtier SOLID
+3. maak scene beter visual wise
+4. test of het allemaal werkt
+5. etc etc
+
+ik hoop echt dat dit vak genoeg dev uren heeft anders ga ik lowkey
+portrets maken chat.
+
+nu snap ik de vibe: als we zo hard hebben gewerkt
+om alle sound en stuff assets to bouwen dan waaarom
+zou je maar een aantal interactions kunnen hebben?
+zou dat misschien te stressful zijn?
+
