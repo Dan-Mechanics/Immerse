@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: narrator
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c41c1dcbad4da1244ac74af50bbb03b6, type: 3}
-  desc: Tells the story.
+  description: Tells the story.

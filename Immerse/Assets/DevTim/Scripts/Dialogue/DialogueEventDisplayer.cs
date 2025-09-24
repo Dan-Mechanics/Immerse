@@ -15,6 +15,8 @@ namespace Immerse
         {
             source.playOnAwake = false;
             source.dopplerLevel = 0f;
+            iconText.text = string.Empty;
+            dialogueText.Write(string.Empty);
         }
 
         public void Display(DialogueEvent dialogue)
@@ -24,7 +26,7 @@ namespace Immerse
 
             icon.sprite = dialogue.actor.icon;
             dialogueText.Write(dialogue.script);
-            iconText.text = dialogue.actor.desc + "\n" + dialogue.name;
+            iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
 
             print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }

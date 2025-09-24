@@ -8,6 +8,6 @@ namespace Immerse
     public class Actor : ScriptableObject
     {
         public Sprite icon;
-        public string desc;
+        public string description;
     }
 }

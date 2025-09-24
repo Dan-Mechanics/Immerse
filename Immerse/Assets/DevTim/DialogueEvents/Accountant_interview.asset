@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Accountant_interview
   m_EditorClassIdentifier: 
   actor: {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
-  clip: {fileID: 8300000, guid: c42d46cacc5d74940ac3e65621c254c5, type: 3}
-  script: Sample text.
+  clip: {fileID: 8300000, guid: 10ce1d3e35355cb48a91a3d599290ce7, type: 3}
+  script: If you crunch the numbers, WE ARE TOTALLY FUCKED !!

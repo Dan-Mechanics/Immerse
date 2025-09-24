@@ -37,6 +37,13 @@ namespace Immerse
             this.message = message;
             builder.Clear();
             StopAllCoroutines();
+            
+            if(message == string.Empty)
+            {
+                text.text = message;
+                return;
+            }
+            
             StartCoroutine(WriteDelayed());
         }
     }

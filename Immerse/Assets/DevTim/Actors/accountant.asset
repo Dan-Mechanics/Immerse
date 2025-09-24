@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: accountant
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 5ea8fa07bfd6fed468bfec36b35e3b5c, type: 3}
-  desc: Does the numbers.
+  description: Crunches the numbers.

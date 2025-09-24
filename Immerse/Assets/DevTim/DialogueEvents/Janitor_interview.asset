@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Janitor_interview
   m_EditorClassIdentifier: 
   actor: {fileID: 11400000, guid: 12039df34cd079946a5dcbcb8002eb58, type: 2}
-  clip: {fileID: 8300000, guid: c42d46cacc5d74940ac3e65621c254c5, type: 3}
-  script: Sample text.
+  clip: {fileID: 8300000, guid: 671c6c981cf58d04e9ce7675d6a4d315, type: 3}
+  script: While I was cleaning the back of the vending machines, I saw some suspicious
+    blood back there. Might want to check that out. Also, did you know that hydrogen
+    peroxide removes blood from clothes?

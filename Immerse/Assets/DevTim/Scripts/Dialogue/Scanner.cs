@@ -18,9 +18,16 @@ namespace Immerse
 
         // Code here that invokes OnNewScan.
 
-        private void Start()
+        private void Update()
         {
-            OnNewScan?.Invoke("Intro");
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+                OnNewScan?.Invoke("Intro");
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+                OnNewScan?.Invoke("Accountant_interview");
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+                OnNewScan?.Invoke("Janitor_interview");
         }
     }
 }

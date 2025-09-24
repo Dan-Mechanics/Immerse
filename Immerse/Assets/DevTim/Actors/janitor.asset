@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: janitor
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 527e5c08c6707b645ba3a12fe0380b0a, type: 3}
-  desc: Good with broom = good with brush.
+  description: Good with a broom = good with a brush.
