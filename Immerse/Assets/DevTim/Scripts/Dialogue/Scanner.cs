@@ -17,5 +17,10 @@ namespace Immerse
         public event Action<string> OnNewScan;
 
         // Code here that invokes OnNewScan.
+
+        private void Start()
+        {
+            OnNewScan?.Invoke("Intro");
+        }
     }
 }

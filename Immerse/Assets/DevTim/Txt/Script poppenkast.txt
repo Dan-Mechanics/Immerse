@@ -1,22 +1,31 @@
-﻿intro
+﻿Intro
+
+
 =
-There appears to be a murder in the totally financially stable games company.
+
+
+There appears to be a murder in this totally amazing games company.
 
 
 ///
 
 
-knife_pickup
+Accountant_interview
+
+
 =
-The knife is covered in blood and... peanut butter?
+
+
+If you crunch the numbers, WE ARE TOTALLY FUCKED !! 
 
 
 ///
 
 
-janitor_interview
+Janitor_interview
+
+
 =
-Ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
 
-//
+While I was cleaning the back of the vending machines, I saw some suspicious blood back there. Might want to check that out. Also, did you know that hydrogen peroxide removes blood from clothes?

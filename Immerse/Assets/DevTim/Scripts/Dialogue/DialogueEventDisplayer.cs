@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,24 +7,26 @@ namespace Immerse
     public class DialogueEventDisplayer : MonoBehaviour
     {
         [SerializeField] private Image icon = default;
-
-        /// <summary>
-        /// This should call TextWriter.cs but I dont have that yet...
-        /// </summary>
-        [SerializeField] private Text dialogueText = default;
-        [SerializeField] private Text iconText = default;
+        [SerializeField] private TextWriter dialogueText = default;
+        [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
 
-        public void Display(DialogueEvent dial)
+        private void Start()
+        {
+            source.playOnAwake = false;
+            source.dopplerLevel = 0f;
+        }
+
+        public void Display(DialogueEvent dialogue)
         {
             source.Stop();
-            source.PlayOneShot(dial.clip);
+            source.PlayOneShot(dialogue.clip);
 
-            icon.sprite = dial.actor.icon;
-            dialogueText.text = dial.script;
-            iconText.text = dial.name + "\n" + dial.actor.desc;
+            icon.sprite = dialogue.actor.icon;
+            dialogueText.Write(dialogue.script);
+            iconText.text = dialogue.actor.desc + "\n" + dialogue.name;
 
-            print($"Playing: '{dial.name} | {dial.clip.name}'");
+            print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }
     }
 }

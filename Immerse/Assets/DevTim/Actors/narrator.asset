@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
   m_Name: narrator
   m_EditorClassIdentifier: 
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: c41c1dcbad4da1244ac74af50bbb03b6, type: 3}
   desc: Tells the story.
