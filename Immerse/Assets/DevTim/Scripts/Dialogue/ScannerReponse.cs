@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Immerse
 {
+    /// <summary>
+    /// This might possibly be the place to translate raw data
+    /// itno usable data.
+    /// 
+    /// You can also call this ScannerBridge or something.
+    /// </summary>
     public class ScannerResponse : MonoBehaviour
     {
         [SerializeField] private DialogueEventHolder holder = default;

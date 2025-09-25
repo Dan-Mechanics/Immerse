@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -6,8 +7,9 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TextWriter : MonoBehaviour
+    public class TextWriter : MonoBehaviour, IInvoker, IReceiver<string>
     {
+        public event Action OnInvoke;
         private const float INTERVAL = 0.05f;
         
         private readonly StringBuilder builder = new StringBuilder();
@@ -30,6 +32,10 @@ namespace Immerse
                 text.text = builder.ToString();
                 yield return delay;
             }
+
+            builder.Clear();
+            text.text = message;
+            OnInvoke?.Invoke();
         }
 
         public void Write(string message)
@@ -41,10 +47,13 @@ namespace Immerse
             if(message == string.Empty)
             {
                 text.text = message;
+                OnInvoke?.Invoke();
                 return;
             }
             
             StartCoroutine(WriteDelayed());
         }
+
+        public void Send(string value) => Write(value);
     }
 }
