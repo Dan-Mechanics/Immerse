@@ -20,13 +20,13 @@ namespace Immerse
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+            if(Input.GetKeyDown(KeyCode.Alpha2))
                 OnNewScan?.Invoke("Intro");
 
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
                 OnNewScan?.Invoke("Accountant_interview");
 
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Alpha4))
                 OnNewScan?.Invoke("Janitor_interview");
         }
     }

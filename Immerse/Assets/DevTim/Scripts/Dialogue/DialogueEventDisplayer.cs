@@ -32,6 +32,7 @@ namespace Immerse
 
         private void OnTextWriterDone()
         {
+            CancelInvoke();
             Invoke(nameof(HackDelay), 2f);
         }
 
@@ -42,6 +43,7 @@ namespace Immerse
 
         public void Display(DialogueEvent dialogue)
         {
+            CancelInvoke();
             source.Stop();
             source.PlayOneShot(dialogue.clip);
 

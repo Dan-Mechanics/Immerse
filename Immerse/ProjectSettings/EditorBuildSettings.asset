@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/DevTim/Scenes/Backrooms.unity
-    guid: cb68d65d845af5c41b6d0b5c12293645
+    path: Assets/DevTim/Scenes/Dialogue.unity
+    guid: 910ce1a31ac5d894d999eac037e53295
   m_configObjects: {}
