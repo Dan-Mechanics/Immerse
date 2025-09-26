@@ -11,7 +11,7 @@ namespace Immerse
     {
         public event Action OnInvoke;
         private const float INTERVAL = 0.05f;
-        
+
         private readonly StringBuilder builder = new StringBuilder();
         private WaitForSeconds delay;
         private TMP_Text text;
@@ -24,13 +24,15 @@ namespace Immerse
             delay = new WaitForSeconds(INTERVAL);
         }
 
-        private IEnumerator WriteDelayed() 
+        private IEnumerator WriteDelayed()
         {
+            text.text = string.Empty;
+
             for (int i = 0; i < message.Length; i++)
             {
+                yield return delay;
                 builder.Append(message[i]);
                 text.text = builder.ToString();
-                yield return delay;
             }
 
             builder.Clear();
@@ -43,14 +45,14 @@ namespace Immerse
             this.message = message;
             builder.Clear();
             StopAllCoroutines();
-            
-            if(message == string.Empty)
+
+            if (message == string.Empty)
             {
                 text.text = message;
                 OnInvoke?.Invoke();
                 return;
             }
-            
+
             StartCoroutine(WriteDelayed());
         }
 
