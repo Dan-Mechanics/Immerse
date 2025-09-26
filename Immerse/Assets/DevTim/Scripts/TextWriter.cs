@@ -53,7 +53,8 @@ namespace Immerse
                 return;
             }
 
-            StartCoroutine(WriteDelayed());
+            if(gameObject.activeInHierarchy)
+                StartCoroutine(WriteDelayed());
         }
 
         public void Send(string value) => Write(value);
