@@ -10,7 +10,7 @@ namespace Immerse
     public class TextWriter : MonoBehaviour, IInvoker, IReceiver<string>
     {
         public event Action OnInvoke;
-        private const float INTERVAL = 0.05f;
+        private const float INTERVAL = 0.04f;
 
         private readonly StringBuilder builder = new StringBuilder();
         private WaitForSeconds delay;

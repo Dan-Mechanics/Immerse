@@ -1586,6 +1586,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7785892143855190972, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785892143855190972, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785892143855190972, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785892143855190972, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9061306039459274854, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
       propertyPath: m_Name
       value: notepad
