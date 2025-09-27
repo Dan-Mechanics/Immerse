@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
@@ -8,15 +6,12 @@ namespace Immerse
 {
     public class OverrideVideoHandler : MonoBehaviour
     {
-        //[SerializeField] private VideoClip current = default;
-
         [SerializeField] private VideoPlayer videoPlayer = default;
         [SerializeField] private GameObject preview = default;
         [SerializeField] private GameObject backdrop = default;
         [SerializeField] private UnityEvent onDone = default;
 
         private float doneTime;
-      //  private bool started;
 
         private void FixedUpdate()
         {
@@ -26,7 +21,7 @@ namespace Immerse
             if (Time.time < doneTime)
                 return;
 
-            // you might need to make universal mouse locker.
+            // IDEA: MAKE UNIVERSAL MOUSE LOCKER.
             Cursor.visible = true;
             backdrop.SetActive(false);
             onDone?.Invoke();
@@ -37,11 +32,11 @@ namespace Immerse
         {
             Destroy(preview);
             Cursor.visible = false;
+
             videoPlayer.Stop();
             videoPlayer.clip = clip;
             videoPlayer.Play();
             doneTime = Time.time + (float)clip.length;
-            //started = true;
             backdrop.SetActive(true);
         }
     }

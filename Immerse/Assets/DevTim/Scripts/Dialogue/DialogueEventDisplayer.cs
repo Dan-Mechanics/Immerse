@@ -7,18 +7,19 @@ namespace Immerse
     public class DialogueEventDisplayer : MonoBehaviour
     {
         [SerializeField] private Image icon = default;
-        [SerializeField] private GameObject textWriterGO = default;
-        [SerializeField] private GameObject rectLerperGO = default;   
+        [SerializeField] private GameObject textWriterGameObject = default;
+        [SerializeField] private GameObject lerperGameObject = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
 
-        private IReceiver<string> textWriter;
+        private IReceiver<object> textWriter;
         private IReceiver<bool> rectLerper;
+        private float doneTime;
 
         private void Start()
         {
-            textWriter = textWriterGO.GetComponent<IReceiver<string>>();
-            rectLerper = rectLerperGO.GetComponent<IReceiver<bool>>();
+            textWriter = textWriterGameObject.GetComponent<IReceiver<object>>();
+            rectLerper = lerperGameObject.GetComponent<IReceiver<bool>>();
 
             source.playOnAwake = false;
             source.dopplerLevel = 0f;
@@ -27,30 +28,28 @@ namespace Immerse
             textWriter.Send(string.Empty);
             rectLerper.Send(false);
 
-            textWriterGO.GetComponent<IInvoker>().OnInvoke += OnTextWriterDone;
+            textWriterGameObject.GetComponent<IEventHolder>().OnEvent += LowerDialogueBox;
         }
 
-        private void OnTextWriterDone()
+        private void FixedUpdate()
         {
-            CancelInvoke();
-            Invoke(nameof(HackDelay), 2f);
+            rectLerper.Send(Time.time > doneTime);
         }
 
-        private void HackDelay() 
+        private void LowerDialogueBox()
         {
-            rectLerper.Send(false);
+            doneTime = Time.time + 2f;
         }
 
         public void Display(DialogueEvent dialogue)
         {
-            CancelInvoke();
             source.Stop();
             source.PlayOneShot(dialogue.clip);
 
             icon.sprite = dialogue.actor.icon;
             textWriter.Send(dialogue.script);
-            rectLerper.Send(true);
             iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
+            doneTime = Time.time + 1000f;
 
             print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }

@@ -7,9 +7,9 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TextWriter : MonoBehaviour, IInvoker, IReceiver<string>
+    public class TextWriter : MonoBehaviour, IEventHolder, IReceiver<object>
     {
-        public event Action OnInvoke;
+        public event Action OnEvent;
         private const float INTERVAL = 0.04f;
 
         private readonly StringBuilder builder = new StringBuilder();
@@ -22,6 +22,25 @@ namespace Immerse
             text = GetComponent<TMP_Text>();
             text.text = string.Empty;
             delay = new WaitForSeconds(INTERVAL);
+        }
+
+        public void Write(string message)
+        {
+            if (!gameObject.activeInHierarchy)
+                return;
+
+            StopAllCoroutines();
+            this.message = message;
+            builder.Clear();
+
+            if (message == string.Empty)
+            {
+                text.text = message;
+                OnEvent?.Invoke();
+                return;
+            }
+
+            StartCoroutine(WriteDelayed());
         }
 
         private IEnumerator WriteDelayed()
@@ -37,26 +56,10 @@ namespace Immerse
 
             builder.Clear();
             text.text = message;
-            OnInvoke?.Invoke();
+            OnEvent?.Invoke();
         }
 
-        public void Write(string message)
-        {
-            this.message = message;
-            builder.Clear();
-            StopAllCoroutines();
 
-            if (message == string.Empty)
-            {
-                text.text = message;
-                OnInvoke?.Invoke();
-                return;
-            }
-
-            if(gameObject.activeInHierarchy)
-                StartCoroutine(WriteDelayed());
-        }
-
-        public void Send(string value) => Write(value);
+        public void Send(object value) => Write(value.ToString());
     }
 }

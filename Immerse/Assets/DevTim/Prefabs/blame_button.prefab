@@ -145,9 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa88c69961864564b8479c1b1428318c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBlaming: 0
-  rectLerper: {fileID: 0}
-  scaleLerper: {fileID: 0}
   buttons:
   - {fileID: 0}
   - {fileID: 0}
+  panel: {fileID: 0}

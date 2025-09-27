@@ -265,10 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf08a61aca5c5b45a69efcc6f5209d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showingSecondScale: 0
+  lerpSpeed: 0.1
+  showingFirst: 0
   first: {x: 1, y: 1, z: 1}
   second: {x: 1, y: -1, z: 1}
-  lerpSpeed: 0.1
 --- !u!1 &1256399589484703922
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,12 +868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01ca78be824d4543913e07fb20ccdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showingNotes: 0
   inputField: {fileID: 7785892143855190972}
-  gameObjectListeners:
-  - {fileID: 1148213544691056778}
+  interested:
   - {fileID: 9061306039459274854}
-  lerpSpeed: 0.1
 --- !u!114 &764216839431465381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3af148905d5b074baebe9116f98e1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showingSecondPosition: 0
+  lerpSpeed: 0.1
+  showingFirst: 1
   first: {x: 0, y: 950}
   second: {x: 0, y: 0}
-  lerpSpeed: 0.1
