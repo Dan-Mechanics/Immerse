@@ -10,16 +10,16 @@ namespace Immerse
     /// </summary>
     public class GameStateHandler : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        [SerializeField] private Timer timer = default;
+        [SerializeField] private float forceBlameTimeMinutes = default;
+        [SerializeField] private Blame blame = default;
 
-        // Update is called once per frame
-        void Update()
+        private void FixedUpdate()
         {
-        
+            if (timer.TotalMinutes < forceBlameTimeMinutes)
+                return;
+
+            blame.ForceBlame();
         }
     }
 }

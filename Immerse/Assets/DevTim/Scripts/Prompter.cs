@@ -18,10 +18,10 @@ namespace Immerse
         private Option[] options;
 
         [System.Serializable]
-        public class Option
+        public struct Option
         {
-            public string text = "wdwd";
-            public Color color = Color.white;
+            public string text;
+            public Color color;
             public Sprite icon;
         }
 

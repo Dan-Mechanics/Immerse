@@ -41,7 +41,7 @@ namespace Immerse
             while(true)
             {
                 int? answer = prompter.GetAnswer(options);
-                if (answer != null) 
+                if (answer != null)
                 {
                     int index = (int)answer;
                     TryDialogue(actor.dialogueEvents[index].name);
