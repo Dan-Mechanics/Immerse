@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 0.1
-  showingFirst: 0
+  showingFirst: 1
   first: {x: 1, y: 1, z: 1}
   second: {x: 1, y: -1, z: 1}
 --- !u!1 &1256399589484703922
@@ -869,8 +869,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 7785892143855190972}
+  eventSystem: {fileID: 0}
   interested:
   - {fileID: 9061306039459274854}
+  - {fileID: 1148213544691056778}
 --- !u!114 &764216839431465381
 MonoBehaviour:
   m_ObjectHideFlags: 0

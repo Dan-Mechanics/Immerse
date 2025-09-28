@@ -47,6 +47,7 @@ namespace Immerse
         public void AskBlame()
         {
             StopAllCoroutines();
+            prompter.ForceStop();
             StartCoroutine(WaitForPrompt(blameOptionsCancel));
         }
 
@@ -75,6 +76,7 @@ namespace Immerse
         public void ForceBlame()
         {
             StopAllCoroutines();
+            prompter.ForceStop();
             StartCoroutine(WaitForPrompt(blameOptions));
         }
     }

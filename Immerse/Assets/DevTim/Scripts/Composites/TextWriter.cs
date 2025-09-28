@@ -10,7 +10,9 @@ namespace Immerse
     public class TextWriter : MonoBehaviour, IEventHolder, IReceiver<object>
     {
         public event Action OnEvent;
-        private const float INTERVAL = 0.04f;
+        private const float INTERVAL = 0.05f;
+
+        [SerializeField] private bool simpleReadFromSetup = default;
 
         private readonly StringBuilder builder = new StringBuilder();
         private WaitForSeconds delay;
@@ -20,8 +22,16 @@ namespace Immerse
         private void Awake()
         {
             text = GetComponent<TMP_Text>();
-            text.text = string.Empty;
+            //text.text = string.Empty;
             delay = new WaitForSeconds(INTERVAL);
+        }
+
+        private void Start()
+        {
+            if (simpleReadFromSetup)
+                Write(text.text);
+
+            text.text = string.Empty;
         }
 
         public void Write(string message)

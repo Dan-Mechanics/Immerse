@@ -15,6 +15,7 @@ namespace Immerse
         [SerializeField] private Holder holder = default;
         [SerializeField] private Scanner scanner = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
+        [SerializeField] private GameStateHandler gameStateHandler = default;
         [SerializeField] private Prompter prompter = default;
 
         [SerializeField] private Prompter.Option[] options = default;
@@ -22,15 +23,37 @@ namespace Immerse
         private void Awake()
         {   
             scanner.OnNewScan += OnNewScan;
+            gameStateHandler.OnStart += OnNewScan;
+        }
+
+        private void OnDestroy()
+        {
+            scanner.OnNewScan -= OnNewScan;
+            gameStateHandler.OnStart -= OnNewScan;
         }
 
         private void OnNewScan(string name)
         {
-            if (!TryDialogue(name) && holder.Actors.ContainsKey(name))
+            print(name);
+
+            // WE FOUND DIALOGUE, LEAVE THE REST.
+            if (TryDialogue(name))
+                return;
+
+
+            if (!holder.Actors.ContainsKey(name))
+                return;
+
+            StopAllCoroutines();
+            prompter.ForceStop();
+
+            Actor actor = holder.Actors[name];
+            for (int i = 0; i < options.Length; i++)
             {
-                StopAllCoroutines();
-                StartCoroutine(WaitForPrompt(holder.Actors[name]));
+                options[i].icon = actor.icon;
             }
+
+            StartCoroutine(WaitForPrompt(actor));
         }
 
         /// <summary>
@@ -57,7 +80,10 @@ namespace Immerse
         {
             if (holder.DialogueEvents.ContainsKey(name))
             {
+                StopAllCoroutines();
+                prompter.ForceStop();
                 displayer.Display(holder.DialogueEvents[name]);
+
                 return true;
             }
 

@@ -91,5 +91,11 @@ namespace Immerse
             spawned.ForEach(x => Destroy(x));
             spawned.Clear();
         }
+
+        public void ForceStop() 
+        {
+            isPrompting = false;
+            DestroyPrompts();
+        }
     }
 }

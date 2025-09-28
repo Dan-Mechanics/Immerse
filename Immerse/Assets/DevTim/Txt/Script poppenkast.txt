@@ -1,0 +1,67 @@
+﻿Intro
+=
+There appears to be a murder in this totally amazing games company.
+
+
+///
+
+
+A_accountant
+=
+A> If you crunch the numbers, WE ARE TOTALLY FUCKED !! 
+
+
+///
+
+
+B_accountant
+=
+B> If you crunch the numbers, WE ARE TOTALLY FUCKED !! 
+
+
+///
+
+
+C_accountant
+=
+C> If you crunch the numbers, WE ARE TOTALLY FUCKED !! 
+
+
+///
+
+
+D_accountant
+=
+D> If you crunch the numbers, WE ARE TOTALLY FUCKED !! 
+
+
+///
+
+
+A_janitor
+=
+A>While I was cleaning the back of the vending machines, I saw some suspicious blood back there. Might want to check that out. Also, did you know that hydrogen peroxide removes blood from clothes?
+
+
+///
+
+
+B_janitor
+=
+B>While I was cleaning the back of the vending machines, I saw some suspicious blood back there. Might want to check that out. Also, did you know that hydrogen peroxide removes blood from clothes?
+
+
+///
+
+
+C_janitor
+=
+C>While I was cleaning the back of the vending machines, I saw some suspicious blood back there. Might want to check that out. Also, did you know that hydrogen peroxide removes blood from clothes?
+
+
+///
+
+
+D_janitor
+=
+D>While I was cleaning the back of the vending machines, I saw some suspicious blood back there. Might want to check that out. Also, did you know that hydrogen peroxide removes blood from clothes?

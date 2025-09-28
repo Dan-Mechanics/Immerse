@@ -20,17 +20,17 @@ namespace Immerse
 
         private void Update()
         {
-            if (!Input.GetKey(KeyCode.Mouse4))
+            if (!Input.GetKey(KeyCode.Mouse3) && !Input.GetKey(KeyCode.Mouse4))
                 return;
-            
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
                 OnNewScan?.Invoke("accountant");
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                OnNewScan?.Invoke("Accountant_interview");
+                OnNewScan?.Invoke("janitor");
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                OnNewScan?.Invoke("Janitor_interview");
+                OnNewScan?.Invoke("Intro");
         }
     }
 }
