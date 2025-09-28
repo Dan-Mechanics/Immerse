@@ -153,9 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 951326320}
   blame: {fileID: 140270804}
+  forceBlameTimeMinutes: 1
   destroyOnGameOver:
   - {fileID: 683463730}
-  forceBlameTimeMinutes: 1
   blamedCorrectly:
     m_PersistentCalls:
       m_Calls:
@@ -2751,7 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315ae11a697794640b58522f45f455d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 0.1
+  lerpSpeed: 0.01
   showingFirst: 0
   firstAlpha: 1
   secondAlpha: 0
@@ -2806,7 +2806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315ae11a697794640b58522f45f455d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 0.1
+  lerpSpeed: 0.01
   showingFirst: 0
   firstAlpha: 1
   secondAlpha: 0

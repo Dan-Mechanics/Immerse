@@ -1,3 +1,9 @@
+28 sep:
+note this project currently has a little bit of techncial debt.
+
+
+===
+
 todos:
 
 V maak script import systeem
