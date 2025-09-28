@@ -26,14 +26,14 @@ namespace Immerse
             iconText.text = string.Empty;
 
             textWriter.Send(string.Empty);
-            rectLerper.Send(false);
+            rectLerper.Send(true);
 
             textWriterGameObject.GetComponent<IEventHolder>().OnEvent += LowerDialogueBox;
         }
 
         private void FixedUpdate()
         {
-            rectLerper.Send(Time.time > doneTime);
+            rectLerper.Send(Time.time >= doneTime);
         }
 
         private void LowerDialogueBox()

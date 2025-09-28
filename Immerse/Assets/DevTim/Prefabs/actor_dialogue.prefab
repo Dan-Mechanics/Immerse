@@ -50,10 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3af148905d5b074baebe9116f98e1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showingSecondPosition: 1
+  lerpSpeed: 0.1
+  showingFirst: 1
   first: {x: 0, y: -330}
   second: {x: 0, y: 0}
-  lerpSpeed: 0.1
 --- !u!1 &2744289350114530729
 GameObject:
   m_ObjectHideFlags: 0

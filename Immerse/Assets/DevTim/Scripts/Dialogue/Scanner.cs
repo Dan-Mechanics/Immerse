@@ -24,7 +24,7 @@ namespace Immerse
                 return;
             
             if(Input.GetKeyDown(KeyCode.Alpha1))
-                OnNewScan?.Invoke("Intro");
+                OnNewScan?.Invoke("accountant");
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
                 OnNewScan?.Invoke("Accountant_interview");

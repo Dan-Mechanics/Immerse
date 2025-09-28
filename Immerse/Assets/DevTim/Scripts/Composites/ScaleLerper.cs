@@ -7,10 +7,10 @@ namespace Immerse
         [SerializeField] private Vector3 first = default;
         [SerializeField] private Vector3 second = default;
 
-        private void OnEnable()
+        /*private void OnEnable()
         {
             transform.localScale = showingFirst ? first : second;
-        }
+        }*/
 
         private void FixedUpdate()
         {

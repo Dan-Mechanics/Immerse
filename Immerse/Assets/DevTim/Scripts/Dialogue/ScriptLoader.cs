@@ -3,21 +3,15 @@ using UnityEngine;
 
 namespace Immerse
 {
-    /// <summary>
-    /// TODO: DEAD SPACE FIX.
-    /// </summary>
     public class ScriptLoader : MonoBehaviour
     {
         private const string FIRSTS_SPLITTER = "///";
         private const string SECOND_SPLITTER = "=";
         
         [SerializeField] private TextAsset textAsset = default;
-        [SerializeField] private DialogueEventHolder holder = default;
+        [SerializeField] private Holder holder = default;
         [SerializeField] private bool loadScriptOnStartup = default;
 
-        /// <summary>
-        /// Start because this can be done whenever.
-        /// </summary>
         private void Start()
         {
             if (!loadScriptOnStartup)
@@ -25,13 +19,13 @@ namespace Immerse
             
             string[] pages = textAsset.text.Split(FIRSTS_SPLITTER, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var page in pages)
+            foreach (string page in pages)
             {
                 if (!CleverSplit(page, SECOND_SPLITTER, out string[] components, 2))
                     continue;
 
-                if (holder.Has(components[0]))
-                    holder.GetByName(components[0]).script = components[1];
+                if (holder.DialogueEvents.ContainsKey(components[0]))
+                    holder.DialogueEvents[components[0]].script = components[1];
             }
         }
 
