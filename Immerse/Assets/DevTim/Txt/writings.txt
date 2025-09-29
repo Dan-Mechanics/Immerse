@@ -1,3 +1,15 @@
+29 sep:
+next thing to do: make the state system work so you can reset
+without having to reset the scene is cool work.
+
+otherwise make sure that all += places with events has an -= on destroy or when enter is += exit is -= ETC
+otherwise you need to link the whole scene together and apply prefabs
+and then run and see if it works and debug all the stuff --> make sure EVERYTHING works ideally.
+and then build again and then maybe film video and then start on pure video projector concept
+
+===
+
+
 28 sep:
 note this project currently has a little bit of techncial debt.
 

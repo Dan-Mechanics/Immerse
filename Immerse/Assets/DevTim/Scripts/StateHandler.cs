@@ -46,10 +46,13 @@ namespace Immerse
             }
         }
 
-        /*private void Start() 
+        private void Start() => CloseAll();
+
+        private void CloseAll()
         {
-            Open(startingParent);
-        }*/
+            wrappers.ForEach(x => x.Close());
+            current = null;
+        }
 
         private void Update()
         {
@@ -63,9 +66,8 @@ namespace Immerse
 
         public void Open(GameObject go)
         {
-            wrappers.ForEach(x => x.Close());
-            current = null;
-
+            current?.Close();
+            
             if (go == null)
                 return;
 
@@ -82,5 +84,7 @@ namespace Immerse
                 return;
             }
         }
+
+        private void OnDestroy() => CloseAll();
     }
 }

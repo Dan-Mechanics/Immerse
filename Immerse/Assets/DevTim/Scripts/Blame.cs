@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Immerse
@@ -13,11 +11,16 @@ namespace Immerse
     public class Blame : State
     {
         public event Action<bool> OnBlame;
-        
+        public event Action<Prompter.Option[], GameObject> OnPrompt;
+
+        [SerializeField] private GameObject gameplayState = default;
+        [SerializeField] private TextWriter textWriter = default;
+        [SerializeField] private Timer timer = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor murderer = default;
+        [SerializeField] private float forceBlameMinutes = default;
         [SerializeField] private Prompter.Option template = default;
         [SerializeField] private Prompter.Option cancel = default;
 
@@ -25,10 +28,12 @@ namespace Immerse
         private Prompter.Option[] blameOptionsCancel;
         private Prompter.Option[] blameOptions;
 
-        private void Start()
+        private bool hasStarted;
+
+        private void Awake()
         {
             actors = holder.Actors.Values.ToArray();
-            
+
             blameOptions = new Prompter.Option[actors.Length];
             blameOptionsCancel = new Prompter.Option[actors.Length + 1];
 
@@ -40,46 +45,59 @@ namespace Immerse
                 blameOptionsCancel[i] = blameOptions[i];
             }
 
-            blameOptionsCancel[blameOptionsCancel.Length - 1] = cancel;
+            blameOptionsCancel[^1] = cancel;
+
+            prompter.OnAnswer += OnAnswer;
+            timer.OnNewTime += OnNewTime;
         }
 
-        /// <summary>
-        /// But sohuld be called by blame button
-        /// </summary>
-        public void AskBlame()
+        private void OnDestroy()
         {
-            StopAllCoroutines();
-            prompter.ForceStop();
-            StartCoroutine(WaitForPrompt(blameOptionsCancel));
+            prompter.OnAnswer -= OnAnswer;
+            timer.OnNewTime -= OnNewTime;
         }
 
-        private IEnumerator WaitForPrompt(Prompter.Option[] options)
+        private void OnNewTime(TimeSpan timeSpan)
         {
-            while (true)
+            textWriter.Write(timeSpan.ToString());
+
+            if (timeSpan.TotalMinutes >= forceBlameMinutes)
+                ForceBlame();
+        }
+
+        public override void EnterState()
+        {
+            base.EnterState();
+            blameButton.onClick.AddListener(AskBlame);
+
+            if (!hasStarted)
             {
-                int? answer = prompter.DisplayPrompt(options);
-                if (answer != null)
-                {
-                    int index = (int)answer;
-
-                    if (index >= 0 && index < actors.Length)
-                        (actors[index] == murderer ? blamedCorrectly : blamedIncorrectly)?.Invoke();
-
-                    yield break;
-                }
-
-                yield return null;
+                timer.Begin();
+                hasStarted = true;
             }
         }
 
-        /// <summary>
-        /// This should be called by the timer.
-        /// </summary>
-        public void ForceBlame()
+        public override void ExitState()
         {
-            StopAllCoroutines();
-            prompter.ForceStop();
-            StartCoroutine(WaitForPrompt(blameOptions));
+            base.ExitState();
+            blameButton.onClick.RemoveAllListeners();
+        }
+
+        private void OnAnswer(int index)
+        {
+            // VALID ANSWER.
+            if (index >= 0 && index < actors.Length)
+                OnBlame?.Invoke(actors[index] == murderer);
+        }
+
+        private void AskBlame()
+        {
+            OnPrompt?.Invoke(blameOptionsCancel, gameplayState);
+        }
+
+        private void ForceBlame()
+        {
+            OnPrompt?.Invoke(blameOptions, null);
         }
     }
 }

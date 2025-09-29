@@ -1,17 +1,30 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 namespace Immerse
 {
     public class ScannerResponse : State
     {
+        public Action<Prompter.Option[], GameObject> OnPrompt;
+        
         [SerializeField] private Holder holder = default;
         [SerializeField] private Scanner scanner = default;
+        [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
-        [SerializeField] private GameManager gameStateHandler = default;
         [SerializeField] private Prompter prompter = default;
-
         [SerializeField] private Prompter.Option[] interviewQuestions = default;
+
+        private Actor actor;
+
+        private void Awake()
+        {
+            prompter.OnAnswer += OnAnswer;
+        }
+
+        private void OnDestroy()
+        {
+            prompter.OnAnswer -= OnAnswer;
+        }
 
         public override void EnterState()
         {
@@ -25,6 +38,11 @@ namespace Immerse
             scanner.OnNewScan -= OnNewScan;
         }
 
+        private void OnAnswer(int index)
+        {
+            CheckDialogue(actor.dialogueEvents[index].name);
+        }
+
         private void OnNewScan(string name)
         {
             print($"Scanned '{scanner}'.");
@@ -36,36 +54,13 @@ namespace Immerse
             if (!holder.Actors.ContainsKey(name))
                 return;
 
-            StopAllCoroutines();
-            prompter.ForceStop();
-
-            Actor actor = holder.Actors[name];
+            actor = holder.Actors[name];
             for (int i = 0; i < interviewQuestions.Length; i++)
             {
                 interviewQuestions[i].icon = actor.icon;
             }
 
-            StartCoroutine(WaitForPrompt(actor));
-        }
-
-        /// <summary>
-        /// Idk if this works it might crash everything
-        /// </summary>
-        private IEnumerator WaitForPrompt(Actor actor) 
-        {
-            while(true)
-            {
-                int? answer = prompter.DisplayPrompt(interviewQuestions);
-                if (answer != null)
-                {
-                    int index = (int)answer;
-                    CheckDialogue(actor.dialogueEvents[index].name);
-
-                    yield break;
-                }
-
-                yield return null;
-            }
+            OnPrompt?.Invoke(interviewQuestions, gameplayState);
         }
 
         private bool CheckDialogue(string name)
@@ -73,10 +68,7 @@ namespace Immerse
             if (!holder.DialogueEvents.ContainsKey(name))
                 return false;
 
-            StopAllCoroutines();
-            prompter.ForceStop();
             displayer.Display(holder.DialogueEvents[name]);
-
             return true;
         }
     }

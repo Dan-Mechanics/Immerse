@@ -14,6 +14,9 @@ namespace Immerse
 
         private float doneTime;
 
+        /// <summary>
+        /// ??
+        /// </summary>
         private void Start() => ExitState();
 
         public override void ExitState()
