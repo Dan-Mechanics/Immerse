@@ -11,6 +11,9 @@ namespace Immerse
     /// </summary>
     public class GameStateHandler : MonoBehaviour
     {
+        [SerializeField] private List<State> states = default;
+        
+        
         public event Action<string> OnStart;
         
         [SerializeField] private Timer timer = default;

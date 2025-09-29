@@ -10,10 +10,7 @@ namespace Immerse
 
         private CanvasGroup canvasGroup;
 
-        private void Awake()
-        {
-            canvasGroup = GetComponent<CanvasGroup>();
-        }
+        private void Awake() => canvasGroup = GetComponent<CanvasGroup>();
 
         private void FixedUpdate()
         {

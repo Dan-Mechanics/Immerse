@@ -12,11 +12,6 @@ namespace Immerse
 
         private void Awake() => rect = GetComponent<RectTransform>();
 
-        private void OnEnable()
-        {
-            rect.anchoredPosition = showingFirst ? first : second;
-        }
-
         private void FixedUpdate()
         {
             rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, showingFirst ? first : second, lerpSpeed);

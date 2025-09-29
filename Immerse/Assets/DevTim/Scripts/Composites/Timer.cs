@@ -3,31 +3,33 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class Timer : MonoBehaviour
+    public class Timer : State
     {
-        public float TotalMinutes { get; private set; }
-        [SerializeField] private GameObject listener = default;
+        public event Action<TimeSpan> OnNewTime;
 
-        private IReceiver<object> output;
+        [SerializeField, Min(0.01f)] private float interval = default;
         private DateTime startingPoint;
 
-        private void Awake()
-        {
-            output = listener.GetComponent<IReceiver<object>>();
-        }
-
-        private void OnEnable()
+        public void Begin() 
         {
             startingPoint = DateTime.Now;
+            EnterState();
+        }
+
+        public override void EnterState()
+        {
+            InvokeRepeating(nameof(Tick), 0f, interval);
+        }
+
+        public override void ExitState()
+        {
             CancelInvoke(nameof(Tick));
-            InvokeRepeating(nameof(Tick), 0f, 1.1f);
         }
 
         private void Tick()
         {
             TimeSpan timeSpan = DateTime.Now - startingPoint;
-            output.Send($"{timeSpan.Minutes}:{timeSpan.Seconds}");
-            TotalMinutes = (float)timeSpan.TotalMinutes;
+            OnNewTime?.Invoke(timeSpan);
         }
     }
 }
