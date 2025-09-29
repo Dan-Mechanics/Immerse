@@ -27,6 +27,8 @@ namespace Immerse
                 if (holder.DialogueEvents.ContainsKey(components[0]))
                     holder.DialogueEvents[components[0]].script = components[1];
             }
+
+            Destroy(gameObject);
         }
 
         /// <summary>

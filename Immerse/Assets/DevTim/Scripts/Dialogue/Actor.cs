@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    [CreateAssetMenu(fileName = "Actor", menuName = "Actor")]
+    [CreateAssetMenu(fileName = nameof(Actor), menuName = nameof(Actor))]
     public class Actor : ScriptableObject
     {
         public Sprite icon;

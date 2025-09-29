@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(RectTransform))]
-    public class RectLerper : LerperBase
+    public class RectLerper : Lerper
     {
         [SerializeField] private Vector2 first = default;
         [SerializeField] private Vector2 second = default;
@@ -12,8 +12,9 @@ namespace Immerse
 
         private void Awake() => rect = GetComponent<RectTransform>();
 
-        private void FixedUpdate()
+        public override void DoTick()
         {
+            base.DoTick();
             rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, showingFirst ? first : second, lerpSpeed);
         }
     }

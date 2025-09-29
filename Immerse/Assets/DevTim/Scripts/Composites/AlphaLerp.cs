@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class AlphaLerp : LerperBase
+    public class AlphaLerp : Lerper
     {
         [SerializeField] private float firstAlpha = default;
         [SerializeField] private float secondAlpha = default;
@@ -12,8 +12,9 @@ namespace Immerse
 
         private void Awake() => canvasGroup = GetComponent<CanvasGroup>();
 
-        private void FixedUpdate()
+        public override void DoTick()
         {
+            base.DoTick();
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, showingFirst ? firstAlpha : secondAlpha, lerpSpeed);
         }
     }

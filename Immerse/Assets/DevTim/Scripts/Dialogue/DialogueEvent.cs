@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Immerse
 {
-    [CreateAssetMenu(fileName = "DialogueEvent", menuName = "DialogueEvent")]
+    [CreateAssetMenu(fileName = nameof(DialogueEvent), menuName = nameof(DialogueEvent))]
     public class DialogueEvent : ScriptableObject
     {
         public Actor actor;
         public AudioClip clip;
-        public string script = "Sample text.";
+        public string script;
 
         private void OnValidate()
         {

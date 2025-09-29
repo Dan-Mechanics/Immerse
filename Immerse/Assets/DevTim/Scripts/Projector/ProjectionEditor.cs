@@ -2,14 +2,16 @@
 
 namespace Immerse
 {
-    public class ProjectionEditor : MonoBehaviour
+    public class ProjectionEditor : State
     {
         [SerializeField, Min(0.1f)] private float speed = 1f;
         [SerializeField] private float growthFactor = 1.005f;
         [SerializeField] private float shrinkageFactor = 0.995f;
 
-        private void FixedUpdate()
+        public override void DoTick()
         {
+            base.DoTick();
+            
             if (Input.GetKey(KeyCode.A)) 
                 transform.Translate(speed * Time.fixedDeltaTime * Vector3.left);
 

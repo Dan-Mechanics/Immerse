@@ -4,41 +4,34 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class DialogueEventDisplayer : MonoBehaviour
+    public class DialogueEventDisplayer : State
     {
         [SerializeField] private Image icon = default;
-        [SerializeField] private GameObject textWriterGameObject = default;
-        [SerializeField] private GameObject lerperGameObject = default;   
+        [SerializeField] private TextWriter textWriter = default;
+        [SerializeField] private Lerper lerper = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
 
-        private IReceiver<object> textWriter;
-        private IReceiver<bool> rectLerper;
         private float doneTime;
 
-        private void Start()
-        {
-            textWriter = textWriterGameObject.GetComponent<IReceiver<object>>();
-            rectLerper = lerperGameObject.GetComponent<IReceiver<bool>>();
+        private void Start() => ExitState();
 
+        public override void ExitState()
+        {
+            base.ExitState();
             source.playOnAwake = false;
             source.dopplerLevel = 0f;
+            source.Stop();
             iconText.text = string.Empty;
 
-            textWriter.Send(string.Empty);
-            rectLerper.Send(true);
-
-            textWriterGameObject.GetComponent<IEventHolder>().OnEvent += LowerDialogueBox;
+            lerper.Send(true);
+            textWriter.Write(string.Empty);
         }
 
-        private void FixedUpdate()
+        public override void DoTick()
         {
-            rectLerper.Send(Time.time >= doneTime);
-        }
-
-        private void LowerDialogueBox()
-        {
-            doneTime = Time.time + 2f;
+            base.DoTick();
+            lerper.Send(Time.time >= doneTime);
         }
 
         public void Display(DialogueEvent dialogue)
@@ -47,9 +40,9 @@ namespace Immerse
             source.PlayOneShot(dialogue.clip);
 
             icon.sprite = dialogue.actor.icon;
-            textWriter.Send(dialogue.script);
+            textWriter.Write(dialogue.script);
             iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
-            doneTime = Time.time + 1000f;
+            doneTime = Time.time + dialogue.script.Length * TextWriter.INTERVAL;
 
             print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }

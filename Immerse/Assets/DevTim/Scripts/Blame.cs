@@ -1,23 +1,25 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Immerse
 {
     /// <summary>
     /// This is also where i wanna add the setup behaviour or i should call that Grid.cs
     /// </summary>
-    public class Blame : MonoBehaviour
+    public class Blame : State
     {
+        public event Action<bool> OnBlame;
+        
         [SerializeField] private Prompter prompter = default;
+        [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor murderer = default;
         [SerializeField] private Prompter.Option template = default;
         [SerializeField] private Prompter.Option cancel = default;
-
-        [SerializeField] private UnityEvent blamedCorrectly = default;
-        [SerializeField] private UnityEvent blamedIncorrectly = default;
 
         private Actor[] actors = default;
         private Prompter.Option[] blameOptionsCancel;
@@ -55,7 +57,7 @@ namespace Immerse
         {
             while (true)
             {
-                int? answer = prompter.GetAnswer(options);
+                int? answer = prompter.DisplayPrompt(options);
                 if (answer != null)
                 {
                     int index = (int)answer;

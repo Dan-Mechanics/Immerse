@@ -2,30 +2,39 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class NotepadHandler : MonoBehaviour
+    public class NotepadHandler : State
     {
         [SerializeField] private TMP_InputField inputField = default;
         [SerializeField] private EventSystem eventSystem = default;
-        [SerializeField] private List<GameObject> interested = default;
+        [SerializeField] private Button toggleNotepadButton = default;
+        [SerializeField] private List<Lerper> lerpers = default;
 
-        private readonly List<IReceiver<bool>> listeners = new List<IReceiver<bool>>();
         private bool showingNotes;
 
-        private void Awake()
+        public override void EnterState()
         {
-            interested.ForEach(x => listeners.Add(x.GetComponent<IReceiver<bool>>()));
+            base.EnterState();
+            toggleNotepadButton.onClick.AddListener(ToggleNotepad);
         }
 
-        private void FixedUpdate()
+        public override void ExitState()
         {
-            listeners.ForEach(x => x.Send(!showingNotes));
-            inputField.interactable = showingNotes;
-        } 
+            base.ExitState();
+            toggleNotepadButton.onClick.RemoveAllListeners();
+        }
 
-        public void ToggleNotepad() 
+        public override void DoTick()
+        {
+            base.DoTick();
+            inputField.interactable = showingNotes;
+            lerpers.ForEach(x => x.Send(!showingNotes));
+        }
+
+        private void ToggleNotepad() 
         {
             showingNotes = !showingNotes;
 

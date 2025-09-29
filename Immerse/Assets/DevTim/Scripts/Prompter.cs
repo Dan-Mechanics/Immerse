@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -5,19 +6,17 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Prompter : MonoBehaviour
+    public class Prompter : State
     {
+        public event Action<int> OnAnswer;
+        
         [SerializeField] private Transform background = default;
         [SerializeField] private GameObject promptPrefab = default;
         [SerializeField] private float verticalSpacing;
 
-        private bool isPrompting;
-        private int? chosen;
-
         private readonly List<GameObject> spawned = new List<GameObject>();
-        private Option[] options;
 
-        [System.Serializable]
+        [Serializable]
         public struct Option
         {
             public string text;
@@ -25,41 +24,19 @@ namespace Immerse
             public Sprite icon;
         }
 
-        private void FixedUpdate()
+        public void DisplayPrompt(Option[] options) 
         {
-            background.gameObject.SetActive(isPrompting);
+            DestroyPrompts();
+            SpawnOptions(options);
         }
 
-        public int? GetAnswer(Option[] options) 
+        private void GiveAnswer(int answer) => OnAnswer?.Invoke(answer);
+
+        public override void ExitState()
         {
-            if (options != this.options)
-                DestroyPrompts();
-            
-            if (isPrompting)
-            {
-                if (chosen != null)
-                {
-                    isPrompting = false;
-                    DestroyPrompts();
-                    int? temp = chosen;
-                    chosen = null;
-
-                    return temp;
-                }
-
-                return null;
-            }
-            else
-            {
-                this.options = options;
-                isPrompting = true;
-                SpawnOptions(options);
-
-                return null;
-            }
+            base.ExitState();
+            DestroyPrompts();
         }
-
-        public void SetChosen(int chosen) => this.chosen = chosen;
 
         private void SpawnOptions(Option[] options) 
         {
@@ -80,8 +57,8 @@ namespace Immerse
             go.GetComponent<Image>().color = option.color;
             go.GetComponentInChildren<TMP_Text>().text = option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
-            go.GetComponent<Button>().onClick.AddListener(delegate { SetChosen(i); });
-            go.GetComponent<LerperBase>().Send(false);
+            go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
+            go.GetComponent<Lerper>().Send(false);
             spawned.Add(go);
         }
 
@@ -90,12 +67,6 @@ namespace Immerse
             spawned.ForEach(x => x.GetComponent<Button>().onClick.RemoveAllListeners());
             spawned.ForEach(x => Destroy(x));
             spawned.Clear();
-        }
-
-        public void ForceStop() 
-        {
-            isPrompting = false;
-            DestroyPrompts();
         }
     }
 }

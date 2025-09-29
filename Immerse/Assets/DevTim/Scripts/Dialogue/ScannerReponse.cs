@@ -1,45 +1,37 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Immerse
 {
-    /// <summary>
-    /// This might possibly be the place to translate raw data
-    /// itno usable data.
-    /// 
-    /// You can also call this ScannerBridge or something.
-    /// </summary>
-    public class ScannerResponse : MonoBehaviour
+    public class ScannerResponse : State
     {
         [SerializeField] private Holder holder = default;
         [SerializeField] private Scanner scanner = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
-        [SerializeField] private GameStateHandler gameStateHandler = default;
+        [SerializeField] private GameManager gameStateHandler = default;
         [SerializeField] private Prompter prompter = default;
 
-        [SerializeField] private Prompter.Option[] options = default;
+        [SerializeField] private Prompter.Option[] interviewQuestions = default;
 
-        private void Awake()
-        {   
+        public override void EnterState()
+        {
+            base.EnterState();
             scanner.OnNewScan += OnNewScan;
-            gameStateHandler.OnStart += OnNewScan;
         }
 
-        private void OnDestroy()
+        public override void ExitState()
         {
+            base.ExitState();
             scanner.OnNewScan -= OnNewScan;
-            gameStateHandler.OnStart -= OnNewScan;
         }
 
         private void OnNewScan(string name)
         {
-            print(name);
+            print($"Scanned '{scanner}'.");
 
             // WE FOUND DIALOGUE, LEAVE THE REST.
-            if (TryDialogue(name))
+            if (CheckDialogue(name))
                 return;
-
 
             if (!holder.Actors.ContainsKey(name))
                 return;
@@ -48,9 +40,9 @@ namespace Immerse
             prompter.ForceStop();
 
             Actor actor = holder.Actors[name];
-            for (int i = 0; i < options.Length; i++)
+            for (int i = 0; i < interviewQuestions.Length; i++)
             {
-                options[i].icon = actor.icon;
+                interviewQuestions[i].icon = actor.icon;
             }
 
             StartCoroutine(WaitForPrompt(actor));
@@ -63,11 +55,11 @@ namespace Immerse
         {
             while(true)
             {
-                int? answer = prompter.GetAnswer(options);
+                int? answer = prompter.DisplayPrompt(interviewQuestions);
                 if (answer != null)
                 {
                     int index = (int)answer;
-                    TryDialogue(actor.dialogueEvents[index].name);
+                    CheckDialogue(actor.dialogueEvents[index].name);
 
                     yield break;
                 }
@@ -76,18 +68,16 @@ namespace Immerse
             }
         }
 
-        private bool TryDialogue(string name) 
+        private bool CheckDialogue(string name)
         {
-            if (holder.DialogueEvents.ContainsKey(name))
-            {
-                StopAllCoroutines();
-                prompter.ForceStop();
-                displayer.Display(holder.DialogueEvents[name]);
+            if (!holder.DialogueEvents.ContainsKey(name))
+                return false;
 
-                return true;
-            }
+            StopAllCoroutines();
+            prompter.ForceStop();
+            displayer.Display(holder.DialogueEvents[name]);
 
-            return false;
+            return true;
         }
     }
 }
