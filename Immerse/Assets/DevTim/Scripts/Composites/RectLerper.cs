@@ -17,5 +17,11 @@ namespace Immerse
             base.DoTick();
             rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, showingFirst ? first : second, lerpSpeed);
         }
+
+        public override void Force()
+        {
+            base.Force();
+            rect.anchoredPosition = first;
+        }
     }
 }

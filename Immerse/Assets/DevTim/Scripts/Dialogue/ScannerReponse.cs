@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class ScannerResponse : State
+    public class ScannerResponse : Behaviour
     {
         public Action<Prompter.Option[], GameObject> OnPrompt;
         
@@ -15,11 +15,6 @@ namespace Immerse
         [SerializeField] private Prompter.Option[] interviewQuestions = default;
 
         private Actor actor;
-
-        private void Awake()
-        {
-            prompter.OnAnswer += OnAnswer;
-        }
 
         private void Start() => OnNewScan("Intro");
 
@@ -38,6 +33,7 @@ namespace Immerse
         private void OnAnswer(int index)
         {
             CheckDialogue(actor.dialogueEvents[index].name);
+            prompter.OnAnswer -= OnAnswer;
         }
 
         private void OnNewScan(string name)
@@ -48,24 +44,25 @@ namespace Immerse
             if (CheckDialogue(name))
                 return;
 
-            if (!holder.Actors.ContainsKey(name))
+            if (!holder.ActorsDict.ContainsKey(name))
                 return;
 
-            actor = holder.Actors[name];
+            actor = holder.ActorsDict[name];
             for (int i = 0; i < interviewQuestions.Length; i++)
             {
                 interviewQuestions[i].icon = actor.icon;
             }
 
             OnPrompt?.Invoke(interviewQuestions, gameplayState);
+            prompter.OnAnswer += OnAnswer;
         }
 
         private bool CheckDialogue(string name)
         {
-            if (!holder.DialogueEvents.ContainsKey(name))
+            if (!holder.DialogueDict.ContainsKey(name))
                 return false;
 
-            displayer.Display(holder.DialogueEvents[name]);
+            displayer.Display(holder.DialogueDict[name]);
             return true;
         }
 

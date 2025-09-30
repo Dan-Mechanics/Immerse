@@ -9,29 +9,29 @@ namespace Immerse
         [SerializeField] private List<GameObject> parents = default;
         [SerializeField] private GameObject startingParent = default;
 
-        private readonly List<Wrapper> wrappers = new List<Wrapper>();
-        private Wrapper current;
+        private readonly List<State> states = new List<State>();
+        private State current;
 
-        public class Wrapper
+        public class State
         {
             public GameObject go;
-            public List<State> states;
+            public List<Behaviour> behaviours;
 
-            public Wrapper(GameObject go, List<State> states)
+            public State(GameObject go, List<Behaviour> behaviours)
             {
                 this.go = go;
-                this.states = states;
+                this.behaviours = behaviours;
             }
 
             public void Open()
             {
                 go.SetActive(true);
-                states.ForEach(x => x.EnterState());
+                behaviours.ForEach(x => x.EnterState());
             }
 
             public void Close()
             {
-                states.ForEach(x => x.ExitState());
+                behaviours.ForEach(x => x.ExitState());
 
                 if (go != null) 
                     go.SetActive(false);
@@ -42,9 +42,9 @@ namespace Immerse
         {
             foreach (GameObject go in parents)
             {
-                wrappers.Add(new Wrapper(go, new List<State>()));
-                List<State> states = go.GetComponentsInChildren<State>().ToList();
-                states.ForEach(x => wrappers[^1].states.Add(x));
+                this.states.Add(new State(go, new List<Behaviour>()));
+                List<Behaviour> states = go.GetComponentsInChildren<Behaviour>().ToList();
+                states.ForEach(x => this.states[^1].behaviours.Add(x));
                 go.SetActive(true);
             }
         }
@@ -57,18 +57,18 @@ namespace Immerse
 
         private void CloseAll()
         {
-            wrappers.ForEach(x => x.Close());
+            states.ForEach(x => x.Close());
             current = null;
         }
 
         private void Update()
         {
-            current?.states.ForEach(x => x.DoFrame());
+            current?.behaviours.ForEach(x => x.DoFrame());
         }
 
         private void FixedUpdate()
         {
-            current?.states.ForEach(x => x.DoTick());
+            current?.behaviours.ForEach(x => x.DoTick());
         }
 
         public void Open(GameObject go)
@@ -81,7 +81,7 @@ namespace Immerse
             if (!parents.Contains(go))
                 return;
 
-            foreach (Wrapper wrapper in wrappers)
+            foreach (State wrapper in states)
             {
                 if (wrapper.go != go)
                     continue;

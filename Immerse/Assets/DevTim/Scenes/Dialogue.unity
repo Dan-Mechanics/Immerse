@@ -3690,6 +3690,74 @@ PrefabInstance:
       propertyPath: gameplayState
       value: 
       objectReference: {fileID: 173168254}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[0].text
+      value: Ask question A
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[1].text
+      value: Ask question b
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[2].text
+      value: Ask question c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[3].text
+      value: Ask question D
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[1].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[1].color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[1].color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[1].color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[2].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[2].color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[2].color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[2].color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[3].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[3].color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[3].color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[3].color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
     - target: {fileID: 4108826302290114726, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: m_Name
       value: scanner_response

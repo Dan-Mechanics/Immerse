@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TextWriter : State
+    public class TextWriter : Behaviour
     {
         public const float INTERVAL = 0.05f;
 

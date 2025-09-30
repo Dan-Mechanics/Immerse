@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class Timer : State
+    public class Timer : Behaviour
     {
         public event Action<int, int> OnNewTime;
 

@@ -24,8 +24,8 @@ namespace Immerse
                 if (!CleverSplit(page, SECOND_SPLITTER, out string[] components, 2))
                     continue;
 
-                if (holder.DialogueEvents.ContainsKey(components[0]))
-                    holder.DialogueEvents[components[0]].script = components[1];
+                if (holder.DialogueDict.ContainsKey(components[0]))
+                    holder.DialogueDict[components[0]].script = components[1];
             }
 
             Destroy(gameObject);

@@ -7,7 +7,7 @@ namespace Immerse
     /// reset feature so you dont have
     /// to reload the scene.
     /// </summary>
-    public abstract class State : MonoBehaviour
+    public abstract class Behaviour : MonoBehaviour
     {
         public virtual void EnterState() { print($"EnterState() --> [{gameObject.name}{this}]"); }
         public virtual void ExitState() { }

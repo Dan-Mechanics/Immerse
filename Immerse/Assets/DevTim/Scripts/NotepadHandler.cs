@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class NotepadHandler : State
+    public class NotepadHandler : Behaviour
     {
         [SerializeField] private TMP_InputField inputField = default;
         [SerializeField] private EventSystem eventSystem = default;

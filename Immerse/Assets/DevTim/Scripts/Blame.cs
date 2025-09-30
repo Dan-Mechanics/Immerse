@@ -1,14 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Blame : State
+    public class Blame : Behaviour
     {
         public event Action<bool> OnBlame;
         public event Action<Prompter.Option[], GameObject> OnPrompt;
+        private List<Actor> Actors => holder.Actors;
 
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
@@ -21,7 +23,6 @@ namespace Immerse
         [SerializeField] private Prompter.Option template = default;
         [SerializeField] private Prompter.Option cancel = default;
 
-        private Actor[] actors = default;
         private Prompter.Option[] blameOptionsCancel;
         private Prompter.Option[] blameOptions;
 
@@ -29,22 +30,20 @@ namespace Immerse
 
         private void Awake()
         {
-            actors = holder.Actors.Values.ToArray();
-
-            blameOptions = new Prompter.Option[actors.Length];
-            blameOptionsCancel = new Prompter.Option[actors.Length + 1];
+            blameOptions = new Prompter.Option[Actors.Count];
+            blameOptionsCancel = new Prompter.Option[Actors.Count + 1];
 
             for (int i = 0; i < blameOptions.Length; i++)
             {
                 blameOptions[i] = template;
-                blameOptions[i].text = $"Blame {actors[i].name}!";
-                blameOptions[i].icon = actors[i].icon;
+                blameOptions[i].text = $"Blame {Actors[i].name}!";
+                blameOptions[i].icon = Actors[i].icon;
                 blameOptionsCancel[i] = blameOptions[i];
             }
 
             blameOptionsCancel[^1] = cancel;
 
-            prompter.OnAnswer += OnAnswer;
+            //prompter.OnAnswer += OnAnswer;
             timer.OnNewTime += OnNewTime;
         }
 
@@ -78,23 +77,28 @@ namespace Immerse
         {
             base.ExitState();
             blameButton.onClick.RemoveAllListeners();
+            prompter.OnAnswer -= OnAnswer;
         }
 
         private void OnAnswer(int index)
         {
             // CHECK VALID ANSWER.
-            if (index >= 0 && index < actors.Length)
-                OnBlame?.Invoke(actors[index] == murderer);
+            if (index >= 0 && index < Actors.Count)
+                OnBlame?.Invoke(Actors[index] == murderer);
+
+            prompter.OnAnswer -= OnAnswer;
         }
 
         private void AskBlame()
         {
             OnPrompt?.Invoke(blameOptionsCancel, gameplayState);
+            prompter.OnAnswer += OnAnswer;
         }
 
         private void ForceBlame()
         {
             OnPrompt?.Invoke(blameOptions, null);
+            prompter.OnAnswer += OnAnswer;
         }
     }
 }

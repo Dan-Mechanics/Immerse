@@ -4,7 +4,7 @@ using UnityEngine.Video;
 
 namespace Immerse
 {
-    public class VideoViewer : State
+    public class VideoViewer : Behaviour
     {
         public event Action OnVideoDone;
         

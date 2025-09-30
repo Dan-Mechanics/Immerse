@@ -2,7 +2,7 @@
 
 namespace Immerse
 {
-    public class ProjectionEditor : State
+    public class ProjectionEditor : Behaviour
     {
         [SerializeField, Min(0.1f)] private float speed = 1f;
         [SerializeField] private float growthFactor = 1.005f;
