@@ -5,9 +5,9 @@ namespace Immerse
 {
     public class Timer : State
     {
-        public event Action<TimeSpan> OnNewTime;
+        public event Action<int, int> OnNewTime;
 
-        [SerializeField, Min(0.01f)] private float interval = default;
+        [SerializeField, Min(0.01f)] private float invokeInterval = default;
         private DateTime startingPoint;
 
         public void Begin() 
@@ -18,7 +18,7 @@ namespace Immerse
 
         public override void EnterState()
         {
-            InvokeRepeating(nameof(Tick), 0f, interval);
+            InvokeRepeating(nameof(Tick), 0f, invokeInterval);
         }
 
         public override void ExitState()
@@ -29,7 +29,7 @@ namespace Immerse
         private void Tick()
         {
             TimeSpan timeSpan = DateTime.Now - startingPoint;
-            OnNewTime?.Invoke(timeSpan);
+            OnNewTime?.Invoke((int)timeSpan.TotalMinutes, (int)timeSpan.TotalSeconds);
         }
     }
 }

@@ -870,9 +870,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 7785892143855190972}
   eventSystem: {fileID: 0}
-  interested:
-  - {fileID: 9061306039459274854}
-  - {fileID: 1148213544691056778}
+  toggleNotepadButton: {fileID: 185944780167299263}
+  lerpers:
+  - {fileID: 764216839431465381}
+  - {fileID: 7901233671454273223}
 --- !u!114 &764216839431465381
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,20 +1,16 @@
-using System;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Immerse
 {
-    /// <summary>
-    /// Take blame input and read from timer 
-    /// to force final blame and all that.
-    /// </summary>
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private StateHandler stateHandler = default;
         [SerializeField] private ScannerResponse scannerResponse = default;
         [SerializeField] private Blame blame = default;
-        [SerializeField] private VideoClip gameOverVideo = default;
+        [SerializeField] private VideoClip openingVideo = default;
+        [SerializeField] private VideoClip closingVideo = default;
 
         [SerializeField] private GameObject gameplayState = default;    
         [SerializeField] private GameObject prompterState = default;
@@ -23,8 +19,8 @@ namespace Immerse
         [SerializeField] private GameObject loseState = default;
 
         private VideoViewer videoViewer;
-        private Prompter prompter;
         private GameObject doneState;
+        private Prompter prompter;
 
         private void Awake()
         {
@@ -50,7 +46,15 @@ namespace Immerse
 
         private void OnBlame(bool won)
         {
-            PlayVideo(gameOverVideo, won ? wonState : loseState);
+            PlayVideo(closingVideo, won ? wonState : loseState);
+        }
+
+        /// <summary>
+        /// Called by Button.
+        /// </summary>
+        public void StartGame() 
+        {
+            PlayVideo(openingVideo, gameplayState);
         }
 
         private void OnVideoDone()
@@ -71,14 +75,14 @@ namespace Immerse
 
         private void OnPrompt(Prompter.Option[] options, GameObject doneState)
         {
-            stateHandler.Open(prompterState.gameObject);
-            this.doneState = doneState;
+            stateHandler.Open(prompterState);
             prompter.DisplayPrompt(options);
+            this.doneState = doneState;
         }
 
         private void PlayVideo(VideoClip clip, GameObject doneState) 
         {
-            stateHandler.Open(videoState.gameObject);
+            stateHandler.Open(videoState);
             videoViewer.Play(clip);
             this.doneState = doneState;
         }

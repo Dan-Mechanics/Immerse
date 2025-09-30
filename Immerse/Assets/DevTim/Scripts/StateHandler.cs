@@ -7,7 +7,7 @@ namespace Immerse
     public class StateHandler : MonoBehaviour
     {
         [SerializeField] private List<GameObject> parents = default;
-        //[SerializeField] private GameObject startingParent = default;
+        [SerializeField] private GameObject startingParent = default;
 
         private readonly List<StateWrapper> wrappers = new List<StateWrapper>();
         private StateWrapper current;
@@ -23,16 +23,18 @@ namespace Immerse
                 this.states = states;
             }
 
-            public void Open() 
+            public void Open()
             {
                 go.SetActive(true);
                 states.ForEach(x => x.EnterState());
             }
 
-            public void Close() 
+            public void Close()
             {
                 states.ForEach(x => x.ExitState());
-                go.SetActive(false);
+
+                if (go != null) 
+                    go.SetActive(false);
             }
         }
 
@@ -43,10 +45,15 @@ namespace Immerse
                 wrappers.Add(new StateWrapper(go, new List<State>()));
                 List<State> states = go.GetComponentsInChildren<State>().ToList();
                 states.ForEach(x => wrappers[^1].states.Add(x));
+                go.SetActive(true);
             }
         }
 
-        private void Start() => CloseAll();
+        private void Start() 
+        {
+            CloseAll();
+            Open(startingParent);
+        }
 
         private void CloseAll()
         {

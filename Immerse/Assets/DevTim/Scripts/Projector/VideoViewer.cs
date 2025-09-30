@@ -46,8 +46,10 @@ namespace Immerse
         public override void ExitState()
         {
             base.ExitState();
-            Cursor.visible = false;
-            videoPlayer.Stop();
+            Cursor.visible = true;
+
+            if (videoPlayer != null)
+                videoPlayer.Stop();
         }
     }
 }

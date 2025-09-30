@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    /// <summary>
-    /// This is also where i wanna add the setup behaviour or i should call that Grid.cs
-    /// </summary>
     public class Blame : State
     {
         public event Action<bool> OnBlame;
@@ -57,11 +54,11 @@ namespace Immerse
             timer.OnNewTime -= OnNewTime;
         }
 
-        private void OnNewTime(TimeSpan timeSpan)
+        private void OnNewTime(int minutes, int seconds)
         {
-            textWriter.Write(timeSpan.ToString());
+            textWriter.Write($"{minutes}:{seconds}");
 
-            if (timeSpan.TotalMinutes >= forceBlameMinutes)
+            if (minutes >= forceBlameMinutes)
                 ForceBlame();
         }
 
@@ -85,7 +82,7 @@ namespace Immerse
 
         private void OnAnswer(int index)
         {
-            // VALID ANSWER.
+            // CHECK VALID ANSWER.
             if (index >= 0 && index < actors.Length)
                 OnBlame?.Invoke(actors[index] == murderer);
         }

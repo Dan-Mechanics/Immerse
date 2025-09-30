@@ -45,6 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueEvents:
-  - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
   - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
   - {fileID: 11400000, guid: 857a6b9c17c7ff4438a6789aaf35b297, type: 2}
+  - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
+  - {fileID: 11400000, guid: e4cc2c3527bbe1c4485bb60ef4bc1131, type: 2}
+  - {fileID: 11400000, guid: 325bf023ef99e8646a4475bc5ce31387, type: 2}
+  - {fileID: 11400000, guid: c611aa0886995a94e895406a79ee51fd, type: 2}
+  - {fileID: 11400000, guid: 17553e10c5825ae499c6c0b628ac793b, type: 2}
+  - {fileID: 11400000, guid: d9af2fdf7a3234a4dad86fbd34dfd7ef, type: 2}
+  - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
+  actors:
+  - {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
+  - {fileID: 11400000, guid: 12039df34cd079946a5dcbcb8002eb58, type: 2}
