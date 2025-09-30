@@ -13,22 +13,22 @@ namespace Immerse
         [SerializeField] private AudioSource source = default;
 
         private float doneTime;
-
-        /// <summary>
-        /// ??
-        /// </summary>
-        private void Start() => ExitState();
-
+        
         public override void ExitState()
         {
             base.ExitState();
+            iconText.text = string.Empty;
+            lerper.Send(true);
+
+            if (textWriter != null)
+                textWriter.Write(string.Empty);
+
+            if (source == null)
+                return;
+
             source.playOnAwake = false;
             source.dopplerLevel = 0f;
             source.Stop();
-            iconText.text = string.Empty;
-
-            lerper.Send(true);
-            textWriter.Write(string.Empty);
         }
 
         public override void DoTick()

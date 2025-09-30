@@ -3444,6 +3444,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: displayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5399289692029953120, guid: 3f4c6dd26e8300941a85d8c434b4d83e, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399289692029953120, guid: 3f4c6dd26e8300941a85d8c434b4d83e, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3584,7 +3592,7 @@ PrefabInstance:
     - target: {fileID: 321227990286053968, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: startingParent
       value: 
-      objectReference: {fileID: 332866110}
+      objectReference: {fileID: 173168254}
     - target: {fileID: 321227990286053968, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: parents.Array.data[0]
       value: 

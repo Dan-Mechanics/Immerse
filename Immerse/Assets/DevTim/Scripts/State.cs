@@ -9,10 +9,10 @@ namespace Immerse
     /// </summary>
     public abstract class State : MonoBehaviour
     {
-        public virtual void EnterState() { print($"EnterState() --> [{gameObject.name}]"); }
-        //public virtual void ExitState() { print($"ExitState() --> '{gameObject.name}'."); }
+        public virtual void EnterState() { print($"EnterState() --> [{gameObject.name}{this}]"); }
         public virtual void ExitState() { }
         public virtual void DoTick() { }
         public virtual void DoFrame() { }
+        private void OnDestroy() => ExitState();
     }
 }

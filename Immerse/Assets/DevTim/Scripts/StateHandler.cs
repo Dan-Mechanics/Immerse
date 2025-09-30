@@ -9,15 +9,15 @@ namespace Immerse
         [SerializeField] private List<GameObject> parents = default;
         [SerializeField] private GameObject startingParent = default;
 
-        private readonly List<StateWrapper> wrappers = new List<StateWrapper>();
-        private StateWrapper current;
+        private readonly List<Wrapper> wrappers = new List<Wrapper>();
+        private Wrapper current;
 
-        private class StateWrapper
+        public class Wrapper
         {
             public GameObject go;
             public List<State> states;
 
-            public StateWrapper(GameObject go, List<State> states)
+            public Wrapper(GameObject go, List<State> states)
             {
                 this.go = go;
                 this.states = states;
@@ -42,7 +42,7 @@ namespace Immerse
         {
             foreach (GameObject go in parents)
             {
-                wrappers.Add(new StateWrapper(go, new List<State>()));
+                wrappers.Add(new Wrapper(go, new List<State>()));
                 List<State> states = go.GetComponentsInChildren<State>().ToList();
                 states.ForEach(x => wrappers[^1].states.Add(x));
                 go.SetActive(true);
@@ -81,7 +81,7 @@ namespace Immerse
             if (!parents.Contains(go))
                 return;
 
-            foreach (StateWrapper wrapper in wrappers)
+            foreach (Wrapper wrapper in wrappers)
             {
                 if (wrapper.go != go)
                     continue;
@@ -91,7 +91,5 @@ namespace Immerse
                 return;
             }
         }
-
-        private void OnDestroy() => CloseAll();
     }
 }

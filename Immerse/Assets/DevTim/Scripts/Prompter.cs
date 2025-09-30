@@ -15,6 +15,7 @@ namespace Immerse
         [SerializeField] private float verticalSpacing;
 
         private readonly List<GameObject> spawned = new List<GameObject>();
+        private readonly List<State> states = new List<State>();
 
         [Serializable]
         public struct Option
@@ -44,6 +45,20 @@ namespace Immerse
             {
                 SpawnOption(options[i], i);
             }
+
+            states.ForEach(x => x.EnterState());
+        }
+
+        public override void DoFrame()
+        {
+            base.DoFrame();
+            states.ForEach(x => x.DoFrame());
+        }
+
+        public override void DoTick()
+        {
+            base.DoTick();
+            states.ForEach(x => x.DoTick());
         }
 
         private void SpawnOption(Option option, int i)
@@ -59,13 +74,22 @@ namespace Immerse
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
             go.GetComponent<Lerper>().Send(false);
+
+            states.AddRange(go.GetComponentsInChildren<State>());
+
             spawned.Add(go);
         }
 
         private void DestroyPrompts() 
         {
-            spawned.ForEach(x => x.GetComponent<Button>().onClick.RemoveAllListeners());
-            spawned.ForEach(x => Destroy(x));
+            foreach (GameObject go in spawned)
+            {
+                go.GetComponent<Button>().onClick.RemoveAllListeners();
+                //wrapper.states.Remove(go.GetComponent<State>());
+                Destroy(go);
+            }
+
+            states.Clear();
             spawned.Clear();
         }
     }

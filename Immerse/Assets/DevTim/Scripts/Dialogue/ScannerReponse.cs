@@ -21,10 +21,7 @@ namespace Immerse
             prompter.OnAnswer += OnAnswer;
         }
 
-        private void OnDestroy()
-        {
-            prompter.OnAnswer -= OnAnswer;
-        }
+        private void Start() => OnNewScan("Intro");
 
         public override void EnterState()
         {
@@ -70,6 +67,11 @@ namespace Immerse
 
             displayer.Display(holder.DialogueEvents[name]);
             return true;
+        }
+
+        private void OnDestroy()
+        {
+            prompter.OnAnswer -= OnAnswer;
         }
     }
 }

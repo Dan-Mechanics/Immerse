@@ -34,7 +34,7 @@ namespace Immerse
             lerpers.ForEach(x => x.Send(!showingNotes));
         }
 
-        private void ToggleNotepad() 
+        public void ToggleNotepad() 
         {
             showingNotes = !showingNotes;
 
