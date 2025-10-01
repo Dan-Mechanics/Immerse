@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,10 +28,8 @@ namespace Immerse
 
         public void DisplayPrompt(Option[] options) 
         {
-            /*foreach (var listener in OnAnswer.GetInvocationList())
-            {
-                OnAnswer -= (Action<int>)listener;
-            }*/
+            // REMOVE ALL PREVIOUS.
+            OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
 
             DestroyPrompts();
             SpawnOptions(options);

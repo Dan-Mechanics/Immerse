@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ namespace Immerse
     public class Blame : Behaviour
     {
         public event Action<bool> OnBlame;
-        public event Action<Prompter.Option[], GameObject> OnPrompt;
+        public event Action<Prompter.Option[], GameObject> OnRequestPrompt;
         private List<Actor> Actors => holder.Actors;
 
         [SerializeField] private GameObject gameplayState = default;
@@ -25,7 +24,6 @@ namespace Immerse
 
         private Prompter.Option[] blameOptionsCancel;
         private Prompter.Option[] blameOptions;
-
         private bool hasStarted;
 
         private void Awake()
@@ -47,8 +45,9 @@ namespace Immerse
             timer.OnNewTime += OnNewTime;
         }
 
-        private void OnDestroy()
+        public override void OnDestroy()
         {
+            base.OnDestroy();
             prompter.OnAnswer -= OnAnswer;
             timer.OnNewTime -= OnNewTime;
         }
@@ -91,13 +90,13 @@ namespace Immerse
 
         private void AskBlame()
         {
-            OnPrompt?.Invoke(blameOptionsCancel, gameplayState);
+            OnRequestPrompt?.Invoke(blameOptionsCancel, gameplayState);
             prompter.OnAnswer += OnAnswer;
         }
 
         private void ForceBlame()
         {
-            OnPrompt?.Invoke(blameOptions, null);
+            OnRequestPrompt?.Invoke(blameOptions, null);
             prompter.OnAnswer += OnAnswer;
         }
     }

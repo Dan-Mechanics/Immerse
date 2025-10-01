@@ -13,6 +13,6 @@ namespace Immerse
         public virtual void ExitState() { }
         public virtual void DoTick() { }
         public virtual void DoFrame() { }
-        private void OnDestroy() => ExitState();
+        public virtual void OnDestroy() { ExitState(); }
     }
 }

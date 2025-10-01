@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Immerse
@@ -28,10 +27,9 @@ namespace Immerse
             videoViewer.OnVideoDone += OnVideoDone;
 
             prompter = prompterState.GetComponentInChildren<Prompter>();
-            prompter.OnAnswer += OnAnswer;
+            scannerResponse.OnRequestPrompt += OnRequestPrompt;
+            blame.OnRequestPrompt += OnRequestPrompt;
 
-            scannerResponse.OnPrompt += OnPrompt;
-            blame.OnPrompt += OnPrompt;
             blame.OnBlame += OnBlame;
         }
 
@@ -39,8 +37,8 @@ namespace Immerse
         {
             videoViewer.OnVideoDone -= OnVideoDone;
             prompter.OnAnswer -= OnAnswer;
-            scannerResponse.OnPrompt -= OnPrompt;
-            blame.OnPrompt -= OnPrompt;
+            scannerResponse.OnRequestPrompt -= OnRequestPrompt;
+            blame.OnRequestPrompt -= OnRequestPrompt;
             blame.OnBlame -= OnBlame;
         }
 
@@ -67,16 +65,19 @@ namespace Immerse
 
         private void OnAnswer(int answer)
         {
+            prompter.OnAnswer -= OnAnswer;
+
             if (doneState == null)
                 return;
 
             stateHandler.Open(doneState);
         }
 
-        private void OnPrompt(Prompter.Option[] options, GameObject doneState)
+        private void OnRequestPrompt(Prompter.Option[] options, GameObject doneState)
         {
             stateHandler.Open(prompterState);
             prompter.DisplayPrompt(options);
+            prompter.OnAnswer += OnAnswer;
             this.doneState = doneState;
         }
 

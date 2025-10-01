@@ -10,13 +10,12 @@ namespace Immerse
     {
         public const float INTERVAL = 0.05f;
 
-        [SerializeField] private bool simpleReadFromSetup = default;
+        [SerializeField] private string startingMessage = default;
 
         private readonly StringBuilder builder = new StringBuilder();
         private WaitForSeconds delay;
         private TMP_Text text;
-
-        private string currentlyWritingMessage;
+        private string message;
 
         private void Awake()
         {
@@ -24,22 +23,17 @@ namespace Immerse
             delay = new WaitForSeconds(INTERVAL);
         }
 
-        private void Start()
-        {
-            if (simpleReadFromSetup)
-            {
-                Debug.LogWarning($"Writing '{text.text}' on {gameObject.name}.");
-                Write(text.text);
-                return;
-            }
-
-            SetToStartingPoint();
-        }
-
         public override void ExitState()
         {
             base.ExitState();
             SetToStartingPoint();
+        }
+
+        public override void EnterState()
+        {
+            base.EnterState();
+            if (!string.IsNullOrEmpty(startingMessage) && !string.IsNullOrWhiteSpace(startingMessage))
+                Write(startingMessage);
         }
 
         /// <summary>
@@ -61,7 +55,7 @@ namespace Immerse
             if (string.IsNullOrWhiteSpace(message))
                 return;
 
-            currentlyWritingMessage = message;
+            this.message = message;
             StartCoroutine(WriteDelayed());
         }
 
@@ -69,22 +63,22 @@ namespace Immerse
         {
             StopAllCoroutines();
             builder.Clear();
-            currentlyWritingMessage = string.Empty;
-            text.text = string.Empty;
+            message = string.Empty;
+            text.text = message;
         }
 
         private IEnumerator WriteDelayed()
         {
-            for (int i = 0; i < currentlyWritingMessage.Length; i++)
+            for (int i = 0; i < message.Length; i++)
             {
                 yield return delay;
-                builder.Append(currentlyWritingMessage[i]);
+                builder.Append(message[i]);
                 text.text = builder.ToString();
             }
 
             builder.Clear();
-            text.text = currentlyWritingMessage;
-            currentlyWritingMessage = string.Empty;
+            text.text = message;
+            message = string.Empty;
         }
     }
 }

@@ -48,7 +48,7 @@ MonoBehaviour:
   scannerResponse: {fileID: 0}
   blame: {fileID: 0}
   openingVideo: {fileID: 32900000, guid: ed426d560e2f37b42a99a3079f9bf4dd, type: 3}
-  closingVideo: {fileID: 32900000, guid: ced950793baa50b42b1f035e61890e2a, type: 3}
+  closingVideo: {fileID: 32900000, guid: ed426d560e2f37b42a99a3079f9bf4dd, type: 3}
   gameplayState: {fileID: 0}
   prompterState: {fileID: 0}
   videoState: {fileID: 0}
