@@ -47,7 +47,7 @@ namespace Immerse
 
         private void OnAnswer(int index)
         {
-            if(scannedActor == null)
+            if(scannedActor != null)
                 CheckDialogue(scannedActor.dialogueEvents[index].name);
 
             prompter.OnAnswer -= OnAnswer;
@@ -65,10 +65,10 @@ namespace Immerse
                 return;
 
             scannedActor = holder.ActorsDict[name];
-            for (int i = 0; i < interviewQuestions.Length; i++)
+            /*for (int i = 0; i < interviewQuestions.Length; i++)
             {
                 interviewQuestions[i].icon = scannedActor.icon;
-            }
+            }*/
 
             OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
             prompter.OnAnswer += OnAnswer;

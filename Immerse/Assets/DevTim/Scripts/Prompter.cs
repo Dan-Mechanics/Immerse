@@ -11,7 +11,7 @@ namespace Immerse
     {
         public event Action<int> OnAnswer;
         
-        [SerializeField] private Transform background = default;
+        [SerializeField] private Transform promptHolder = default;
         [SerializeField] private GameObject promptPrefab = default;
         [SerializeField] private float verticalSpacing;
 
@@ -67,7 +67,7 @@ namespace Immerse
 
         private void SpawnOption(Option option, int i)
         {
-            GameObject go = Instantiate(promptPrefab, background);
+            GameObject go = Instantiate(promptPrefab, promptHolder);
             RectTransform rect = go.GetComponent<RectTransform>();
             go.transform.localPosition = Vector3.zero;
             go.transform.localRotation = Quaternion.identity;

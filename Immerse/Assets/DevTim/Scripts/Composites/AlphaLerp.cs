@@ -12,6 +12,12 @@ namespace Immerse
 
         private void Awake() => canvasGroup = GetComponent<CanvasGroup>();
 
+        public override void EnterState()
+        {
+            base.EnterState();
+            canvasGroup.alpha = 1f;
+        }
+
         public override void DoTick()
         {
             base.DoTick();
