@@ -7,7 +7,9 @@ todo next:
  2. make a behavoiur on the endscreen that allows for easy reset with just R, this behaviour cant be in default because like memes/
  3. present no-text video only idea to the crew
  4. more UI improvements
-
+ 5. check the exit and enter state if those make sense or work without if statements ??
+ 6. make devlog video again
+ 
 
 
 ===
