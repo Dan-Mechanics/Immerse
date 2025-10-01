@@ -11,6 +11,7 @@ namespace Immerse
         [SerializeField] private Lerper lerper = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
+        [SerializeField, Min(0.1f)] private float textBoxTrailTime = default;
 
         private float doneTime;
         
@@ -48,7 +49,7 @@ namespace Immerse
             icon.sprite = dialogue.actor.icon;
             textWriter.Write(dialogue.script);
             iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
-            doneTime = Time.time + dialogue.script.Length * TextWriter.INTERVAL;
+            doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
 
             print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }

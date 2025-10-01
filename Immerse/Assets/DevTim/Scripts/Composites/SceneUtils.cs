@@ -10,10 +10,7 @@ namespace Immerse
             if (Input.GetKeyDown(KeyCode.Escape))
                 Application.Quit();
 
-            if (!Input.GetKey(KeyCode.Mouse4))
-                return;
-
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

@@ -16,13 +16,13 @@ namespace Immerse
         [SerializeField] private Prompter.Option[] interviewQuestions = default;
 
         private Actor scannedActor;
+        private bool alreadyOpened;
 
-        private void Start() 
+        private void Awake() 
         {
-            OnNewScan("Intro");
-
             for (int i = 0; i < interviewQuestions.Length; i++)
             {
+                // REPLACE THE NAME TOKEN.
                 interviewQuestions[i].text = interviewQuestions[i].text.Replace("[naam]", FirstUpper(victim.name));
             }
         }
@@ -37,6 +37,11 @@ namespace Immerse
         {
             base.EnterState();
             scanner.OnNewScan += OnNewScan;
+
+            if (!alreadyOpened)
+                OnNewScan("Intro");
+
+            alreadyOpened = true;
         }
 
         public override void ExitState()

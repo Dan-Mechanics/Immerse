@@ -32,13 +32,13 @@ namespace Immerse
             Destroy(preview);
             videoPlayer.clip = clip;
             videoPlayer.Play();
+            Cursor.visible = false;
             doneTime = Time.time + (float)clip.length;
         }
 
         public override void EnterState()
         {
             base.EnterState();
-            Cursor.visible = false;
             doneTime = 0f;
             videoPlayer.Stop();
         }

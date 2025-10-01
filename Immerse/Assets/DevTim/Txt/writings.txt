@@ -1,3 +1,18 @@
+1 okt:
+
+make better intro video yoooo
+
+todo next:
+ 1. make the endscreen a little more modular ?
+ 2. make a behavoiur on the endscreen that allows for easy reset with just R, this behaviour cant be in default because like memes/
+ 3. present no-text video only idea to the crew
+ 4. more UI improvements
+
+
+
+===
+
+
 29 sep:
 next thing to do: make the state system work so you can reset
 without having to reset the scene is cool work.
