@@ -12,9 +12,9 @@ namespace Immerse
 
         private void Awake() => canvasGroup = GetComponent<CanvasGroup>();
 
-        public override void EnterState()
+        public override void Open()
         {
-            base.EnterState();
+            base.Open();
             canvasGroup.alpha = 1f;
         }
 

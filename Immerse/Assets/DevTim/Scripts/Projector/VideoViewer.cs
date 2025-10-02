@@ -4,7 +4,7 @@ using UnityEngine.Video;
 
 namespace Immerse
 {
-    public class VideoViewer : Behaviour
+    public class VideoViewer : StateElement
     {
         public event Action OnVideoDone;
         
@@ -24,6 +24,7 @@ namespace Immerse
                 return;
 
             OnVideoDone?.Invoke();
+            doneTime = -1f;
         }
 
         public void Play(VideoClip clip)
@@ -36,20 +37,12 @@ namespace Immerse
             doneTime = Time.time + (float)clip.length;
         }
 
-        public override void EnterState()
+        public override void Close()
         {
-            base.EnterState();
-            doneTime = 0f;
-            videoPlayer.Stop();
-        }
-
-        public override void ExitState()
-        {
-            base.ExitState();
+            base.Close();
             Cursor.visible = true;
-
-            if (videoPlayer != null)
-                videoPlayer.Stop();
+            videoPlayer.Stop();
+            doneTime = -1f;
         }
     }
 }

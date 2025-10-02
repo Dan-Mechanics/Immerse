@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public abstract class Lerper : Behaviour
+    public abstract class Lerper : StateElement
     {
         [SerializeField] protected float lerpSpeed = default;
         [SerializeField] protected bool showingFirst = default;

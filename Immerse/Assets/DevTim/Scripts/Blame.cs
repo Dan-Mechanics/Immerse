@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Blame : Behaviour
+    public class Blame : StateElement
     {
         public event Action<bool> OnBlame;
         public event Action<Prompter.Option[], GameObject> OnRequestPrompt;
@@ -40,16 +40,6 @@ namespace Immerse
             }
 
             blameOptionsCancel[^1] = cancel;
-
-            //prompter.OnAnswer += OnAnswer;
-            timer.OnNewTime += OnNewTime;
-        }
-
-        public override void OnDestroy()
-        {
-            base.OnDestroy();
-            prompter.OnAnswer -= OnAnswer;
-            timer.OnNewTime -= OnNewTime;
         }
 
         private void OnNewTime(int minutes, int seconds)
@@ -60,23 +50,24 @@ namespace Immerse
                 ForceBlame();
         }
 
-        public override void EnterState()
+        public override void Open()
         {
-            base.EnterState();
+            base.Open();
             blameButton.onClick.AddListener(AskBlame);
+            timer.OnNewTime += OnNewTime;
 
             if (!hasStarted)
-            {
                 timer.Begin();
-                hasStarted = true;
-            }
+
+            hasStarted = true;
         }
 
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             blameButton.onClick.RemoveAllListeners();
             prompter.OnAnswer -= OnAnswer;
+            timer.OnNewTime -= OnNewTime;
         }
 
         private void OnAnswer(int index)

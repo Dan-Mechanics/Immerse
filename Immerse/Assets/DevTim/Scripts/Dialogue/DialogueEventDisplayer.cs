@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class DialogueEventDisplayer : Behaviour
+    public class DialogueEventDisplayer : StateElement
     {
         [SerializeField] private Image icon = default;
         [SerializeField] private TextWriter textWriter = default;
@@ -15,20 +15,14 @@ namespace Immerse
 
         private float doneTime;
         
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             iconText.text = string.Empty;
-           // lerper.Send(true);
             doneTime = 0f;
             lerper.Force();
 
-            if (textWriter != null)
-                textWriter.Write(string.Empty);
-
-
-            if (source == null)
-                return;
+            textWriter.Write(string.Empty);
 
             source.playOnAwake = false;
             source.dopplerLevel = 0f;

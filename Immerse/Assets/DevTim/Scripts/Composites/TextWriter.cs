@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Immerse
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TextWriter : Behaviour
+    public class TextWriter : StateElement
     {
         public const float INTERVAL = 0.05f;
 
@@ -23,15 +23,15 @@ namespace Immerse
             delay = new WaitForSeconds(INTERVAL);
         }
 
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             SetToStartingPoint();
         }
 
-        public override void EnterState()
+        public override void Open()
         {
-            base.EnterState();
+            base.Open();
             if (!string.IsNullOrEmpty(startingMessage) && !string.IsNullOrWhiteSpace(startingMessage))
                 Write(startingMessage);
         }

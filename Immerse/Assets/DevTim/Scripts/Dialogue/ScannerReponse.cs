@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class ScannerResponse : Behaviour
+    public class ScannerResponse : StateElement
     {
         public Action<Prompter.Option[], GameObject> OnRequestPrompt;
         
@@ -16,7 +16,7 @@ namespace Immerse
         [SerializeField] private Prompter.Option[] interviewQuestions = default;
 
         private Actor scannedActor;
-        private bool alreadyOpened;
+        private bool hasStarted;
 
         private void Awake() 
         {
@@ -33,20 +33,20 @@ namespace Immerse
             return str;
         }
 
-        public override void EnterState()
+        public override void Open()
         {
-            base.EnterState();
+            base.Open();
             scanner.OnNewScan += OnNewScan;
 
-            if (!alreadyOpened)
+            if (!hasStarted)
                 OnNewScan("Intro");
 
-            alreadyOpened = true;
+            hasStarted = true;
         }
 
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             scanner.OnNewScan -= OnNewScan;
         }
 

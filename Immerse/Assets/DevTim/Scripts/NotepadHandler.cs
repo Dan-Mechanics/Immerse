@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class NotepadHandler : Behaviour
+    public class NotepadHandler : StateElement
     {
         [SerializeField] private TMP_InputField inputField = default;
         [SerializeField] private EventSystem eventSystem = default;
@@ -15,15 +15,15 @@ namespace Immerse
 
         private bool showingNotes;
 
-        public override void EnterState()
+        public override void Open()
         {
-            base.EnterState();
+            base.Open();
             toggleNotepadButton.onClick.AddListener(ToggleNotepad);
         }
 
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             toggleNotepadButton.onClick.RemoveAllListeners();
         }
 

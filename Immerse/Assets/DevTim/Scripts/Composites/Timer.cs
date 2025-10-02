@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class Timer : Behaviour
+    public class Timer : StateElement
     {
         public event Action<int, int> OnNewTime;
 
@@ -13,15 +13,15 @@ namespace Immerse
         public void Begin() 
         {
             startingPoint = DateTime.Now;
-            EnterState();
+            Open();
         }
 
-        public override void EnterState()
+        public override void Open()
         {
             InvokeRepeating(nameof(Tick), 0f, invokeInterval);
         }
 
-        public override void ExitState()
+        public override void Close()
         {
             CancelInvoke(nameof(Tick));
         }

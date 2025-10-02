@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Prompter : Behaviour
+    public class Prompter : StateElement
     {
         public event Action<int> OnAnswer;
         
@@ -16,7 +16,7 @@ namespace Immerse
         [SerializeField] private float verticalSpacing;
 
         private readonly List<GameObject> spawned = new List<GameObject>();
-        private readonly List<Behaviour> promptBehaviours = new List<Behaviour>();
+        private readonly List<StateElement> promptBehaviours = new List<StateElement>();
 
         [Serializable]
         public struct Option
@@ -28,18 +28,15 @@ namespace Immerse
 
         public void DisplayPrompt(Option[] options) 
         {
-            // REMOVE ALL PREVIOUS.
-            OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
-
             DestroyPrompts();
             SpawnOptions(options);
         }
 
         private void GiveAnswer(int answer) => OnAnswer?.Invoke(answer);
 
-        public override void ExitState()
+        public override void Close()
         {
-            base.ExitState();
+            base.Close();
             DestroyPrompts();
         }
 
@@ -50,7 +47,7 @@ namespace Immerse
                 SpawnOption(options[i], i);
             }
 
-            promptBehaviours.ForEach(x => x.EnterState());
+            promptBehaviours.ForEach(x => x.Open());
         }
 
         public override void DoFrame()
@@ -79,17 +76,18 @@ namespace Immerse
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
             go.GetComponent<Lerper>().Send(false);
 
-            promptBehaviours.AddRange(go.GetComponentsInChildren<Behaviour>());
+            promptBehaviours.AddRange(go.GetComponentsInChildren<StateElement>());
 
             spawned.Add(go);
         }
 
         /// <summary>
-        /// Don't have to call ExitState() on the promptBehaviours
-        /// because the destroy() handles that.
+        /// Remove all previous.
         /// </summary>
         private void DestroyPrompts() 
         {
+            OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
+
             foreach (GameObject go in spawned)
             {
                 go.GetComponent<Button>().onClick.RemoveAllListeners();

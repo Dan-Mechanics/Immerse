@@ -14,38 +14,36 @@ namespace Immerse
 
         public class State
         {
-            public GameObject go;
-            public List<Behaviour> behaviours;
+            public GameObject parent;
+            public List<StateElement> elements;
 
-            public State(GameObject go, List<Behaviour> behaviours)
+            public State(GameObject parent, List<StateElement> elements)
             {
-                this.go = go;
-                this.behaviours = behaviours;
+                this.parent = parent;
+                this.elements = elements;
             }
 
             public void Open()
             {
-                go.SetActive(true);
-                behaviours.ForEach(x => x.EnterState());
+                parent.SetActive(true);
+                elements.ForEach(x => x.Open());
             }
 
             public void Close()
             {
-                behaviours.ForEach(x => x.ExitState());
-
-                if (go != null) 
-                    go.SetActive(false);
+                elements.ForEach(x => x.Close());
+                parent.SetActive(false);
             }
         }
 
         private void Awake()
         {
-            foreach (GameObject go in parents)
+            foreach (GameObject parent in parents)
             {
-                this.states.Add(new State(go, new List<Behaviour>()));
-                List<Behaviour> states = go.GetComponentsInChildren<Behaviour>().ToList();
-                states.ForEach(x => this.states[^1].behaviours.Add(x));
-                go.SetActive(true);
+                this.states.Add(new State(parent, new List<StateElement>()));
+                List<StateElement> states = parent.GetComponentsInChildren<StateElement>().ToList();
+                states.ForEach(x => this.states[^1].elements.Add(x));
+                parent.SetActive(true);
             }
         }
 
@@ -63,27 +61,27 @@ namespace Immerse
 
         private void Update()
         {
-            current?.behaviours.ForEach(x => x.DoFrame());
+            current?.elements.ForEach(x => x.DoFrame());
         }
 
         private void FixedUpdate()
         {
-            current?.behaviours.ForEach(x => x.DoTick());
+            current?.elements.ForEach(x => x.DoTick());
         }
 
-        public void Open(GameObject go)
+        public void Open(GameObject parent)
         {
             current?.Close();
             
-            if (go == null)
+            if (parent == null)
                 return;
 
-            if (!parents.Contains(go))
+            if (!parents.Contains(parent))
                 return;
 
             foreach (State wrapper in states)
             {
-                if (wrapper.go != go)
+                if (wrapper.parent != parent)
                     continue;
 
                 wrapper.Open();
