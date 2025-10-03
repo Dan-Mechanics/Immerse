@@ -20,7 +20,7 @@ namespace Immerse
         /// Example code for invoking OnNewScan.
         /// </summary>
         private void Update()
-        {   
+        {
             if (!Input.GetKey(KeyCode.Mouse3) && !Input.GetKey(KeyCode.Mouse4))
                 return;
 
