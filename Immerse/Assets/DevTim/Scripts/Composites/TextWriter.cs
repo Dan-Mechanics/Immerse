@@ -32,6 +32,7 @@ namespace Immerse
         public override void Open()
         {
             base.Open();
+
             if (!string.IsNullOrEmpty(startingMessage) && !string.IsNullOrWhiteSpace(startingMessage))
                 Write(startingMessage);
         }
@@ -42,10 +43,7 @@ namespace Immerse
         public void Write(string message)
         {
             if (!gameObject.activeInHierarchy)
-            {
-                Debug.LogWarning($"Tried to write '{message}' on {gameObject.name} while it was inactive ...");
                 return;
-            }
 
             SetToStartingPoint();
 
@@ -80,5 +78,8 @@ namespace Immerse
             text.text = message;
             message = string.Empty;
         }
+
+        public void SetColor(Color color) => text.color = color;
+        public void SetStartupMessage(string startingMessage) => this.startingMessage = startingMessage;
     }
 }

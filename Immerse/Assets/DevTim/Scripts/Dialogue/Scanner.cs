@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+// using UnityEngine.Windows.Speech; 
 
 namespace Immerse
 {
@@ -9,15 +10,17 @@ namespace Immerse
     public class Scanner : MonoBehaviour
     {
         /// <summary>
-        /// Or make this an int, it doesn't really matter.
-        /// The string here is the name of the thing being scanned.
+        /// I would prefer if the int inputs
+        /// would be first translated to names
+        /// but it would work either way.
         /// </summary>
         public event Action<string> OnNewScan;
 
-        // Code here that invokes OnNewScan.
-
+        /// <summary>
+        /// Example code for invoking OnNewScan.
+        /// </summary>
         private void Update()
-        {
+        {   
             if (!Input.GetKey(KeyCode.Mouse3) && !Input.GetKey(KeyCode.Mouse4))
                 return;
 

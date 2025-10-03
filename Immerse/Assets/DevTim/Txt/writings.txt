@@ -3,13 +3,20 @@
 make better intro video yoooo
 
 todo next:
- 1. make the endscreen a little more modular ?
- 2. make a behavoiur on the endscreen that allows for easy reset with just R, this behaviour cant be in default because like memes/
- 3. present no-text video only idea to the crew
- 4. more UI improvements
- 5. check the exit and enter state if those make sense or work without if statements ??
- 6. make devlog video again
+ V make the endscreen a little more modular ?
+ V make a behavoiur on the endscreen that allows for easy reset with just R, this behaviour cant be in default because like memes/
+ V present no-text video only idea to the crew
+ V check the exit and enter state if those make sense or work without if statements ??
  
+ 4. more UI improvements ?? what does this mean ?
+ V make devlog video again
+ 8. pivot to video only meme
+ 9. --> see if you can have C# speech recognition meme in unity??? --> https://www.youtube.com/watch?v=29vyEOgsW8s
+ 10. check indviudel opdrachten.
+
+ V make the shit work with ints
+ V ask team abt 6 makey makey inputs
+ V read ab test ideas.
 
 
 ===
@@ -28,7 +35,7 @@ and then build again and then maybe film video and then start on pure video proj
 
 
 28 sep:
-note this project currently has a little bit of techncial debt.
+ V note this project currently has a little bit of techncial debt.
 
 
 ===
@@ -36,10 +43,10 @@ note this project currently has a little bit of techncial debt.
 todos:
 
 V maak script import systeem
-2. make textwrtier SOLID
-3. maak scene beter visual wise
-4. test of het allemaal werkt
-5. etc etc
+V make textwrtier SOLID
+V maak scene beter visual wise
+V test of het allemaal werkt
+V etc etc
 
 ik hoop echt dat dit vak genoeg dev uren heeft anders ga ik lowkey
 portrets maken chat.

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: f0fa95b5d7bb57546b0f9cfc5ec45fc3, type: 3}
   description: Crunches the numbers.
-  dialogueEvents:
+  id: 0
+  dialogue:
   - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
   - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
   - {fileID: 11400000, guid: 325bf023ef99e8646a4475bc5ce31387, type: 2}

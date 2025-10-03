@@ -7,13 +7,14 @@ namespace Immerse
 {
     public class Blame : StateElement
     {
+        private List<Actor> Actors => holder.Actors;
         public event Action<bool> OnBlame;
         public event Action<Prompter.Option[], GameObject> OnRequestPrompt;
-        private List<Actor> Actors => holder.Actors;
 
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
         [SerializeField] private Timer timer = default;
+        [SerializeField] private CanvasGroup altBackgroundCanvas = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
@@ -45,6 +46,9 @@ namespace Immerse
         private void OnNewTime(int minutes, int seconds)
         {
             textWriter.Write($"{minutes}:{seconds}");
+
+            float totalTime = minutes + (seconds / 60f);
+            altBackgroundCanvas.alpha = Mathf.Clamp01(totalTime / forceBlameMinutes);
 
             if (minutes >= forceBlameMinutes)
                 ForceBlame();

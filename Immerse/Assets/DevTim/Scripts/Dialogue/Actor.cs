@@ -7,6 +7,7 @@ namespace Immerse
     {
         public Sprite icon;
         public string description;
-        public DialogueEvent[] dialogueEvents;
+        public int id;
+        public DialogueEvent[] dialogue;
     }
 }

@@ -36,10 +36,10 @@ namespace Immerse
         public override void Open()
         {
             base.Open();
-            scanner.OnNewScan += OnNewScan;
+            scanner.OnNewScan += OnScanString;
 
             if (!hasStarted)
-                OnNewScan("Intro");
+                OnScanString("Intro");
 
             hasStarted = true;
         }
@@ -47,44 +47,69 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            scanner.OnNewScan -= OnNewScan;
+            scanner.OnNewScan -= OnScanString;
         }
 
         private void OnAnswer(int index)
         {
-            if(scannedActor != null)
-                CheckDialogue(scannedActor.dialogueEvents[index].name);
+            if (scannedActor != null && holder.DialogueDict.ContainsKey(scannedActor.dialogue[index].name))
+                displayer.Display(scannedActor.dialogue[index]);
 
             prompter.OnAnswer -= OnAnswer;
         }
 
-        private void OnNewScan(string name)
+        /// <summary>
+        /// The reason im not using the index
+        /// in the array is because that is less flexible.
+        /// </summary>
+        private void OnScanInt(int id)
         {
-            print($"Scanned '{scanner}'.");
+            print($"{gameObject} scanned '{id}'.");
 
-            // WE FOUND DIALOGUE, LEAVE THE REST.
-            if (CheckDialogue(name))
-                return;
-
-            if (!holder.ActorsDict.ContainsKey(name))
-                return;
-
-            scannedActor = holder.ActorsDict[name];
-            /*for (int i = 0; i < interviewQuestions.Length; i++)
+            foreach (Actor actor in holder.Actors)
             {
-                interviewQuestions[i].icon = scannedActor.icon;
-            }*/
+                if (actor.id != id)
+                    continue;
 
-            OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
-            prompter.OnAnswer += OnAnswer;
+                scannedActor = actor;
+                OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
+                prompter.OnAnswer += OnAnswer;
+                return;
+            }
+
+            foreach (DialogueEvent dialogueEvent in holder.Dialogue)
+            {
+                if (dialogueEvent.id != id)
+                    continue;
+
+                displayer.Display(dialogueEvent);
+                return;
+            }
         }
 
-        private bool CheckDialogue(string name)
+        private void OnScanString(string name)
         {
-            if (!holder.DialogueEventsDict.ContainsKey(name))
+            Debug.LogWarning($"Scanned '{name}'.");
+
+            // WE FOUND ACTOR, LEAVE THE REST.
+            if (HasActor(name))
+                return;
+
+            //Debug.LogWarning($"222 Scanned '{name}'.");
+
+            if (holder.DialogueDict.ContainsKey(name))
+                displayer.Display(holder.DialogueDict[name]);
+        }
+
+        private bool HasActor(string name)
+        {
+            if (!holder.ActorsDict.ContainsKey(name))
                 return false;
 
-            displayer.Display(holder.DialogueEventsDict[name]);
+            scannedActor = holder.ActorsDict[name];
+            Debug.LogWarning($"222 Scanned '{name}'.");
+            OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
+            prompter.OnAnswer += OnAnswer;
             return true;
         }
 
