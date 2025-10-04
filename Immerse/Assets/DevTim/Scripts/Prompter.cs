@@ -13,10 +13,12 @@ namespace Immerse
         
         [SerializeField] private Transform promptHolder = default;
         [SerializeField] private GameObject promptPrefab = default;
+        [SerializeField] private VoiceRecognition voiceRecognition = default;
         [SerializeField] private float verticalSpacing;
 
         private readonly List<GameObject> spawned = new List<GameObject>();
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
+        private int optionsCount;
 
         [Serializable]
         public struct Option
@@ -30,13 +32,29 @@ namespace Immerse
         {
             DestroyPrompts();
             SpawnOptions(options);
+
+            optionsCount = options.Length;
+            string[] phrases = new string[optionsCount];
+            for (int i = 0; i < phrases.Length; i++)
+            {
+                phrases[i] = options[i].text;
+            }
+
+            voiceRecognition.Begin(phrases);
         }
 
-        private void GiveAnswer(int answer) => OnAnswer?.Invoke(answer);
+        private void GiveAnswer(int answer) 
+        {
+            if (answer < 0 || answer >= optionsCount)
+                return;
+
+            OnAnswer?.Invoke(answer);
+        }
 
         public override void Close()
         {
             base.Close();
+            voiceRecognition.OnAnswer -= GiveAnswer;
             DestroyPrompts();
         }
 
@@ -48,6 +66,12 @@ namespace Immerse
             }
 
             promptBehaviours.ForEach(x => x.Open());
+        }
+
+        public override void Open()
+        {
+            base.Open();
+            voiceRecognition.OnAnswer += GiveAnswer;
         }
 
         public override void DoFrame()

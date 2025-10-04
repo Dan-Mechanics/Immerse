@@ -513,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &469969719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -526,6 +526,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1989985329}
   - {fileID: 908752996}
   - {fileID: 1519656951}
   - {fileID: 755552354}
@@ -2301,6 +2302,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1989985327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989985329}
+  - component: {fileID: 1989985328}
+  m_Layer: 0
+  m_Name: voice_recognition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1989985328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989985327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cf9660f10f3f540a1ba98ae1d6ddf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1989985329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989985327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 469969719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997093797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2844,10 @@ PrefabInstance:
       propertyPath: promptHolder
       value: 
       objectReference: {fileID: 461443751}
+    - target: {fileID: 6971605022282813450, guid: 47177827b99bef04a9a2860e93a64358, type: 3}
+      propertyPath: voiceRecognition
+      value: 
+      objectReference: {fileID: 1989985328}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2990,6 +3039,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 643c032f5efbc514293cdac9472b555f, type: 3}
     - target: {fileID: 7683184853370064948, guid: 0258c9ad40ff05e4ab6ce2efbfbc7235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683184853370064948, guid: 0258c9ad40ff05e4ab6ce2efbfbc7235, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 140270804}
@@ -3142,18 +3195,6 @@ PrefabInstance:
       value: game_manager
       objectReference: {fileID: 0}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
-      propertyPath: blame
-      value: 
-      objectReference: {fileID: 140270804}
-    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
-      propertyPath: wonState
-      value: 
-      objectReference: {fileID: 1581563037}
-    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
-      propertyPath: loseState
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: videoState
       value: 
       objectReference: {fileID: 332866110}
@@ -3173,10 +3214,6 @@ PrefabInstance:
       propertyPath: endScreenState
       value: 
       objectReference: {fileID: 1581563037}
-    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
-      propertyPath: scannerResponse
-      value: 
-      objectReference: {fileID: 9147991552012753224}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3696,39 +3733,47 @@ PrefabInstance:
       objectReference: {fileID: 173168254}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[0].icon
       value: 
-      objectReference: {fileID: 21300000, guid: 5162526230548564881055bf5b14a659, type: 3}
+      objectReference: {fileID: 21300000, guid: ed001cc0662cb064a995f9e8d88945b2, type: 3}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[0].text
-      value: Waar was je op het moment van de moord?
+      value: 'Waar was jij op het moment van de moord? '
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[1].icon
       value: 
-      objectReference: {fileID: 21300000, guid: c2d9d41f69614d749a4fefc1eac9bb57, type: 3}
+      objectReference: {fileID: 21300000, guid: 28c289235c7e9774e86ac5176711a525, type: 3}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[1].text
-      value: Heeft u wat gezien of gehoord op het moment van de moord?
+      value: 'Heb je iets verdachts gehoord of gezien? '
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[2].icon
       value: 
-      objectReference: {fileID: 21300000, guid: 28c289235c7e9774e86ac5176711a525, type: 3}
+      objectReference: {fileID: 21300000, guid: c2d9d41f69614d749a4fefc1eac9bb57, type: 3}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[2].text
-      value: Wat is je relatie met [naam]?
+      value: Wat was jouw relatie met het slachtoffer?
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[3].icon
       value: 
-      objectReference: {fileID: 21300000, guid: 8a68ee7c701a02e4c8f233d57c042db1, type: 3}
+      objectReference: {fileID: 21300000, guid: 5162526230548564881055bf5b14a659, type: 3}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[3].text
-      value: Had u ruzie met [naam]?
+      value: Ik heb iets gevonden.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a68ee7c701a02e4c8f233d57c042db1, type: 3}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].text
+      value: Beschuldiging.
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[1].color.a
@@ -3776,6 +3821,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[3].color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: interviewQuestions.Array.data[4].color.r
       value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 4108826302290114726, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
@@ -3832,17 +3893,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4678440113919536525, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
   m_PrefabInstance: {fileID: 9147991552012753222}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9147991552012753224 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-  m_PrefabInstance: {fileID: 9147991552012753222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34495eef7e85b044488598fccc738aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -9,18 +9,10 @@ namespace Immerse
     /// </summary>
     public abstract class StateElement : MonoBehaviour
     {
-        public virtual void Open() 
-        {
-            print($"Open() --> [{gameObject.name}{this}]");
-        }
-
-        public virtual void Close() { }
+        public virtual void Open() => print($"<b><color=green>Open() --> [{gameObject.name}].</color></b>");
+        public virtual void Close() => print($"<b><color=red>Close() --> [{gameObject.name}].</color></b>");
         public virtual void DoTick() { }
         public virtual void DoFrame() { }
-
-        public virtual void OnDestroy()
-        {
-            Close();
-        }
+        public virtual void OnDestroy() => Close();
     }
 }

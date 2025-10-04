@@ -89,7 +89,7 @@ namespace Immerse
 
         private void OnScanString(string name)
         {
-            Debug.LogWarning($"Scanned '{name}'.");
+            print($"Scanned '{name}'.");
 
             // WE FOUND ACTOR, LEAVE THE REST.
             if (HasActor(name))
@@ -107,7 +107,6 @@ namespace Immerse
                 return false;
 
             scannedActor = holder.ActorsDict[name];
-            Debug.LogWarning($"222 Scanned '{name}'.");
             OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
             prompter.OnAnswer += OnAnswer;
             return true;
