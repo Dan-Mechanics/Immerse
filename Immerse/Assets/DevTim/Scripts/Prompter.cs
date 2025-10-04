@@ -92,7 +92,7 @@ namespace Immerse
             RectTransform rect = go.GetComponent<RectTransform>();
             go.transform.localPosition = Vector3.zero;
             go.transform.localRotation = Quaternion.identity;
-            rect.anchoredPosition = Vector2.zero + (i * verticalSpacing * Vector2.down);
+            rect.anchoredPosition = Vector2.up * verticalSpacing + (i * verticalSpacing * Vector2.down);
 
             go.GetComponent<Image>().color = option.color;
             go.GetComponentInChildren<TMP_Text>().text = option.text;
