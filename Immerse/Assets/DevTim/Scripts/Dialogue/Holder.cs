@@ -19,8 +19,14 @@ namespace Immerse
 
         private void Awake()
         {
+            for (int i = 0; i < actors.Count; i++)
+            {
+                actors[i].index = i;
+            }
+            
             dialogueEvents.ForEach(x => DialogueDict.Add(x.name, x));
             actors.ForEach(x => ActorsDict.Add(x.name, x));
+
         }
     }
 }

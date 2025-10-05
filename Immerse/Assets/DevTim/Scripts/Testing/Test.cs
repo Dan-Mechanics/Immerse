@@ -5,18 +5,16 @@ using UnityEngine.Windows.Speech;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField]
-    private string[] m_Keywords;
-
+    [SerializeField] private string[] m_Keywords;
     [SerializeField] private AudioClip clip;
 
-    private KeywordRecognizer m_Recognizer;
+    private KeywordRecognizer recognizer;
 
-    void Start()
+    private void Start()
     {
-        m_Recognizer = new KeywordRecognizer(m_Keywords);
-        m_Recognizer.OnPhraseRecognized += OnPhraseRecognized;
-        m_Recognizer.Start();
+        recognizer = new KeywordRecognizer(m_Keywords);
+        recognizer.OnPhraseRecognized += OnPhraseRecognized;
+        recognizer.Start();
     }
 
     private void OnPhraseRecognized(PhraseRecognizedEventArgs args)

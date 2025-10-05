@@ -6,7 +6,8 @@ namespace Immerse
     public class ScannerResponse : StateElement
     {
         public Action<Prompter.Option[], GameObject> OnRequestPrompt;
-        
+        public Action<int> OnBlameActorIndex;
+
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor victim = default;
         [SerializeField] private Scanner scanner = default;
@@ -52,17 +53,29 @@ namespace Immerse
 
         private void OnAnswer(int index)
         {
-            if (scannedActor != null && holder.DialogueDict.ContainsKey(scannedActor.dialogue[index].name))
-                displayer.Display(scannedActor.dialogue[index]);
-
             prompter.OnAnswer -= OnAnswer;
+
+            if (scannedActor == null)
+                return;
+
+            if (index < 0)
+                return;
+
+            if (index < scannedActor.dialogue.Length)
+            {
+                displayer.Display(scannedActor.dialogue[index]);
+            }
+            else 
+            {
+                OnBlameActorIndex?.Invoke(scannedActor.index);
+            }
         }
 
         /// <summary>
         /// The reason im not using the index
         /// in the array is because that is less flexible.
         /// </summary>
-        private void OnScanInt(int id)
+        /*private void OnScanInt(int id)
         {
             print($"{gameObject} scanned '{id}'.");
 
@@ -85,7 +98,7 @@ namespace Immerse
                 displayer.Display(dialogueEvent);
                 return;
             }
-        }
+        }*/
 
         private void OnScanString(string name)
         {

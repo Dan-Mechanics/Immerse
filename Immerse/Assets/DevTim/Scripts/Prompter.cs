@@ -13,12 +13,30 @@ namespace Immerse
         
         [SerializeField] private Transform promptHolder = default;
         [SerializeField] private GameObject promptPrefab = default;
-        [SerializeField] private VoiceRecognition voiceRecognition = default;
-        [SerializeField] private float verticalSpacing;
+        [SerializeField] private float verticalSpacing = default;
 
         private readonly List<GameObject> spawned = new List<GameObject>();
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
+        private Keyboard keyboardInput;
         private int optionsCount;
+        private readonly char[] alpha = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
+
+        /// <summary>
+        /// OR DO 1234.
+        /// </summary>
+        private class Keyboard 
+        {
+            public int DoFrame(char[] alpha)
+            {
+                for (int i = 0; i < alpha.Length; i++)
+                {
+                    if (Input.GetKeyDown(alpha[i].ToString()))
+                        return i;
+                }
+
+                return -1;
+            }
+        }
 
         [Serializable]
         public struct Option
@@ -40,7 +58,7 @@ namespace Immerse
                 phrases[i] = options[i].text;
             }
 
-            voiceRecognition.Begin(phrases);
+            keyboardInput = new Keyboard();
         }
 
         private void GiveAnswer(int answer) 
@@ -54,7 +72,6 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            voiceRecognition.OnAnswer -= GiveAnswer;
             DestroyPrompts();
         }
 
@@ -68,15 +85,13 @@ namespace Immerse
             promptBehaviours.ForEach(x => x.Open());
         }
 
-        public override void Open()
-        {
-            base.Open();
-            voiceRecognition.OnAnswer += GiveAnswer;
-        }
-
         public override void DoFrame()
         {
             base.DoFrame();
+            
+            if (keyboardInput != null)
+                GiveAnswer(keyboardInput.DoFrame(alpha));
+
             promptBehaviours.ForEach(x => x.DoFrame());
         }
 
@@ -95,7 +110,7 @@ namespace Immerse
             rect.anchoredPosition = Vector2.up * verticalSpacing + (i * verticalSpacing * Vector2.down);
 
             go.GetComponent<Image>().color = option.color;
-            go.GetComponentInChildren<TMP_Text>().text = option.text;
+            go.GetComponentInChildren<TMP_Text>().text = alpha[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
             go.GetComponent<Lerper>().Send(false);
@@ -111,6 +126,7 @@ namespace Immerse
         private void DestroyPrompts() 
         {
             OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
+            keyboardInput = null;
 
             foreach (GameObject go in spawned)
             {

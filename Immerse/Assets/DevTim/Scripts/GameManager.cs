@@ -31,6 +31,7 @@ namespace Immerse
             
             scannerResponse = gameplayState.GetComponentInChildren<ScannerResponse>();
             scannerResponse.OnRequestPrompt += OnRequestPrompt;
+            scannerResponse.OnBlameActorIndex += blame.BlameActorIndex;
 
             videoViewer = videoState.GetComponentInChildren<VideoViewer>();
             videoViewer.OnVideoDone += OnVideoDone;
@@ -43,6 +44,7 @@ namespace Immerse
             videoViewer.OnVideoDone -= OnVideoDone;
             prompter.OnAnswer -= OnAnswer;
             scannerResponse.OnRequestPrompt -= OnRequestPrompt;
+            scannerResponse.OnBlameActorIndex -= blame.BlameActorIndex;
             blame.OnRequestPrompt -= OnRequestPrompt;
             blame.OnBlame -= OnBlame;
         }

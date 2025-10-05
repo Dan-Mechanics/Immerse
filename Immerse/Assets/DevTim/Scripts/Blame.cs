@@ -70,29 +70,29 @@ namespace Immerse
         {
             base.Close();
             blameButton.onClick.RemoveAllListeners();
-            prompter.OnAnswer -= OnAnswer;
+            prompter.OnAnswer -= BlameActorIndex;
             timer.OnNewTime -= OnNewTime;
         }
 
-        private void OnAnswer(int index)
+        public void BlameActorIndex(int index)
         {
             // CHECK VALID ANSWER.
             if (index >= 0 && index < Actors.Count)
                 OnBlame?.Invoke(Actors[index] == murderer);
 
-            prompter.OnAnswer -= OnAnswer;
+            prompter.OnAnswer -= BlameActorIndex;
         }
 
         private void AskBlame()
         {
             OnRequestPrompt?.Invoke(blameOptionsCancel, gameplayState);
-            prompter.OnAnswer += OnAnswer;
+            prompter.OnAnswer += BlameActorIndex;
         }
 
         private void ForceBlame()
         {
             OnRequestPrompt?.Invoke(blameOptions, null);
-            prompter.OnAnswer += OnAnswer;
+            prompter.OnAnswer += BlameActorIndex;
         }
     }
 }

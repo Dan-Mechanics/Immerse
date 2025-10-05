@@ -3770,10 +3770,10 @@ PrefabInstance:
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[4].icon
       value: 
-      objectReference: {fileID: 21300000, guid: 8a68ee7c701a02e4c8f233d57c042db1, type: 3}
+      objectReference: {fileID: 21300000, guid: 643c032f5efbc514293cdac9472b555f, type: 3}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[4].text
-      value: Beschuldiging.
+      value: Beschuldigen.
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[1].color.a
@@ -3829,15 +3829,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[4].color.b
-      value: 0.8301887
+      value: 0.83137256
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[4].color.g
-      value: 0.8301887
+      value: 0.83137256
       objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: interviewQuestions.Array.data[4].color.r
-      value: 0.8301887
+      value: 0.83137256
       objectReference: {fileID: 0}
     - target: {fileID: 4108826302290114726, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: m_Name
