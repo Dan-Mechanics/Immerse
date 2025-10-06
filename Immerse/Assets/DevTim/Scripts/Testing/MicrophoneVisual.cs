@@ -8,39 +8,96 @@ namespace Immerse
 {
     /// <summary>
     /// https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Microphone.html
+    /// https://discussions.unity.com/t/check-current-microphone-input-volume/474574/17
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
-        public AudioSource source;
-        public float volume;
-        public Transform gui;
+        [SerializeField] private Transform gui = default;
+        [SerializeField] private float scaleFactor = default;
+        
+        private float volume;
+        private const int SAMPLE_WINDOW = 128;
+        private AudioClip clip;
 
-        void Start()
+        /// <summary>
+        /// NULL means first microphone.
+        /// </summary>
+        private readonly string device = null;
+        bool hasStarted;
+
+        public void StartMicrophone()
         {
-            foreach (var item in Microphone.devices)
-            {
-                print(item);
-            }
-            
-            
-            AudioSource audioSource = GetComponent<AudioSource>();
-            source.clip = Microphone.Start(Microphone.devices[0], true, 1, 44100);
-            source.Play();
+            /*if (device == null)
+                device = Microphone.devices[0];*/
+
+            clip = Microphone.Start(device, true, 999, 44100);
+            hasStarted = true;
         }
 
-        private void FixedUpdate()
+        public void StopMicrophone()
         {
-            float[] data = new float[735];
-            source.GetOutputData(data, 0);
-            //take the median of the recorded samples
-            ArrayList s = new ArrayList();
-            foreach (float f in data)
+            Microphone.End(device);
+            hasStarted = false;
+        }
+
+        private float GetVolume()
+        {
+            float levelMax = 0f;
+            float[] waveData = new float[SAMPLE_WINDOW];
+            int micPosition = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
+
+            if (micPosition < 0) 
+                return 0;
+
+            clip.GetData(waveData, micPosition);
+
+            for (int i = 0; i < SAMPLE_WINDOW; i++)
             {
-                s.Add(Mathf.Abs(f));
+                float wavePeak = waveData[i] * waveData[i];
+                if (levelMax < wavePeak)
+                {
+                    levelMax = wavePeak;
+                }
             }
-            s.Sort();
-            volume = (float)s[735 / 2];
-            gui.localScale = 10f * volume * Vector3.one;
+
+            return levelMax;
+        }
+
+        public override void DoTick()
+        {
+            base.DoTick();
+
+            if (!hasStarted)
+                return;
+
+            volume = GetVolume();
+            gui.localScale = volume * scaleFactor * Vector3.one;
+        }
+
+        public override void Open()
+        {
+            base.Open();
+            StartMicrophone();
+        }
+
+        public override void Close()
+        {
+            base.Close();
+            StopMicrophone();
+        }
+
+        private void OnApplicationFocus(bool focus)
+        {
+            print(focus ? "focus" : "unfocus");
+
+            if (!focus)
+            {
+                StopMicrophone();
+                return;
+            }
+
+            if (!hasStarted)
+                StartMicrophone();
         }
     }
 }
