@@ -1,53 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Audio;
 
 namespace Immerse
 {
     /// <summary>
-    /// https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Microphone.html
     /// https://discussions.unity.com/t/check-current-microphone-input-volume/474574/17
+    /// https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Microphone.html
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
-        [SerializeField] private Transform gui = default;
-        [SerializeField] private float scaleFactor = default;
-        
-        private float volume;
         private const int SAMPLE_WINDOW = 128;
-        private AudioClip clip;
 
-        /// <summary>
-        /// NULL means first microphone.
-        /// </summary>
-        private readonly string device = null;
+        [SerializeField] private Transform gui = default;
+        [SerializeField] private string device = default;
+
+        [Header("Visual")]
+        [SerializeField] private float scaleFactor = default;
+        [SerializeField] private float rotationFactor = default;
+        [SerializeField] private float offset = default;
+        [SerializeField] private float lerpFactor = default;
+
+        private AudioClip clip;
+        private float volume;
         bool hasStarted;
 
-        public void StartMicrophone()
+        private void Awake()
+        {
+            foreach (string mic in Microphone.devices)
+            {
+                print($"{mic}.");
+            }
+        }
+
+        private void StartMicrophone()
         {
             /*if (device == null)
                 device = Microphone.devices[0];*/
 
             clip = Microphone.Start(device, true, 999, 44100);
             hasStarted = true;
+            print("Start mic.");
         }
 
-        public void StopMicrophone()
+        private void StopMicrophone()
         {
             Microphone.End(device);
             hasStarted = false;
+            print("Stop mic.");
         }
 
-        private float GetVolume()
+        /// <summary>
+        /// TODO: use av instead of peak?
+        /// </summary>
+        private float GetPeakVolume()
         {
-            float levelMax = 0f;
-            float[] waveData = new float[SAMPLE_WINDOW];
             int micPosition = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
-
             if (micPosition < 0) 
                 return 0;
+
+            float[] waveData = new float[SAMPLE_WINDOW];
+            float levelMax = 0f;
 
             clip.GetData(waveData, micPosition);
 
@@ -55,9 +66,7 @@ namespace Immerse
             {
                 float wavePeak = waveData[i] * waveData[i];
                 if (levelMax < wavePeak)
-                {
                     levelMax = wavePeak;
-                }
             }
 
             return levelMax;
@@ -70,8 +79,29 @@ namespace Immerse
             if (!hasStarted)
                 return;
 
-            volume = GetVolume();
+            volume = Mathf.Lerp(volume, GetUsableVolume(), lerpFactor);
+
             gui.localScale = volume * scaleFactor * Vector3.one;
+            gui.Rotate(rotationFactor * volume * Vector3.forward, Space.World);
+        }
+
+        private float GetUsableVolume() 
+        {
+            float usable = offset + ConvertToDecibels(GetPeakVolume());
+            if (usable < 0f)
+                usable = 0f;
+
+            return usable;
+        }
+
+        private float ConvertToDecibels(float volume)
+        {
+            float db = 20f * Mathf.Log10(Mathf.Abs(volume));
+
+            if (float.IsNegativeInfinity(db) || float.IsInfinity(db))
+                return 0f;
+
+            return db;
         }
 
         public override void Open()
@@ -88,8 +118,7 @@ namespace Immerse
 
         private void OnApplicationFocus(bool focus)
         {
-            print(focus ? "focus" : "unfocus");
-
+            print(focus ? "Focus." : "Unfocus.");
             if (!focus)
             {
                 StopMicrophone();

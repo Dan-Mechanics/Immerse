@@ -25,12 +25,14 @@ namespace Immerse
 
             public void Open()
             {
+                print($"<b><color=green>Open() --> [{parent.name}].</color></b>");
                 parent.SetActive(true);
                 elements.ForEach(x => x.Open());
             }
 
             public void Close()
             {
+                print($"<b><color=red>Close() --> [{parent.name}].</color></b>");
                 elements.ForEach(x => x.Close());
                 parent.SetActive(false);
             }
