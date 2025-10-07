@@ -8,6 +8,7 @@ namespace Immerse
         public Action<Prompter.Option[], GameObject> OnRequestPrompt;
         public Action<int> OnBlameActorIndex;
 
+        [SerializeField] private Questions ab = default;
         [SerializeField] private Holder holder = default;
         //[SerializeField] private Actor victim = default;
         [SerializeField] private Scanner scanner = default;
@@ -21,6 +22,8 @@ namespace Immerse
 
         private void Awake() 
         {
+            print(ab.Length);
+
             for (int i = 0; i < interviewQuestions.Length; i++)
             {
                 // REPLACE THE NAME TOKEN.
