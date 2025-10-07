@@ -14,7 +14,7 @@ namespace Immerse
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
         [SerializeField] private Timer timer = default;
-        [SerializeField] private CanvasGroup altBackgroundCanvas = default;
+      //  [SerializeField] private CanvasGroup altBackgroundCanvas = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;

@@ -9,7 +9,7 @@ namespace Immerse
         public Action<int> OnBlameActorIndex;
 
         [SerializeField] private Holder holder = default;
-        [SerializeField] private Actor victim = default;
+        //[SerializeField] private Actor victim = default;
         [SerializeField] private Scanner scanner = default;
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
@@ -24,7 +24,7 @@ namespace Immerse
             for (int i = 0; i < interviewQuestions.Length; i++)
             {
                 // REPLACE THE NAME TOKEN.
-                interviewQuestions[i].text = interviewQuestions[i].text.Replace("[naam]", FirstUpper(victim.name));
+                //interviewQuestions[i].text = interviewQuestions[i].text.Replace("[naam]", FirstUpper(victim.name));
 
                 if (i >= interviewQuestions.Length - 1)
                     return;
@@ -34,11 +34,11 @@ namespace Immerse
             }
         }
 
-        private string FirstUpper(string str)
+        /*private string FirstUpper(string str)
         {
             str = str[0].ToString().ToUpperInvariant() + str.AsSpan(1).ToString();
             return str;
-        }
+        }*/
 
         public override void Open()
         {

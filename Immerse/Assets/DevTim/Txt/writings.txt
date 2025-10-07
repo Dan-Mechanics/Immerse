@@ -1,3 +1,9 @@
+7 okt:
+
+sidenote: it might be good to make the customizing of 
+prompt questions a little more modular and it migjht also
+be good to have ui mask on the shit.
+
 5 okt:
 
 central theme: poppenhuis die tot leven ( pun ) komt.
