@@ -7,7 +7,7 @@ namespace Immerse
     {
         public AudioClip clip;
         public string script;
-        [HideInInspector] public Actor actor;
+        public Actor actor;
 
         /*private void OnValidate()
         {
