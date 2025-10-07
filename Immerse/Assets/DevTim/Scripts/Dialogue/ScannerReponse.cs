@@ -67,7 +67,7 @@ namespace Immerse
             if (index < 0)
                 return;
 
-            if (index < scannedActor.dialogue.Length)
+            if (index != interviewQuestions.Length - 1)
             {
                 displayer.Display(scannedActor.dialogue[index]);
             }

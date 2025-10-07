@@ -15,8 +15,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e4e350bf0b64f2348a5553b1bf16f01d, type: 3}
   description: CEO.
   dialogue:
-  - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
-  - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
-  - {fileID: 11400000, guid: 325bf023ef99e8646a4475bc5ce31387, type: 2}
-  - {fileID: 11400000, guid: 17553e10c5825ae499c6c0b628ac793b, type: 2}
+  - {fileID: 11400000, guid: 84a4942fa5dbfa64694e61586d7161c1, type: 2}
+  - {fileID: 11400000, guid: 913823e11abe6494db62e763fdef17fd, type: 2}
+  - {fileID: 11400000, guid: f30569a481740e841a085bfdaa4b53f8, type: 2}
+  - {fileID: 11400000, guid: 99ec5a11d1b5afe488332fb5bb07c157, type: 2}
   index: 0

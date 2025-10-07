@@ -47,8 +47,8 @@ namespace Immerse
         {
             textWriter.Write($"{minutes}:{seconds}");
 
-            float totalTime = minutes + (seconds / 60f);
-            altBackgroundCanvas.alpha = Mathf.Clamp01(totalTime / forceBlameMinutes);
+            //float totalTime = minutes + (seconds / 60f);
+            //altBackgroundCanvas.alpha = Mathf.Clamp01(totalTime / forceBlameMinutes);
 
             if (minutes >= forceBlameMinutes)
                 ForceBlame();

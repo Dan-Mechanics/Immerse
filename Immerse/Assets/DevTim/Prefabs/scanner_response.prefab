@@ -45,11 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
+  victim: {fileID: 11400000, guid: fe872cff6e1872341affa912c025b811, type: 2}
   scanner: {fileID: 0}
   gameplayState: {fileID: 0}
   displayer: {fileID: 0}
   prompter: {fileID: 0}
   interviewQuestions:
-  - text: 
+  - text: 'Waar was jij op het moment van de moord? '
     color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ed001cc0662cb064a995f9e8d88945b2, type: 3}
+  - text: 'Heb je iets verdachts gehoord of gezien? '
+    color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+    icon: {fileID: 21300000, guid: 28c289235c7e9774e86ac5176711a525, type: 3}
+  - text: Wat was jouw relatie met het slachtoffer?
+    color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+    icon: {fileID: 21300000, guid: c2d9d41f69614d749a4fefc1eac9bb57, type: 3}
+  - text: Beschuldigen.
+    color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+    icon: {fileID: 21300000, guid: 643c032f5efbc514293cdac9472b555f, type: 3}
