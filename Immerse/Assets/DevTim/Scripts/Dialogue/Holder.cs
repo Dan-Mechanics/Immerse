@@ -22,6 +22,11 @@ namespace Immerse
             for (int i = 0; i < actors.Count; i++)
             {
                 actors[i].index = i;
+
+                for (int j = 0; j < actors[i].dialogue.Length; j++)
+                {
+                    actors[i].dialogue[j].actor = actors[i];
+                }
             }
             
             dialogueEvents.ForEach(x => DialogueDict.Add(x.name, x));

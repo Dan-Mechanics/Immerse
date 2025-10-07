@@ -22,6 +22,7 @@ namespace Immerse
         private AudioClip clip;
         private float volume;
         bool hasStarted;
+        private bool inState;
 
         private void Awake()
         {
@@ -108,16 +109,21 @@ namespace Immerse
         {
             base.Open();
             StartMicrophone();
+            inState = true;
         }
 
         public override void Close()
         {
             base.Close();
+            inState = false;
             StopMicrophone();
         }
 
         private void OnApplicationFocus(bool focus)
         {
+            if (!inState)
+                return;
+            
             print(focus ? "Focus." : "Unfocus.");
             if (!focus)
             {

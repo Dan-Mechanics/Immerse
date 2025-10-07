@@ -14,6 +14,7 @@ namespace Immerse
         [SerializeField] private Transform promptHolder = default;
         [SerializeField] private GameObject promptPrefab = default;
         [SerializeField] private float verticalSpacing = default;
+        [SerializeField] private bool debugMakePromptsInvisible = default; 
 
         private readonly List<GameObject> spawned = new List<GameObject>();
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
@@ -48,6 +49,9 @@ namespace Immerse
 
         public void DisplayPrompt(Option[] options) 
         {
+            if (debugMakePromptsInvisible)
+                Debug.LogWarning("debugMakePromptsInvisible = true");
+            
             DestroyPrompts();
             SpawnOptions(options);
 
@@ -118,6 +122,9 @@ namespace Immerse
             promptBehaviours.AddRange(go.GetComponentsInChildren<StateElement>());
 
             spawned.Add(go);
+
+            if (debugMakePromptsInvisible)
+                go.SetActive(false);
         }
 
         /// <summary>

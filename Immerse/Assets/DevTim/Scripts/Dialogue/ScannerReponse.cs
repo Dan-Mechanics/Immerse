@@ -25,6 +25,12 @@ namespace Immerse
             {
                 // REPLACE THE NAME TOKEN.
                 interviewQuestions[i].text = interviewQuestions[i].text.Replace("[naam]", FirstUpper(victim.name));
+
+                if (i >= interviewQuestions.Length - 1)
+                    return;
+
+                Color color = Color.Lerp(Color.red, Color.magenta, (float)i / (interviewQuestions.Length-1));
+                interviewQuestions[i].color = Color.Lerp(interviewQuestions[i].color, color, 0.25f);
             }
         }
 
@@ -37,7 +43,7 @@ namespace Immerse
         public override void Open()
         {
             base.Open();
-            scanner.OnNewScan += OnScanString;
+            scanner.OnNewScan += OnNewScan;
 
             if (!hasStarted)
                 OnScanString("Intro");
@@ -48,7 +54,7 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            scanner.OnNewScan -= OnScanString;
+            scanner.OnNewScan -= OnNewScan;
         }
 
         private void OnAnswer(int index)
@@ -71,34 +77,36 @@ namespace Immerse
             }
         }
 
-        /// <summary>
-        /// The reason im not using the index
-        /// in the array is because that is less flexible.
-        /// </summary>
-        /*private void OnScanInt(int id)
+        private void OnNewScan(int index)
         {
-            print($"{gameObject} scanned '{id}'.");
+            print($"{gameObject} scanned '{index}'.");
 
             foreach (Actor actor in holder.Actors)
             {
-                if (actor.id != id)
+                if (actor.index != index)
                     continue;
 
                 scannedActor = actor;
+
+                for (int i = 0; i < interviewQuestions.Length - 1; i++)
+                {
+                    interviewQuestions[i].icon = scannedActor.icon;
+                }
+
                 OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
                 prompter.OnAnswer += OnAnswer;
                 return;
             }
 
-            foreach (DialogueEvent dialogueEvent in holder.Dialogue)
+            /*foreach (DialogueEvent dialogueEvent in holder.Dialogue)
             {
-                if (dialogueEvent.id != id)
+                if (dialogueEvent.id != index)
                     continue;
 
                 displayer.Display(dialogueEvent);
                 return;
-            }
-        }*/
+            }*/
+        }
 
         private void OnScanString(string name)
         {

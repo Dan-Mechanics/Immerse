@@ -1,0 +1,131 @@
+﻿Intro
+=
+There appears to be a murder in this totally amazing games company.
+
+
+///
+
+
+A_marc
+=
+Dat gaat jou toch niks aan? Je bent nieuw hier… maar als je het zo nodig moest weten was ik lunch gaan halen bij de pizzeria aan de overkant.
+
+
+///
+
+
+B_marc
+=
+Als ik iets verdachts had gezien had ik het wel tegen de politie verteld, wijsneus. Maar als je zo graag de detective uit wilt hangen, zou ik beginnen bij Jeremy. Hij steekt al de hele week zijn neus in mijn zaken.
+
+
+///
+
+
+C_marc
+=
+Pedro was mijn werknemer. Niet meer, niet minder.
+
+
+///
+
+
+D_marc
+=
+PLACEHOLDER.
+
+
+///
+
+
+A_jeremy
+=
+Ik zat aan mijn bureau de laatste bugfixes te doen voor release.
+
+
+///
+
+
+B_jeremy
+=
+Pfff, ik heb een dinsdagdip dus ben er niet helemaal meer bij maar volgens mij zag ik Marc met zijn secretaresse zijn kantoor binnen sluipen.                 Oja! Pedro zag er al de hele week gestresst uit, bijna angstig. Hij vertelde me dat hij bang was dat iemand er achter kwam dat hij A.I. gebruikte om deadlines te halen.
+
+
+///
+
+
+C_jeremy
+=
+Pedro was mijn maatje, ik heb nog nooit iemand zoveel coke zien snuiven op een rave als die vent. Ik ga hem missen…
+
+
+///
+
+
+D_jeremy
+=
+PLACEHOLDER.
+
+
+///
+
+
+A_laura
+=
+Ik.. ik.. ik..                         boekhouding.                     kantoor.
+
+
+///
+
+
+B_laura
+=
+WAAROM.. WAAROM.. sorry, Pedro maakte 5.000 euro over naar Da Vinci B.V. maar kreeg diezelfde middag het geld teruggestort. Waarom zou je dat doen? 
+
+
+///
+
+
+C_laura
+=
+Pedro? wie is Pedro ook alweer?
+
+
+///
+
+
+D_laura
+=
+PLACEHOLDER.
+
+
+///
+
+
+A_leonardo
+=
+Ik was samen met Marc op z‘n kantoor, er waren wat privé dingen.
+
+
+///
+
+
+B_leonardo
+=
+Hij kwam erg vaak langs het schoonmaakhok de laatste week. Wat heeft hij hier te zoeken?
+
+
+///
+
+
+C_leonardo
+=
+Uh… gewoon, normaal? We zeiden hallo soms, maar ik kende ‘m niet echt.
+
+
+///
+
+
+D_leonardo
+=
+PLACEHOLDER.

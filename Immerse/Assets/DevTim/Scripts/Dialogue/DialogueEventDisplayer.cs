@@ -38,14 +38,18 @@ namespace Immerse
         public void Display(DialogueEvent dialogue)
         {
             source.Stop();
-            source.PlayOneShot(dialogue.clip);
+
+            if (dialogue.clip != null)
+            {
+                source.PlayOneShot(dialogue.clip);
+                print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
+            }
 
             icon.sprite = dialogue.actor.icon;
             textWriter.Write(dialogue.script);
             iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
             doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
 
-            print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
         }
     }
 }

@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
-  m_Name: narrator
+  m_Name: jeremy
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: c41c1dcbad4da1244ac74af50bbb03b6, type: 3}
-  description: Storyteller.
+  icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
+  description: Dev.
   dialogue:
-  - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
+  - {fileID: 11400000, guid: 5dddd50ecf72d424c9279270e7037cc3, type: 2}
+  - {fileID: 11400000, guid: 33083a1e9cf512340ae29c691e3f0710, type: 2}
+  - {fileID: 11400000, guid: 50608fee4fd9c9c4bbcf4424a8a0a4a2, type: 2}
+  - {fileID: 11400000, guid: 80ce80a7546250047a1d3b8929d76e6d, type: 2}
   index: 0

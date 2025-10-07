@@ -5,10 +5,9 @@ namespace Immerse
     [CreateAssetMenu(fileName = nameof(DialogueEvent), menuName = nameof(DialogueEvent))]
     public class DialogueEvent : ScriptableObject
     {
-        public Actor actor;
         public AudioClip clip;
-        public int id;
         public string script;
+        [HideInInspector] public Actor actor;
 
         /*private void OnValidate()
         {

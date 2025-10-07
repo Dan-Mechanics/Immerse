@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5b8735024f6534c90fc013500361a2, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  script: magenta
   actor: {fileID: 11400000, guid: fe872cff6e1872341affa912c025b811, type: 2}
-  clip: {fileID: 8300000, guid: c42d46cacc5d74940ac3e65621c254c5, type: 3}
-  script: Sample text.
