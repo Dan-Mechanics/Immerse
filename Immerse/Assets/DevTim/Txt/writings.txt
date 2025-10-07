@@ -1,4 +1,10 @@
-7 okt:
+﻿7 okt:
+
+Maak questions scriptable object zorg dat dat goed werkt
+nice colors and tools and string replacement and such.
+hope it doesnt brake all the shit.
+
+je moet ook de blame prompt kleuren fixen en al die logic and stuff.
 
 sidenote: it might be good to make the customizing of 
 prompt questions a little more modular and it migjht also
