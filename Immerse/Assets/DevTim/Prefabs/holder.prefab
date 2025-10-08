@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueEvents:
+  - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
   - {fileID: 11400000, guid: 5dddd50ecf72d424c9279270e7037cc3, type: 2}
   - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
   - {fileID: 11400000, guid: f1327da5c17487f44a785d686e13631e, type: 2}
@@ -61,7 +62,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b6b40fffdd4c9340a584e82da6300a7, type: 2}
   - {fileID: 11400000, guid: fc409162f30103348a59990f13f8468b, type: 2}
   - {fileID: 11400000, guid: 99ec5a11d1b5afe488332fb5bb07c157, type: 2}
-  - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
   actors:
   - {fileID: 11400000, guid: 1fbf41a24dbc2504e8e0bb446a09f9aa, type: 2}
   - {fileID: 11400000, guid: 517d46e3c8a0e224abbaa1f53255c65e, type: 2}

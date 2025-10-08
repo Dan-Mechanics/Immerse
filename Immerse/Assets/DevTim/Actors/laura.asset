@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
   m_Name: laura
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f5d41502b00cc7c48b3d61307524e2ad, type: 3}
+  icon: {fileID: 21300000, guid: ac603c7f76d2dc24c8cf400682f98ae3, type: 3}
   description: Accountant.
   dialogue:
   - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
   - {fileID: 11400000, guid: 857a6b9c17c7ff4438a6789aaf35b297, type: 2}
   - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
   - {fileID: 11400000, guid: 0b6b40fffdd4c9340a584e82da6300a7, type: 2}
-  index: 0
+  index: 3

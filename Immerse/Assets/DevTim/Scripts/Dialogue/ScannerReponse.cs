@@ -65,6 +65,7 @@ namespace Immerse
             if (index < holder.Actors.Count)
             {
                 scannedActor = holder.Actors[index];
+                interviewQuestion.question = $"Interview {TextWriter.FirstUpper(scannedActor.name)} ...";
                 for (int i = 0; i < interviewQuestion.options.Length - 1; i++)
                 {
                     interviewQuestion.options[i].icon = scannedActor.icon;

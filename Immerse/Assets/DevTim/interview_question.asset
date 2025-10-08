@@ -16,7 +16,7 @@ MonoBehaviour:
   processLength: 3
   saturation: 0.25
   a: {r: 1, g: 0, b: 0, a: 1}
-  b: {r: 0.99636745, g: 0, b: 1, a: 1}
+  b: {r: 1, g: 0, b: 1, a: 1}
   options:
   - text: Waar was jij op het moment van de moord?
     color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
