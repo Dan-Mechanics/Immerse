@@ -5,45 +5,24 @@ namespace Immerse
 {
     public class ScannerResponse : StateElement
     {
-        public Action<Prompter.Option[], GameObject> OnRequestPrompt;
+        public Action<Question, GameObject> OnRequestPrompt;
         public Action<int> OnBlameActorIndex;
 
         [SerializeField] private Holder holder = default;
-        //[SerializeField] private Actor victim = default;
         [SerializeField] private Scanner scanner = default;
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
         [SerializeField] private Prompter prompter = default;
-        [SerializeField] private Prompter.Option[] interviewQuestions = default;
+        [SerializeField] private Question interviewQuestion = default;
 
         private Actor scannedActor;
         private bool hasStarted;
 
-        private void Awake() 
-        {
-            for (int i = 0; i < interviewQuestions.Length; i++)
-            {
-                // REPLACE THE NAME TOKEN.
-                //interviewQuestions[i].text = interviewQuestions[i].text.Replace("[naam]", FirstUpper(victim.name));
-
-                if (i >= interviewQuestions.Length - 1)
-                    return;
-
-                Color color = Color.Lerp(Color.red, Color.magenta, (float)i / (interviewQuestions.Length-1));
-                interviewQuestions[i].color = Color.Lerp(interviewQuestions[i].color, color, 0.25f);
-            }
-        }
-
-        /*private string FirstUpper(string str)
-        {
-            str = str[0].ToString().ToUpperInvariant() + str.AsSpan(1).ToString();
-            return str;
-        }*/
-
         public override void Open()
         {
             base.Open();
-            scanner.OnNewScan += OnNewScan;
+            scanner.OnScanInt += OnScanInt;
+            scanner.OnScanString += OnScanString;
 
             if (!hasStarted)
                 OnScanString("Intro");
@@ -54,83 +33,74 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            scanner.OnNewScan -= OnNewScan;
+            scanner.OnScanInt -= OnScanInt;
+            scanner.OnScanString -= OnScanString;
         }
 
         private void OnAnswer(int index)
         {
             prompter.OnAnswer -= OnAnswer;
 
-            if (scannedActor == null)
+            if (scannedActor == null || index < 0)
                 return;
+
+            if (index == interviewQuestion.options.Length - 1)
+            {
+                // BLAME.
+                OnBlameActorIndex?.Invoke(scannedActor.index);
+            }
+            else 
+            {
+                displayer.Display(scannedActor.dialogue[index]);
+            }
+        }
+
+        private void OnScanInt(int index)
+        {
+            print($"OnScanInt {gameObject} scanned '{index}'.");
 
             if (index < 0)
                 return;
 
-            if (index != interviewQuestions.Length - 1)
+            if (index < holder.Actors.Count)
             {
-                displayer.Display(scannedActor.dialogue[index]);
-            }
-            else 
-            {
-                OnBlameActorIndex?.Invoke(scannedActor.index);
-            }
-        }
-
-        private void OnNewScan(int index)
-        {
-            print($"{gameObject} scanned '{index}'.");
-
-            foreach (Actor actor in holder.Actors)
-            {
-                if (actor.index != index)
-                    continue;
-
-                scannedActor = actor;
-
-                for (int i = 0; i < interviewQuestions.Length - 1; i++)
+                scannedActor = holder.Actors[index];
+                for (int i = 0; i < interviewQuestion.options.Length - 1; i++)
                 {
-                    interviewQuestions[i].icon = scannedActor.icon;
+                    interviewQuestion.options[i].icon = scannedActor.icon;
                 }
 
-                OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
+                OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
                 prompter.OnAnswer += OnAnswer;
                 return;
             }
 
-            /*foreach (DialogueEvent dialogueEvent in holder.Dialogue)
-            {
-                if (dialogueEvent.id != index)
-                    continue;
-
-                displayer.Display(dialogueEvent);
+            index -= holder.Actors.Count;
+            if (index >= holder.Dialogue.Count)
                 return;
-            }*/
+
+            displayer.Display(holder.Dialogue[index]);
         }
 
         private void OnScanString(string name)
         {
-            print($"Scanned '{name}'.");
+            print($"OnScanString {gameObject} scanned '{name}'.");
 
-            // WE FOUND ACTOR, LEAVE THE REST.
-            if (HasActor(name))
+            if (holder.ActorsDict.ContainsKey(name))
+            {
+                scannedActor = holder.ActorsDict[name];
+                for (int i = 0; i < interviewQuestion.options.Length - 1; i++)
+                {
+                    interviewQuestion.options[i].icon = scannedActor.icon;
+                }
+
+                OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
+                prompter.OnAnswer += OnAnswer;
                 return;
-
-            //Debug.LogWarning($"222 Scanned '{name}'.");
+            }
 
             if (holder.DialogueDict.ContainsKey(name))
                 displayer.Display(holder.DialogueDict[name]);
-        }
-
-        private bool HasActor(string name)
-        {
-            if (!holder.ActorsDict.ContainsKey(name))
-                return false;
-
-            scannedActor = holder.ActorsDict[name];
-            OnRequestPrompt?.Invoke(interviewQuestions, gameplayState);
-            prompter.OnAnswer += OnAnswer;
-            return true;
         }
 
         public override void OnDestroy()

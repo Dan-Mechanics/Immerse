@@ -5,15 +5,15 @@ namespace Immerse
 {
     public class Scanner : MonoBehaviour
     {
-        //public event Action<string> OnNewScan;
-        public event Action<int> OnNewScan;
+        public event Action<string> OnScanString;
+        public event Action<int> OnScanInt;
 
         private void Update()
         {
             for (int i = 1; i < 10; i++)
             {
                 if (Input.GetKeyDown(i.ToString()))
-                    OnNewScan?.Invoke(i - 1);
+                    OnScanInt?.Invoke(i - 1);
             }
 
             /*if (Input.GetKeyDown(KeyCode.Alpha1))

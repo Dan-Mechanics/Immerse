@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -81,5 +82,11 @@ namespace Immerse
 
         public void SetColor(Color color) => text.color = color;
         public void SetStartupMessage(string startingMessage) => this.startingMessage = startingMessage;
+
+        public static string FirstUpper(string str)
+        {
+            str = str[0].ToString().ToUpperInvariant() + str.AsSpan(1).ToString();
+            return str;
+        }
     }
 }

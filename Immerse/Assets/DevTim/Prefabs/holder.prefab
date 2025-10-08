@@ -64,7 +64,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
   actors:
   - {fileID: 11400000, guid: 1fbf41a24dbc2504e8e0bb446a09f9aa, type: 2}
-  - {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
-  - {fileID: 11400000, guid: 6746f30c0a3fd40409c46447097aeedc, type: 2}
   - {fileID: 11400000, guid: 517d46e3c8a0e224abbaa1f53255c65e, type: 2}
-  - {fileID: 11400000, guid: fe872cff6e1872341affa912c025b811, type: 2}
+  - {fileID: 11400000, guid: 6746f30c0a3fd40409c46447097aeedc, type: 2}
+  - {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}

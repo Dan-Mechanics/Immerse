@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,48 +6,37 @@ namespace Immerse
 {
     public class Blame : StateElement
     {
-        private List<Actor> Actors => holder.Actors;
         public event Action<bool> OnBlame;
-        public event Action<Prompter.Option[], GameObject> OnRequestPrompt;
+        public event Action<Question, GameObject> OnRequestPrompt;
 
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
         [SerializeField] private Timer timer = default;
-      //  [SerializeField] private CanvasGroup altBackgroundCanvas = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor murderer = default;
         [SerializeField] private float forceBlameMinutes = default;
-        [SerializeField] private Prompter.Option template = default;
-        [SerializeField] private Prompter.Option cancel = default;
+        [SerializeField] private Question softBlame = default;
+        [SerializeField] private Question forceBlame = default;
 
-        private Prompter.Option[] blameOptionsCancel;
-        private Prompter.Option[] blameOptions;
         private bool hasStarted;
 
         private void Awake()
         {
-            blameOptions = new Prompter.Option[Actors.Count];
-            blameOptionsCancel = new Prompter.Option[Actors.Count + 1];
-
-            for (int i = 0; i < blameOptions.Length; i++)
+            for (int i = 0; i < holder.Actors.Count; i++)
             {
-                blameOptions[i] = template;
-                blameOptions[i].text = $"Blame {Actors[i].name}!";
-                blameOptions[i].icon = Actors[i].icon;
-                blameOptionsCancel[i] = blameOptions[i];
-            }
+                softBlame.options[i].icon = holder.Actors[i].icon;
+                softBlame.options[i].text = $"Beschuldig {TextWriter.FirstUpper(holder.Actors[i].name)}!";
 
-            blameOptionsCancel[^1] = cancel;
+                forceBlame.options[i].icon = softBlame.options[i].icon;
+                forceBlame.options[i].text = softBlame.options[i].text;
+            }
         }
 
         private void OnNewTime(int minutes, int seconds)
         {
             textWriter.Write($"{minutes}:{seconds}");
-
-            //float totalTime = minutes + (seconds / 60f);
-            //altBackgroundCanvas.alpha = Mathf.Clamp01(totalTime / forceBlameMinutes);
 
             if (minutes >= forceBlameMinutes)
                 ForceBlame();
@@ -76,22 +64,21 @@ namespace Immerse
 
         public void BlameActorIndex(int index)
         {
-            // CHECK VALID ANSWER.
-            if (index >= 0 && index < Actors.Count)
-                OnBlame?.Invoke(Actors[index] == murderer);
+            if (index >= 0 && index < holder.Actors.Count)
+                OnBlame?.Invoke(holder.Actors[index] == murderer);
 
             prompter.OnAnswer -= BlameActorIndex;
         }
 
         private void AskBlame()
         {
-            OnRequestPrompt?.Invoke(blameOptionsCancel, gameplayState);
+            OnRequestPrompt?.Invoke(softBlame, gameplayState);
             prompter.OnAnswer += BlameActorIndex;
         }
 
         private void ForceBlame()
         {
-            OnRequestPrompt?.Invoke(blameOptions, null);
+            OnRequestPrompt?.Invoke(forceBlame, null);
             prompter.OnAnswer += BlameActorIndex;
         }
     }

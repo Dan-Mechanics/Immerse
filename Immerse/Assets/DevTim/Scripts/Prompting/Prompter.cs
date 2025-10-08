@@ -13,21 +13,18 @@ namespace Immerse
         
         [SerializeField] private Transform promptHolder = default;
         [SerializeField] private GameObject promptPrefab = default;
+        [SerializeField] private TMP_Text questionText = default;
         [SerializeField] private float verticalSpacing = default;
-        [SerializeField] private bool debugMakePromptsInvisible = default; 
 
-        private readonly List<GameObject> spawned = new List<GameObject>();
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
-        private Keyboard keyboardInput;
-        private int optionsCount;
         private readonly char[] alpha = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
+        private readonly List<GameObject> spawned = new List<GameObject>();
+        private int optionsLength;
+        private Keyboard keyboard;
 
-        /// <summary>
-        /// OR DO 1234.
-        /// </summary>
         private class Keyboard 
         {
-            public int DoFrame(char[] alpha)
+            public int Update(char[] alpha)
             {
                 for (int i = 0; i < alpha.Length; i++)
                 {
@@ -39,51 +36,41 @@ namespace Immerse
             }
         }
 
-        [Serializable]
-        public struct Option
+        public void DisplayPrompt(Question question) 
         {
-            public string text;
-            public Color color;
-            public Sprite icon;
-        }
-
-        public void DisplayPrompt(Option[] options) 
-        {
-            if (debugMakePromptsInvisible)
-                Debug.LogWarning("debugMakePromptsInvisible = true");
-            
             DestroyPrompts();
-            SpawnOptions(options);
+            SpawnOptions(question);
 
-            optionsCount = options.Length;
-            string[] phrases = new string[optionsCount];
-            for (int i = 0; i < phrases.Length; i++)
-            {
-                phrases[i] = options[i].text;
-            }
-
-            keyboardInput = new Keyboard();
+            optionsLength = question.options.Length;
+            keyboard = new Keyboard();
         }
 
         private void GiveAnswer(int answer) 
         {
-            if (answer < 0 || answer >= optionsCount)
+            if (answer < 0)
                 return;
 
+            if (answer >= optionsLength)
+                return;
+            
+            keyboard = null;
             OnAnswer?.Invoke(answer);
         }
 
         public override void Close()
         {
             base.Close();
+            keyboard = null;
             DestroyPrompts();
         }
 
-        private void SpawnOptions(Option[] options) 
+        private void SpawnOptions(Question question) 
         {
-            for (int i = 0; i < options.Length; i++)
+            questionText.text = question.question;
+
+            for (int i = 0; i < question.options.Length; i++)
             {
-                SpawnOption(options[i], i);
+                SpawnOption(question.options[i], i, question);
             }
 
             promptBehaviours.ForEach(x => x.Open());
@@ -93,8 +80,8 @@ namespace Immerse
         {
             base.DoFrame();
             
-            if (keyboardInput != null)
-                GiveAnswer(keyboardInput.DoFrame(alpha));
+            if (keyboard != null)
+                GiveAnswer(keyboard.Update(alpha));
 
             promptBehaviours.ForEach(x => x.DoFrame());
         }
@@ -105,7 +92,7 @@ namespace Immerse
             promptBehaviours.ForEach(x => x.DoTick());
         }
 
-        private void SpawnOption(Option option, int i)
+        private void SpawnOption(Option option, int i, Question question)
         {
             GameObject go = Instantiate(promptPrefab, promptHolder);
             RectTransform rect = go.GetComponent<RectTransform>();
@@ -114,6 +101,15 @@ namespace Immerse
             rect.anchoredPosition = Vector2.up * verticalSpacing + (i * verticalSpacing * Vector2.down);
 
             go.GetComponent<Image>().color = option.color;
+            if (question.saturation > 0f && i < question.processLength)
+            {
+                float lerp = 0f;
+                if (question.options.Length > 1)
+                    lerp = (float)i / (question.options.Length - 1);
+
+                go.GetComponent<Image>().color = Color.Lerp(option.color, Color.Lerp(question.a, question.b, lerp), question.saturation);
+            }
+
             go.GetComponentInChildren<TMP_Text>().text = alpha[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
@@ -122,9 +118,6 @@ namespace Immerse
             promptBehaviours.AddRange(go.GetComponentsInChildren<StateElement>());
 
             spawned.Add(go);
-
-            if (debugMakePromptsInvisible)
-                go.SetActive(false);
         }
 
         /// <summary>
@@ -133,7 +126,7 @@ namespace Immerse
         private void DestroyPrompts() 
         {
             OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
-            keyboardInput = null;
+            keyboard = null;
 
             foreach (GameObject go in spawned)
             {
