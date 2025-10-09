@@ -2953,6 +2953,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5059850058445898768}
     - target: {fileID: 153542572319245384, guid: b80bdad94c8bf9149b1da011011aed4f, type: 3}
+      propertyPath: murderer
+      value: 
+      objectReference: {fileID: 11400000, guid: 6746f30c0a3fd40409c46447097aeedc, type: 2}
+    - target: {fileID: 153542572319245384, guid: b80bdad94c8bf9149b1da011011aed4f, type: 3}
       propertyPath: prompter
       value: 
       objectReference: {fileID: 908752998}
