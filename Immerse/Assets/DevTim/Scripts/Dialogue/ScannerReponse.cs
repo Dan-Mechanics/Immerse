@@ -14,6 +14,8 @@ namespace Immerse
         [SerializeField] private DialogueEventDisplayer displayer = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Question interviewQuestion = default;
+        [SerializeField] private int reverseBlameIndex = default;
+        [SerializeField] private int reverseCancelIndex = default;
 
         private Actor scannedActor;
         private bool hasStarted;
@@ -41,18 +43,38 @@ namespace Immerse
         {
             prompter.OnAnswer -= OnAnswer;
 
-            if (scannedActor == null || index < 0)
+            if (index < 0)
                 return;
 
-            if (index == interviewQuestion.options.Length - 1)
+            if (scannedActor == null )
+                return;
+
+            int lastIndex = interviewQuestion.options.Length - 1;
+
+            if(index == lastIndex - reverseBlameIndex)
             {
-                // BLAME.
                 OnBlameActorIndex?.Invoke(scannedActor.index);
+                return;
             }
-            else 
+
+            if (index >= lastIndex - reverseCancelIndex)
+                return;
+
+            displayer.Display(scannedActor.dialogue[index]);
+        }
+
+        private void InteractWithActor(Actor actor)
+        {
+            scannedActor = actor;
+            interviewQuestion.question = $"Interview {Utils.CapitilizeFirst(scannedActor.name)} ...";
+            for (int i = 0; i < interviewQuestion.options.Length - 1 - reverseCancelIndex; i++)
             {
-                displayer.Display(scannedActor.dialogue[index]);
+                interviewQuestion.options[i].icon = scannedActor.icon;
             }
+
+            interviewQuestion.clip = scannedActor.interactionNoise;
+            OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
+            prompter.OnAnswer += OnAnswer;
         }
 
         private void OnScanInt(int index)
@@ -64,15 +86,7 @@ namespace Immerse
 
             if (index < holder.Actors.Count)
             {
-                scannedActor = holder.Actors[index];
-                interviewQuestion.question = $"Interview {TextWriter.FirstUpper(scannedActor.name)} ...";
-                for (int i = 0; i < interviewQuestion.options.Length - 1; i++)
-                {
-                    interviewQuestion.options[i].icon = scannedActor.icon;
-                }
-
-                OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
-                prompter.OnAnswer += OnAnswer;
+                InteractWithActor(holder.Actors[index]);
                 return;
             }
 
@@ -89,14 +103,7 @@ namespace Immerse
 
             if (holder.ActorsDict.ContainsKey(name))
             {
-                scannedActor = holder.ActorsDict[name];
-                for (int i = 0; i < interviewQuestion.options.Length - 1; i++)
-                {
-                    interviewQuestion.options[i].icon = scannedActor.icon;
-                }
-
-                OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
-                prompter.OnAnswer += OnAnswer;
+                InteractWithActor(holder.ActorsDict[name]);
                 return;
             }
 

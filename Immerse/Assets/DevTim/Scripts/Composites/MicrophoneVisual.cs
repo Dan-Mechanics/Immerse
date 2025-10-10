@@ -5,6 +5,8 @@ namespace Immerse
     /// <summary>
     /// https://discussions.unity.com/t/check-current-microphone-input-volume/474574/17
     /// https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Microphone.html
+    /// 
+    /// TODO: make mic always active unless destroy focus etc.
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
@@ -21,8 +23,7 @@ namespace Immerse
 
         private AudioClip clip;
         private float volume;
-        bool hasStarted;
-        private bool inState;
+        bool micRunning;
 
         private void Awake()
         {
@@ -30,23 +31,28 @@ namespace Immerse
             {
                 print($"{mic}.");
             }
+
+            StartMicrophone();
         }
 
         private void StartMicrophone()
         {
-            /*if (device == null)
-                device = Microphone.devices[0];*/
+            if (micRunning)
+                return;
 
-            clip = Microphone.Start(device, true, 999, 44100);
-            hasStarted = true;
             print("Start mic.");
+            micRunning = true;
+            clip = Microphone.Start(device, true, 999, 44100);
         }
 
         private void StopMicrophone()
         {
-            Microphone.End(device);
-            hasStarted = false;
+            if (!micRunning)
+                return;
+
             print("Stop mic.");
+            Microphone.End(device);
+            micRunning = false;
         }
 
         /// <summary>
@@ -77,7 +83,7 @@ namespace Immerse
         {
             base.DoTick();
 
-            if (!hasStarted)
+            if (!micRunning)
                 return;
 
             volume = Mathf.Lerp(volume, GetUsableVolume(), lerpFactor);
@@ -105,34 +111,22 @@ namespace Immerse
             return db;
         }
 
-        public override void Open()
+        public override void OnDestroy()
         {
-            base.Open();
-            StartMicrophone();
-            inState = true;
-        }
-
-        public override void Close()
-        {
-            base.Close();
-            inState = false;
+            base.OnDestroy();
             StopMicrophone();
         }
 
         private void OnApplicationFocus(bool focus)
         {
-            if (!inState)
-                return;
-            
-            print(focus ? "Focus." : "Unfocus.");
-            if (!focus)
+            if (focus)
+            {
+                StartMicrophone();
+            }
+            else
             {
                 StopMicrophone();
-                return;
             }
-
-            if (!hasStarted)
-                StartMicrophone();
         }
     }
 }

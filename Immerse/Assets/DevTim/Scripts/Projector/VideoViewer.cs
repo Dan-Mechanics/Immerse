@@ -20,7 +20,7 @@ namespace Immerse
             if (doneTime <= 0f)
                 return;
 
-            if (Time.time < doneTime)
+            if (Time.time < doneTime && !Input.GetKey(KeyCode.Return))
                 return;
 
             OnVideoDone?.Invoke();
@@ -30,11 +30,11 @@ namespace Immerse
         public void Play(VideoClip clip)
         {
             // WE WOULD MERELY DISABLE IT IF WE HAD RESET FUNCTIONALITY. 
-            Destroy(preview);
             videoPlayer.clip = clip;
             videoPlayer.Play();
             Cursor.visible = false;
             doneTime = Time.time + (float)clip.length;
+            Destroy(preview);
         }
 
         public override void Close()

@@ -84,7 +84,7 @@ namespace Immerse
         private void OnRequestPrompt(Question question, GameObject doneState)
         {
             stateHandler.Open(prompterState);
-            prompter.DisplayPrompt(question);
+            prompter.DisplayQuestion(question);
             prompter.OnAnswer += OnAnswer;
             this.doneState = doneState;
         }

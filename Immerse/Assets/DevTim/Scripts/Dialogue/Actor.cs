@@ -7,6 +7,7 @@ namespace Immerse
     {
         public Sprite icon;
         public string description;
+        public AudioClip interactionNoise;
         public DialogueEvent[] dialogue;
 
         [HideInInspector] public int index;

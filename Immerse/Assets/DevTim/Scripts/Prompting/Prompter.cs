@@ -12,6 +12,7 @@ namespace Immerse
         public event Action<int> OnAnswer;
         
         [SerializeField] private Transform promptHolder = default;
+        [SerializeField] private AudioSource source = default;
         [SerializeField] private GameObject promptPrefab = default;
         [SerializeField] private TMP_Text questionText = default;
         [SerializeField] private float verticalSpacing = default;
@@ -36,10 +37,22 @@ namespace Immerse
             }
         }
 
-        public void DisplayPrompt(Question question) 
+        public void DisplayQuestion(Question question) 
         {
             DestroyPrompts();
-            SpawnOptions(question);
+
+            questionText.text = question.question;
+            source.Stop();
+
+            if (question.clip != null)
+                source.PlayOneShot(question.clip);
+
+            for (int i = 0; i < question.options.Length; i++)
+            {
+                SpawnOption(question.options[i], i, question);
+            }
+
+            promptBehaviours.ForEach(x => x.Open());
 
             optionsLength = question.options.Length;
             keyboard = new Keyboard();
@@ -62,18 +75,7 @@ namespace Immerse
             base.Close();
             keyboard = null;
             DestroyPrompts();
-        }
-
-        private void SpawnOptions(Question question) 
-        {
-            questionText.text = question.question;
-
-            for (int i = 0; i < question.options.Length; i++)
-            {
-                SpawnOption(question.options[i], i, question);
-            }
-
-            promptBehaviours.ForEach(x => x.Open());
+            source.Stop();
         }
 
         public override void DoFrame()

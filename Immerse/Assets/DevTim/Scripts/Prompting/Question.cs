@@ -10,6 +10,7 @@ namespace Immerse
         public float saturation;
         public Color a;
         public Color b;
+        public AudioClip clip;
         public Option[] options;
     }
 }
