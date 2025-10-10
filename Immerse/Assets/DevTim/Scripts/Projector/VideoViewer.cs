@@ -29,10 +29,10 @@ namespace Immerse
 
         public void Play(VideoClip clip)
         {
-            // WE WOULD MERELY DISABLE IT IF WE HAD RESET FUNCTIONALITY. 
+            Cursor.visible = false;
             videoPlayer.clip = clip;
             videoPlayer.Play();
-            Cursor.visible = false;
+
             doneTime = Time.time + (float)clip.length;
             Destroy(preview);
         }
