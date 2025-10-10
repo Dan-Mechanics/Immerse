@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5104904492700367885}
   - component: {fileID: 2775778429965847815}
   m_Layer: 0
-  m_Name: override_video_handler
+  m_Name: video_viewer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
