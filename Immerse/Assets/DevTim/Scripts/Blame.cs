@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace Immerse
 
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
+        [SerializeField] private TMP_Text forceBlameMinutesText = default;
         [SerializeField] private Timer timer = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
@@ -24,6 +26,7 @@ namespace Immerse
 
         private void Awake()
         {
+            forceBlameMinutesText.text = $"{forceBlameMinutes}:0";
             for (int i = 0; i < holder.Actors.Count; i++)
             {
                 softBlame.options[i].icon = holder.Actors[i].icon;

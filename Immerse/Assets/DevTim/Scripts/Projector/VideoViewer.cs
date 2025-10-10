@@ -20,7 +20,7 @@ namespace Immerse
             if (doneTime <= 0f)
                 return;
 
-            if (Time.time < doneTime)
+            if (Time.time < doneTime && !Input.GetKey(KeyCode.Return))
                 return;
 
             OnVideoDone?.Invoke();
