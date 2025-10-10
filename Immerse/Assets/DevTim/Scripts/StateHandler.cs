@@ -73,7 +73,7 @@ namespace Immerse
 
         public void Open(GameObject parent)
         {
-            if (current.parent == parent)
+            if (current != null && current.parent == parent)
                 return;
             
             current?.Close();

@@ -9,6 +9,7 @@ namespace Immerse
 {
     public partial class Prompter : StateElement
     {
+        public bool Locked => currentQuestion != null && currentQuestion.mustAnswer;
         public event Action<int> OnAnswer;
         
         [SerializeField] private Transform promptHolder = default;
@@ -22,8 +23,14 @@ namespace Immerse
         private Keyboard keyboard;
         private int optionsLength;
 
-        public void DisplayQuestion(Question question) 
+        private Question currentQuestion;
+
+        public bool DisplayQuestion(Question question) 
         {
+            if (currentQuestion != null && currentQuestion.mustAnswer)
+                return false;
+
+            currentQuestion = question;
             DestroyPrompts();
 
             questionText.text = question.question;
@@ -40,6 +47,7 @@ namespace Immerse
 
             optionsLength = question.options.Length;
             keyboard = new Keyboard();
+            return true;
         }
 
         private void GiveAnswer(int answer) 
@@ -52,6 +60,7 @@ namespace Immerse
             
             keyboard = null;
             OnAnswer?.Invoke(answer);
+            currentQuestion = null;
         }
 
         public override void Close()
@@ -66,7 +75,7 @@ namespace Immerse
             base.DoFrame();
             
             if (keyboard != null)
-                GiveAnswer(keyboard.Update(alpha));
+                GiveAnswer(keyboard.GetPressedLetterIndex());
 
             promptBehaviours.ForEach(x => x.DoFrame());
         }
@@ -95,7 +104,7 @@ namespace Immerse
                 go.GetComponent<Image>().color = Color.Lerp(option.color, Color.Lerp(question.a, question.b, lerp), question.saturation);
             }
 
-            go.GetComponentInChildren<TMP_Text>().text = alpha[i].ToString().ToUpperInvariant() + ": " + option.text;
+            go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
             go.GetComponent<Lerper>().Send(false);
@@ -112,6 +121,7 @@ namespace Immerse
         {
             OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
             keyboard = null;
+            currentQuestion = null;
 
             foreach (GameObject go in spawned)
             {

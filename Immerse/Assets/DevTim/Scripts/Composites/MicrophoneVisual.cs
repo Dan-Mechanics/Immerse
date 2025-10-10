@@ -40,7 +40,7 @@ namespace Immerse
             if (micRunning)
                 return;
 
-            print("Start mic.");
+            print("starting mic ...");
             micRunning = true;
             clip = Microphone.Start(device, true, 999, 44100);
         }
@@ -50,7 +50,7 @@ namespace Immerse
             if (!micRunning)
                 return;
 
-            print("Stop mic.");
+            print("stopping mic ...");
             Microphone.End(device);
             micRunning = false;
         }

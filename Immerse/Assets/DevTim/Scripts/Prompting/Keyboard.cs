@@ -4,14 +4,23 @@ namespace Immerse
 {
     public class Keyboard
     {
-        private readonly char[] alpha = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
-
-        public int Update(char[] alpha)
+        public int GetPressedLetterIndex()
         {
-            for (int i = 0; i < alpha.Length; i++)
+            for (int i = 0; i < Utils.alphabet.Length; i++)
             {
-                if (Input.GetKeyDown(alpha[i].ToString()))
+                if (Input.GetKeyDown(Utils.alphabet[i].ToString()))
                     return i;
+            }
+
+            return -1;
+        }
+
+        public int GetPressedNumberIndex()
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                if (Input.GetKeyDown(i.ToString()))
+                    return i - 1;
             }
 
             return -1;

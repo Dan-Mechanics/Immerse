@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace Immerse
 {
-    public class ScannerResponse : StateElement
+    public class ScannerResponse : MonoBehaviour
     {
-        public Action<Question, GameObject> OnDisplayQuestion;
+        public Func<Question, GameObject, bool> OnDisplayQuestion;
         public Action<int> OnBlameActorIndex;
+        public Action OnDialogue;
 
         [SerializeField] private Holder holder = default;
         [SerializeField] private Scanner scanner = default;
@@ -18,46 +19,38 @@ namespace Immerse
         [SerializeField] private int reverseCancelIndex = default;
 
         private Actor scannedActor;
-        private bool hasStarted;
+        private bool hasBegunAlready;
 
-        public override void Open()
+        private void Awake()
         {
-            base.Open();
             scanner.OnScanInt += OnScanInt;
             scanner.OnScanString += OnScanString;
-
-            if (!hasStarted)
-                OnScanString("Intro");
-
-            hasStarted = true;
         }
 
-        public override void Close()
+        public void Begin() 
         {
-            base.Close();
-            scanner.OnScanInt -= OnScanInt;
-            scanner.OnScanString -= OnScanString;
+            if (hasBegunAlready)
+                return;
+
+            OnScanString("Intro");
+            hasBegunAlready = true;
         }
 
         private void OnAnswer(int index)
         {
             prompter.OnAnswer -= OnAnswer;
 
-            if (index < 0)
-                return;
-
-            if (scannedActor == null )
+            if (index < 0 || scannedActor == null)
                 return;
 
             int lastIndex = interviewQuestion.options.Length - 1;
-
             if(index == lastIndex - reverseBlameIndex)
             {
                 OnBlameActorIndex?.Invoke(scannedActor.index);
                 return;
             }
 
-            if (index >= lastIndex - reverseCancelIndex)
+            if (index == lastIndex - reverseCancelIndex)
                 return;
 
             displayer.Display(scannedActor.dialogue[index]);
@@ -65,6 +58,9 @@ namespace Immerse
 
         private void InteractWithActor(Actor actor)
         {
+            if (actor == null)
+                return;
+            
             scannedActor = actor;
             interviewQuestion.question = $"Interview {Utils.CapitilizeFirst(scannedActor.name)} ...";
             for (int i = 0; i < interviewQuestion.options.Length - 1 - reverseCancelIndex; i++)
@@ -73,8 +69,8 @@ namespace Immerse
             }
 
             interviewQuestion.clip = scannedActor.interactionNoise;
-            OnDisplayQuestion?.Invoke(interviewQuestion, gameplayState);
-            prompter.OnAnswer += OnAnswer;
+            if (OnDisplayQuestion.Invoke(interviewQuestion, gameplayState))
+                prompter.OnAnswer += OnAnswer;
         }
 
         private void OnScanInt(int index)
@@ -94,6 +90,7 @@ namespace Immerse
             if (index >= holder.Dialogue.Count)
                 return;
 
+            OnDialogue?.Invoke();
             displayer.Display(holder.Dialogue[index]);
         }
 
@@ -107,13 +104,17 @@ namespace Immerse
                 return;
             }
 
-            if (holder.DialogueDict.ContainsKey(name))
-                displayer.Display(holder.DialogueDict[name]);
+            if (!holder.DialogueDict.ContainsKey(name))
+                return;
+
+            displayer.Display(holder.DialogueDict[name]);
+            OnDialogue?.Invoke();
         }
 
-        public override void OnDestroy()
+        private void OnDestroy()
         {
-            base.OnDestroy();
+            scanner.OnScanInt -= OnScanInt;
+            scanner.OnScanString -= OnScanString;
             prompter.OnAnswer -= OnAnswer;
         }
     }
