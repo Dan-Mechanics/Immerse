@@ -26,11 +26,11 @@ namespace Immerse
             endScreen = endScreenState.GetComponentInChildren<EndScreen>();
             
             blame = gameplayState.GetComponentInChildren<Blame>();
-            blame.OnRequestPrompt += OnRequestPrompt;
+            blame.OnDisplayQuestion += OnDisplayQuestion;
             blame.OnBlame += OnBlame;
             
             scannerResponse = gameplayState.GetComponentInChildren<ScannerResponse>();
-            scannerResponse.OnRequestPrompt += OnRequestPrompt;
+            scannerResponse.OnDisplayQuestion += OnDisplayQuestion;
             scannerResponse.OnBlameActorIndex += blame.BlameActorIndex;
 
             videoViewer = videoState.GetComponentInChildren<VideoViewer>();
@@ -43,9 +43,9 @@ namespace Immerse
         {
             videoViewer.OnVideoDone -= OnVideoDone;
             prompter.OnAnswer -= OnAnswer;
-            scannerResponse.OnRequestPrompt -= OnRequestPrompt;
+            scannerResponse.OnDisplayQuestion -= OnDisplayQuestion;
             scannerResponse.OnBlameActorIndex -= blame.BlameActorIndex;
-            blame.OnRequestPrompt -= OnRequestPrompt;
+            blame.OnDisplayQuestion -= OnDisplayQuestion;
             blame.OnBlame -= OnBlame;
         }
 
@@ -65,23 +65,16 @@ namespace Immerse
 
         private void OnVideoDone()
         {
-            /*if (doneState == null)
-                return;*/
-
             stateHandler.Open(doneState);
         }
 
         private void OnAnswer(int answer)
         {
             prompter.OnAnswer -= OnAnswer;
-
-            /*if (doneState == null)
-                return;*/
-
             stateHandler.Open(doneState);
         }
 
-        private void OnRequestPrompt(Question question, GameObject doneState)
+        private void OnDisplayQuestion(Question question, GameObject doneState)
         {
             stateHandler.Open(prompterState);
             prompter.DisplayQuestion(question);

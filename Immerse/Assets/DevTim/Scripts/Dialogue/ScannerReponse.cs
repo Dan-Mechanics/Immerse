@@ -5,7 +5,7 @@ namespace Immerse
 {
     public class ScannerResponse : StateElement
     {
-        public Action<Question, GameObject> OnRequestPrompt;
+        public Action<Question, GameObject> OnDisplayQuestion;
         public Action<int> OnBlameActorIndex;
 
         [SerializeField] private Holder holder = default;
@@ -73,7 +73,7 @@ namespace Immerse
             }
 
             interviewQuestion.clip = scannedActor.interactionNoise;
-            OnRequestPrompt?.Invoke(interviewQuestion, gameplayState);
+            OnDisplayQuestion?.Invoke(interviewQuestion, gameplayState);
             prompter.OnAnswer += OnAnswer;
         }
 

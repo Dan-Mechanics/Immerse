@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Prompter : StateElement
+    public partial class Prompter : StateElement
     {
         public event Action<int> OnAnswer;
         
@@ -18,24 +18,9 @@ namespace Immerse
         [SerializeField] private float verticalSpacing = default;
 
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
-        private readonly char[] alpha = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
         private readonly List<GameObject> spawned = new List<GameObject>();
-        private int optionsLength;
         private Keyboard keyboard;
-
-        private class Keyboard 
-        {
-            public int Update(char[] alpha)
-            {
-                for (int i = 0; i < alpha.Length; i++)
-                {
-                    if (Input.GetKeyDown(alpha[i].ToString()))
-                        return i;
-                }
-
-                return -1;
-            }
-        }
+        private int optionsLength;
 
         public void DisplayQuestion(Question question) 
         {
@@ -43,7 +28,6 @@ namespace Immerse
 
             questionText.text = question.question;
             source.Stop();
-
             if (question.clip != null)
                 source.PlayOneShot(question.clip);
 
@@ -73,7 +57,6 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            keyboard = null;
             DestroyPrompts();
             source.Stop();
         }

@@ -73,12 +73,12 @@ namespace Immerse
 
         public void Open(GameObject parent)
         {
+            if (current.parent == parent)
+                return;
+            
             current?.Close();
             
-            if (parent == null)
-                return;
-
-            if (!parents.Contains(parent))
+            if (parent == null || !parents.Contains(parent))
                 return;
 
             foreach (State wrapper in states)

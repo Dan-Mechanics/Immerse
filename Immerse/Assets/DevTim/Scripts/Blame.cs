@@ -8,7 +8,7 @@ namespace Immerse
     public class Blame : StateElement
     {
         public event Action<bool> OnBlame;
-        public event Action<Question, GameObject> OnRequestPrompt;
+        public event Action<Question, GameObject> OnDisplayQuestion;
 
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
@@ -68,13 +68,13 @@ namespace Immerse
 
         private void AskBlame()
         {
-            OnRequestPrompt?.Invoke(softBlame, gameplayState);
+            OnDisplayQuestion?.Invoke(softBlame, gameplayState);
             prompter.OnAnswer += BlameActorIndex;
         }
 
         private void ForceBlame()
         {
-            OnRequestPrompt?.Invoke(forceBlame, null);
+            OnDisplayQuestion?.Invoke(forceBlame, null);
             prompter.OnAnswer += BlameActorIndex;
         }
     }
