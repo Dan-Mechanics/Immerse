@@ -27,11 +27,9 @@ namespace Immerse
             
             blame = gameplayState.GetComponentInChildren<Blame>();
             blame.OnDisplayQuestion += OnDisplayQuestion;
-            blame.OnBlame += OnBlame;
+            blame.OnWinOrLose += OnWinOrLose;
             
-            // scannerResponse = gameplayState.GetComponentInChildren<ScannerResponse>();
             scannerResponse.OnDisplayQuestion += OnDisplayQuestion;
-            scannerResponse.OnBlameActorIndex += blame.BlameActorIndex;
             scannerResponse.OnDialogue += OnDialogue;
 
             videoViewer = videoState.GetComponentInChildren<VideoViewer>();
@@ -45,14 +43,13 @@ namespace Immerse
             videoViewer.OnVideoDone -= OnVideoDone;
             prompter.OnAnswer -= OnAnswer;
             scannerResponse.OnDisplayQuestion -= OnDisplayQuestion;
-            scannerResponse.OnBlameActorIndex -= blame.BlameActorIndex;
             scannerResponse.OnDialogue -= OnDialogue;
 
             blame.OnDisplayQuestion -= OnDisplayQuestion;
-            blame.OnBlame -= OnBlame;
+            blame.OnWinOrLose -= OnWinOrLose;
         }
 
-        private void OnBlame(bool won)
+        private void OnWinOrLose(bool won)
         {
             endScreen.SetWon(won);
             PlayVideo(closingVideo, endScreenState);
@@ -60,9 +57,6 @@ namespace Immerse
 
         private void OnDialogue()
         {
-            if (prompter.Locked)
-                return;
-
             // THIS AUTO-DESTROYS PROMPTS.
             stateHandler.Open(gameplayState);
         }
@@ -78,7 +72,7 @@ namespace Immerse
         private void OnVideoDone()
         {
             stateHandler.Open(doneState);
-            doneState = null;
+            //doneState = null;
             scannerResponse.Begin();
         }
 
@@ -88,26 +82,23 @@ namespace Immerse
             stateHandler.Open(doneState);
         }
 
-        private bool OnDisplayQuestion(Question question, GameObject doneState)
+        private void OnDisplayQuestion(Question question, GameObject doneState)
         {
-            if (question == null || doneState == null)
-                return false;
+            // NULL DONESTATE IS ALLOWED BEHAVIOUR.
+            if (question == null)
+                return;
 
-            if (!prompter.DisplayQuestion(question))
-                return false;
-
-            stateHandler.Open(prompterState);
-            //prompter.DisplayQuestion(question);
-            prompter.OnAnswer += OnAnswer;
             this.doneState = doneState;
-            return true;
+            stateHandler.Open(prompterState);
+            prompter.DisplayQuestion(question);
+            prompter.OnAnswer += OnAnswer;
         }
 
         private void PlayVideo(VideoClip clip, GameObject doneState) 
         {
+            this.doneState = doneState;
             stateHandler.Open(videoState);
             videoViewer.Play(clip);
-            this.doneState = doneState;
         }
     }
 }

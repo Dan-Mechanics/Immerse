@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +6,10 @@ namespace Immerse
 {
     public class Blame : StateElement
     {
-        public event Action<bool> OnBlame;
-        public event Func<Question, GameObject, bool> OnDisplayQuestion;
+        public event Action<bool> OnWinOrLose;
+        public event Action<Question, GameObject> OnDisplayQuestion;
 
+        [SerializeField] private GameObject scanner = default;
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private TextWriter textWriter = default;
         [SerializeField] private Timer timer = default;
@@ -61,21 +61,38 @@ namespace Immerse
         public void BlameActorIndex(int index)
         {
             if (index >= 0 && index < holder.Actors.Count)
-                OnBlame?.Invoke(holder.Actors[index] == murderer);
+            {
+                StopScanning();
+                OnWinOrLose?.Invoke(holder.Actors[index] == murderer);
+            }
 
             prompter.OnAnswer -= BlameActorIndex;
         }
 
         private void AskBlame()
         {
-            if (OnDisplayQuestion.Invoke(softBlame, gameplayState))
-                prompter.OnAnswer += BlameActorIndex;
+            OnDisplayQuestion?.Invoke(softBlame, gameplayState);
+            prompter.OnAnswer += BlameActorIndex;
+        }
+
+        private void StopScanning()
+        {
+            if (scanner == null)
+                return;
+
+            scanner.SetActive(false);
+            Destroy(scanner);
         }
 
         private void ForceBlame()
         {
-            if (OnDisplayQuestion.Invoke(forceBlame, null))
-                prompter.OnAnswer += BlameActorIndex;
+            StopScanning();
+            
+            // TIMER CALLS ITS OWN CLOSE(),
+            // SO I THINK THIS MAKES SENSE HERE.
+            timer.OnDone -= ForceBlame;
+            OnDisplayQuestion?.Invoke(forceBlame, null);
+            prompter.OnAnswer += BlameActorIndex;
         }
     }
 }

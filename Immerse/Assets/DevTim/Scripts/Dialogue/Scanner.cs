@@ -16,7 +16,6 @@ namespace Immerse
             if (number < 0)
                 return;
 
-            print(number);
             OnScanInt?.Invoke(number);
 
             /*if (Input.GetKeyDown(KeyCode.Alpha1))

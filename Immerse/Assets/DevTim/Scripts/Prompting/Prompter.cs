@@ -9,7 +9,6 @@ namespace Immerse
 {
     public partial class Prompter : StateElement
     {
-        public bool Locked => currentQuestion != null && currentQuestion.mustAnswer;
         public event Action<int> OnAnswer;
         
         [SerializeField] private Transform promptHolder = default;
@@ -23,14 +22,8 @@ namespace Immerse
         private Keyboard keyboard;
         private int optionsLength;
 
-        private Question currentQuestion;
-
         public bool DisplayQuestion(Question question) 
         {
-            if (currentQuestion != null && currentQuestion.mustAnswer)
-                return false;
-
-            currentQuestion = question;
             DestroyPrompts();
 
             questionText.text = question.question;
@@ -60,7 +53,6 @@ namespace Immerse
             
             keyboard = null;
             OnAnswer?.Invoke(answer);
-            currentQuestion = null;
         }
 
         public override void Close()
@@ -121,7 +113,6 @@ namespace Immerse
         {
             OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
             keyboard = null;
-            currentQuestion = null;
 
             foreach (GameObject go in spawned)
             {
