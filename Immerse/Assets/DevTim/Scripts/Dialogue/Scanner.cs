@@ -8,13 +8,15 @@ namespace Immerse
         public event Action<string> OnScanString;
         public event Action<int> OnScanInt;
 
+        private readonly Keyboard keyboard = new Keyboard();
+
         private void Update()
         {
-            for (int i = 1; i < 10; i++)
-            {
-                if (Input.GetKeyDown(i.ToString()))
-                    OnScanInt?.Invoke(i - 1);
-            }
+            int number = keyboard.GetPressedNumberIndex();
+            if (number < 0)
+                return;
+
+            OnScanInt?.Invoke(number);
 
             /*if (Input.GetKeyDown(KeyCode.Alpha1))
                 OnNewScan?.Invoke("accountant");

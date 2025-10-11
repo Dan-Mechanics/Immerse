@@ -10,6 +10,8 @@ namespace Immerse
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
+        #if !UNITY_WEBGL || UNITY_EDITOR
+
         private const int SAMPLE_WINDOW = 128;
 
         [SerializeField] private Transform gui = default;
@@ -40,7 +42,7 @@ namespace Immerse
             if (micRunning)
                 return;
 
-            print("Start mic.");
+            print("starting mic ...");
             micRunning = true;
             clip = Microphone.Start(device, true, 999, 44100);
         }
@@ -50,7 +52,7 @@ namespace Immerse
             if (!micRunning)
                 return;
 
-            print("Stop mic.");
+            print("stopping mic ...");
             Microphone.End(device);
             micRunning = false;
         }
@@ -128,5 +130,7 @@ namespace Immerse
                 StopMicrophone();
             }
         }
+
+        #endif
     }
 }

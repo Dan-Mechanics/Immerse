@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Prompter : StateElement
+    public partial class Prompter : StateElement
     {
         public event Action<int> OnAnswer;
         
@@ -18,32 +18,16 @@ namespace Immerse
         [SerializeField] private float verticalSpacing = default;
 
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
-        private readonly char[] alpha = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
         private readonly List<GameObject> spawned = new List<GameObject>();
-        private int optionsLength;
         private Keyboard keyboard;
+        private int optionsLength;
 
-        private class Keyboard 
-        {
-            public int Update(char[] alpha)
-            {
-                for (int i = 0; i < alpha.Length; i++)
-                {
-                    if (Input.GetKeyDown(alpha[i].ToString()))
-                        return i;
-                }
-
-                return -1;
-            }
-        }
-
-        public void DisplayQuestion(Question question) 
+        public bool DisplayQuestion(Question question) 
         {
             DestroyPrompts();
 
             questionText.text = question.question;
             source.Stop();
-
             if (question.clip != null)
                 source.PlayOneShot(question.clip);
 
@@ -56,6 +40,7 @@ namespace Immerse
 
             optionsLength = question.options.Length;
             keyboard = new Keyboard();
+            return true;
         }
 
         private void GiveAnswer(int answer) 
@@ -73,7 +58,6 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-            keyboard = null;
             DestroyPrompts();
             source.Stop();
         }
@@ -83,7 +67,7 @@ namespace Immerse
             base.DoFrame();
             
             if (keyboard != null)
-                GiveAnswer(keyboard.Update(alpha));
+                GiveAnswer(keyboard.GetPressedLetterIndex());
 
             promptBehaviours.ForEach(x => x.DoFrame());
         }
@@ -112,7 +96,7 @@ namespace Immerse
                 go.GetComponent<Image>().color = Color.Lerp(option.color, Color.Lerp(question.a, question.b, lerp), question.saturation);
             }
 
-            go.GetComponentInChildren<TMP_Text>().text = alpha[i].ToString().ToUpperInvariant() + ": " + option.text;
+            go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
             go.GetComponent<Lerper>().Send(false);

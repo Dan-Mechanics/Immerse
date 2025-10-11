@@ -6,6 +6,7 @@ namespace Immerse
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private StateHandler stateHandler = default;
+        [SerializeField] private ScannerResponse scannerResponse;
         
         [SerializeField] private VideoClip openingVideo = default;
         [SerializeField] private VideoClip closingVideo = default;
@@ -14,7 +15,6 @@ namespace Immerse
         [SerializeField] private GameObject videoState = default;
         [SerializeField] private GameObject endScreenState = default;
 
-        private ScannerResponse scannerResponse;
         private VideoViewer videoViewer;
         private GameObject doneState;
         private EndScreen endScreen;
@@ -26,12 +26,11 @@ namespace Immerse
             endScreen = endScreenState.GetComponentInChildren<EndScreen>();
             
             blame = gameplayState.GetComponentInChildren<Blame>();
-            blame.OnRequestPrompt += OnRequestPrompt;
-            blame.OnBlame += OnBlame;
+            blame.OnDisplayQuestion += OnDisplayQuestion;
+            blame.OnWinOrLose += OnWinOrLose;
             
-            scannerResponse = gameplayState.GetComponentInChildren<ScannerResponse>();
-            scannerResponse.OnRequestPrompt += OnRequestPrompt;
-            scannerResponse.OnBlameActorIndex += blame.BlameActorIndex;
+            scannerResponse.OnDisplayQuestion += OnDisplayQuestion;
+            scannerResponse.OnDialogue += OnDialogue;
 
             videoViewer = videoState.GetComponentInChildren<VideoViewer>();
             videoViewer.OnVideoDone += OnVideoDone;
@@ -43,16 +42,23 @@ namespace Immerse
         {
             videoViewer.OnVideoDone -= OnVideoDone;
             prompter.OnAnswer -= OnAnswer;
-            scannerResponse.OnRequestPrompt -= OnRequestPrompt;
-            scannerResponse.OnBlameActorIndex -= blame.BlameActorIndex;
-            blame.OnRequestPrompt -= OnRequestPrompt;
-            blame.OnBlame -= OnBlame;
+            scannerResponse.OnDisplayQuestion -= OnDisplayQuestion;
+            scannerResponse.OnDialogue -= OnDialogue;
+
+            blame.OnDisplayQuestion -= OnDisplayQuestion;
+            blame.OnWinOrLose -= OnWinOrLose;
         }
 
-        private void OnBlame(bool won)
+        private void OnWinOrLose(bool won)
         {
             endScreen.SetWon(won);
             PlayVideo(closingVideo, endScreenState);
+        }
+
+        private void OnDialogue()
+        {
+            // THIS AUTO-DESTROYS PROMPTS.
+            stateHandler.Open(gameplayState);
         }
 
         /// <summary>
@@ -65,35 +71,34 @@ namespace Immerse
 
         private void OnVideoDone()
         {
-            /*if (doneState == null)
-                return;*/
-
             stateHandler.Open(doneState);
+            //doneState = null;
+            scannerResponse.Begin();
         }
 
         private void OnAnswer(int answer)
         {
             prompter.OnAnswer -= OnAnswer;
-
-            /*if (doneState == null)
-                return;*/
-
             stateHandler.Open(doneState);
         }
 
-        private void OnRequestPrompt(Question question, GameObject doneState)
+        private void OnDisplayQuestion(Question question, GameObject doneState)
         {
+            // NULL DONESTATE IS ALLOWED BEHAVIOUR.
+            if (question == null)
+                return;
+
+            this.doneState = doneState;
             stateHandler.Open(prompterState);
             prompter.DisplayQuestion(question);
             prompter.OnAnswer += OnAnswer;
-            this.doneState = doneState;
         }
 
         private void PlayVideo(VideoClip clip, GameObject doneState) 
         {
+            this.doneState = doneState;
             stateHandler.Open(videoState);
             videoViewer.Play(clip);
-            this.doneState = doneState;
         }
     }
 }

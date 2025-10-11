@@ -43,11 +43,11 @@ namespace Immerse
         private void Tick()
         {
             TimeSpan timeSpan = DateTime.Now - startingPoint;
-            int min = (int)timeSpan.TotalMinutes;
-            int sec = (int)timeSpan.TotalSeconds;
+            int min = timeSpan.Minutes;
+            int sec = timeSpan.Seconds;
 
             OnNewTime?.Invoke(min, sec);
-            if (min > doneMinutes && sec > doneSeconds)
+            if (min >= doneMinutes && sec >= doneSeconds)
             {
                 OnDone?.Invoke();
                 Close();
