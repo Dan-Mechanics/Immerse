@@ -10,6 +10,8 @@ namespace Immerse
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
+        #if !UNITY_WEBGL || UNITY_EDITOR
+
         private const int SAMPLE_WINDOW = 128;
 
         [SerializeField] private Transform gui = default;
@@ -128,5 +130,7 @@ namespace Immerse
                 StopMicrophone();
             }
         }
+
+        #endif
     }
 }
