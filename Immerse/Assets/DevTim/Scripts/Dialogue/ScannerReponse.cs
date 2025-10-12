@@ -76,7 +76,17 @@ namespace Immerse
                 interviewQuestion.options[i].icon = scannedActor.icon;
             }
 
-            interviewQuestion.clip = scannedActor.interactionNoise;
+            // PLAY A RANDOM INTERACTION NOISE IF 
+            // THERE ARE ANY.
+            if (scannedActor.interactionSounds != null && scannedActor.interactionSounds.Length > 0)
+            {
+                interviewQuestion.clip = scannedActor.interactionSounds[UnityEngine.Random.Range(0, scannedActor.interactionSounds.Length)];
+            }
+            else
+            {
+                interviewQuestion.clip = null;
+            }
+
             OnDisplayQuestion?.Invoke(interviewQuestion, gameplayState);
             prompter.OnAnswer += OnAnswer;
         }

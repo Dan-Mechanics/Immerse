@@ -16,16 +16,25 @@ namespace Immerse
 
         [SerializeField] private List<DialogueEvent> dialogueEvents = default;
         [SerializeField] private List<Actor> actors = default;
+        [SerializeField] private List<Actor> unlisted = default;
 
         private void Awake()
         {
             for (int i = 0; i < actors.Count; i++)
             {
                 actors[i].index = i;
-
                 for (int j = 0; j < actors[i].dialogue.Length; j++)
                 {
                     actors[i].dialogue[j].actor = actors[i];
+                }
+            }
+
+            for (int i = 0; i < unlisted.Count; i++)
+            {
+                unlisted[i].index = actors.Count + i;
+                for (int j = 0; j < unlisted[i].dialogue.Length; j++)
+                {
+                    unlisted[i].dialogue[j].actor = unlisted[i];
                 }
             }
             
