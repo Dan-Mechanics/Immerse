@@ -68,7 +68,16 @@ namespace Immerse
 
         private void FixedUpdate()
         {
-            current?.elements.ForEach(x => x.DoTick());
+            if (current == null)
+                return;
+
+            for (int i = 0; i < current.elements.Count; i++)
+            {
+                if (current.elements[i] == null)
+                    continue;
+
+                current.elements[i].DoTick();
+            }
         }
 
         public void Open(GameObject parent)

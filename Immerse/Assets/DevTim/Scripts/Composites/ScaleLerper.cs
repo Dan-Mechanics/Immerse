@@ -12,5 +12,11 @@ namespace Immerse
             base.DoTick();
             transform.localScale = Vector2.Lerp(transform.localScale, showingFirst ? first : second, lerpSpeed);
         }
+
+        public override void Force()
+        {
+            base.Force();
+            transform.localScale = showingFirst ? first : second;
+        }
     }
 }

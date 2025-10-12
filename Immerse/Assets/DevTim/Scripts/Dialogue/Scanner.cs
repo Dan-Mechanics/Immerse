@@ -12,6 +12,28 @@ namespace Immerse
 
         private void Update()
         {
+            // YANDERE-DEV IS THAT YOU ?
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                OnScanString("jeremy");
+                return;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                OnScanString("marc");
+                return;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                OnScanString("leonardo");
+                return;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                OnScanString("laura");
+                return;
+            }
+
             int number = keyboard.GetPressedNumberIndex();
             if (number < 0)
                 return;
