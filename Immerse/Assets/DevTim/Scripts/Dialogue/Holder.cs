@@ -40,7 +40,6 @@ namespace Immerse
             
             dialogueEvents.ForEach(x => DialogueDict.Add(x.name, x));
             actors.ForEach(x => ActorsDict.Add(x.name, x));
-
         }
     }
 }

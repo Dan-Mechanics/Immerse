@@ -49,7 +49,6 @@ namespace Immerse
             textWriter.Write(dialogue.script);
             iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
             doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
-
         }
     }
 }

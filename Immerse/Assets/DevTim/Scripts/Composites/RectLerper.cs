@@ -21,7 +21,7 @@ namespace Immerse
         public override void Force()
         {
             base.Force();
-            rect.anchoredPosition = first;
+            rect.anchoredPosition = showingFirst ? first : second;
         }
     }
 }

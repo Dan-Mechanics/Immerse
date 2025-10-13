@@ -11,7 +11,6 @@ namespace Immerse
         public Color a;
         public Color b;
         public AudioClip clip;
-        public bool mustAnswer;
         public Option[] options;
     }
 }
