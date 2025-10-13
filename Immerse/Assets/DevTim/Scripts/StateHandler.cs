@@ -66,6 +66,10 @@ namespace Immerse
             current?.elements.ForEach(x => x.DoFrame());
         }
 
+        /// <summary>
+        /// This is to avoid a bug where 
+        /// the preview is deleted.
+        /// </summary>
         private void FixedUpdate()
         {
             if (current == null)

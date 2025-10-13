@@ -15,6 +15,8 @@ namespace Immerse
             Cursor.visible = !mouseLocked;
             Cursor.lockState = mouseLocked ? CursorLockMode.Locked : CursorLockMode.None;
 
+            print("scene setp done.");
+
             Destroy(gameObject);
         }
     }

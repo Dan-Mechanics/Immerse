@@ -23,5 +23,14 @@ namespace Immerse
             base.DoTick();
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, showingFirst ? firstAlpha : secondAlpha, lerpSpeed);
         }
+
+        /// <summary>
+        /// NEW !!
+        /// </summary>
+        public override void Force()
+        {
+            base.Force();
+            canvasGroup.alpha = showingFirst ? firstAlpha : secondAlpha;
+        }
     }
 }

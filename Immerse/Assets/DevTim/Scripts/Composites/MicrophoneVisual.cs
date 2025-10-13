@@ -57,9 +57,6 @@ namespace Immerse
             micRunning = false;
         }
 
-        /// <summary>
-        /// TODO: use av instead of peak?
-        /// </summary>
         private float GetPeakVolume()
         {
             int micPosition = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);

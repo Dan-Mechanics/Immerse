@@ -24,7 +24,6 @@ namespace Immerse
         {
             base.DoTick();
             lerpers.ForEach(x => x.Send(!isHovering));
-
         }
 
         public void OnPointerExit(PointerEventData eventData)
