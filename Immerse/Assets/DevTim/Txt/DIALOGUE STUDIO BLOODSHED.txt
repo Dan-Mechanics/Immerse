@@ -32,7 +32,7 @@ Pedro was mijn werknemer. Niet meer, niet minder.
 
 D_marc
 =
-PLACEHOLDER.
+Wat is dat? Wat moet ik hiermee?                         Nee, geen idee.
 
 
 ///
@@ -64,7 +64,7 @@ Pedro was mijn maatje, ik heb nog nooit iemand zoveel coke zien snuiven op een r
 
 D_jeremy
 =
-PLACEHOLDER.
+Ik weet niet van wie dat is, maar ik zag het als laatste in de server room. Ik denk dat je daar het beste alweer kunt kijken.
 
 
 ///
@@ -96,7 +96,7 @@ Pedro? wie is Pedro ook alweer?
 
 D_laura
 =
-PLACEHOLDER.
+D-D-Dat heeft helemaal niets met mij te maken. Misschien kun je het aan Marc vragen!
 
 
 ///
@@ -128,4 +128,4 @@ Uh… gewoon, normaal? We zeiden hallo soms, maar ik kende ‘m niet echt.
 
 D_leonardo
 =
-PLACEHOLDER.
+Probeer je me te beschuldigen ofzo? Voor hetzelfde geld kan jij het zijn geweest.
