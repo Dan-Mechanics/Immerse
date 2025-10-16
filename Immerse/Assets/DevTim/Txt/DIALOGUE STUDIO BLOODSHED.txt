@@ -1,6 +1,11 @@
 ﻿Intro
 =
-A body was found in the server room of this totally amazing Dutch games company. Our protagonist Madelief decided to circle back on that.
+Een lijk werd gevonden in de serverroom van een kleine Nederlandse games studio. 
+
+
+FluffyHandcuffs
+=
+Ew, wat doet dit hier?
 
 
 ///
@@ -70,7 +75,7 @@ Ik weet niet van wie dat is, maar ik zag het als laatste in de server room. Ik d
 ///
 
 
-A_laura
+A_vivienne
 =
 Ik.. ik.. ik..                         boekhouding.                     kantoor.
 
@@ -78,7 +83,7 @@ Ik.. ik.. ik..                         boekhouding.                     kantoor.
 ///
 
 
-B_laura
+B_vivienne
 =
 WAAROM.. WAAROM.. sorry, Pedro maakte 5.000 euro over naar Da Vinci B.V. maar kreeg diezelfde middag het geld teruggestort. Waarom zou je dat doen? 
 
@@ -86,7 +91,7 @@ WAAROM.. WAAROM.. sorry, Pedro maakte 5.000 euro over naar Da Vinci B.V. maar kr
 ///
 
 
-C_laura
+C_vivienne
 =
 Pedro? wie is Pedro ook alweer?
 
@@ -94,7 +99,7 @@ Pedro? wie is Pedro ook alweer?
 ///
 
 
-D_laura
+D_vivienne
 =
 D-D-Dat heeft helemaal niets met mij te maken. Misschien kun je het aan Marc vragen!
 
