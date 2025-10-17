@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: vivienne
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ac603c7f76d2dc24c8cf400682f98ae3, type: 3}
-  description: Accountant.
+  description: Boekhouder.
   interactionSounds:
   - {fileID: 8300000, guid: 370fab2d11493e144bd36821f57f6a8d, type: 3}
   dialogue:

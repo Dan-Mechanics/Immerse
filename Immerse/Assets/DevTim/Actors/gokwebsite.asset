@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
+  m_Name: gokwebsite
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: c089ddba952dd064983ad81c73b0222d, type: 3}
+  description: www.koningscroto.nl
+  interactionSounds: []
+  dialogue:
+  - {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}
+  index: 5
