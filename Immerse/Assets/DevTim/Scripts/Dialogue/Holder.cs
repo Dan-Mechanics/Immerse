@@ -25,12 +25,12 @@ namespace Immerse
             for (int i = 0; i < actors.Count; i++)
             {
                 Actor actor = actors[i];
-                actor.OnValidate();
+                actor.Setup();
                 actor.index = i;
 
                 for (int j = 0; j < actor.dialogue.Length; j++)
                 {
-                    actor.dialogue[j].actor = actor;
+                    actor.dialogue[j].speaker = actor;
                     actor.dialogue[j].index = j;
                 }
             }
@@ -38,19 +38,16 @@ namespace Immerse
             for (int i = 0; i < props.Count; i++)
             {
                 Prop prop = props[i];
-                prop.OnValidate();
+                prop.Setup();
                 prop.index = i;
 
-                for (int j = 0; j < prop.dialogue.Length; j++)
-                {
-                    prop.dialogue[j].actor = prop;
-                    prop.dialogue[j].index = j;
-                }
+                prop.dialogue.speaker = prop;
+                prop.dialogue.index = 0;
             }
 
             for (int i = 0; i < dialogueEvents.Count; i++)
             {
-                dialogueEvents[i].OnValidate();
+                dialogueEvents[i].Setup();
             }
 
             dialogueEvents.ForEach(x => DialogueDict.Add(x.name, x));

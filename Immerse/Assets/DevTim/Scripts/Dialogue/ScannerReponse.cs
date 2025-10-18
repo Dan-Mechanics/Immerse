@@ -13,13 +13,11 @@ namespace Immerse
         [SerializeField] private Scanner scanner = default;
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;
+        [SerializeField] private History history = default;
         [SerializeField] private Prompter prompter = default;
-        [SerializeField] private Question interviewQuestion = default;
-        [SerializeField] private int reverseBlameIndex = default;
-        [SerializeField] private int reverseCancelIndex = default;
+        [SerializeField] private Question question = default;
 
         private Actor currentActor;
-        private DialogueEvent currentDialogue;
         private bool hasStarted;
 
         public void Begin() 
@@ -29,80 +27,8 @@ namespace Immerse
 
             scanner.OnScanInt += OnScanInt;
             scanner.OnScanString += OnScanString;
-            OnScanString("Intro");
+            OnScanString("Verhaal");
             hasStarted = true;
-        }
-
-        private void OnAnswer(int index)
-        {
-            prompter.OnAnswer -= OnAnswer;
-
-            if (index < 0 || currentActor == null)
-                return;
-
-            int lastIndex = interviewQuestion.options.Length - 1;
-            if (index == lastIndex - reverseCancelIndex)
-            {
-                currentActor = null;
-                currentDialogue = null;
-                return;
-            }
-
-            if (index == lastIndex - reverseBlameIndex)
-            {
-                blame.BlameActorIndex(currentActor.index);
-                currentActor = null;
-                currentDialogue = null;
-                return;
-            }
-
-            InteractWithDialogue(currentActor.dialogue[index]);
-            currentActor = null;
-        }
-
-        private void InteractWithActor(Actor actor)
-        {
-            if (actor == null)
-                return;
-
-            if (actor == currentActor)
-                return;
-
-            currentActor = actor;
-            currentDialogue = null;
-            interviewQuestion.question = $"Interview {Utils.CapitilizeFirst(currentActor.name)} ...";
-            for (int i = 0; i < interviewQuestion.options.Length - 1 - reverseCancelIndex; i++)
-            {
-                interviewQuestion.options[i].icon = currentActor.icon;
-            }
-
-            // PLAY A RANDOM INTERACTION NOISE IF 
-            // THERE ARE ANY.
-            if (currentActor.interactionSounds != null && currentActor.interactionSounds.Length > 0)
-            {
-                interviewQuestion.clip = currentActor.interactionSounds[UnityEngine.Random.Range(0, currentActor.interactionSounds.Length)];
-            }
-            else
-            {
-                interviewQuestion.clip = null;
-            }
-
-            OnDisplayQuestion?.Invoke(interviewQuestion, gameplayState);
-            prompter.OnAnswer += OnAnswer;
-        }
-
-        private void InteractWithDialogue(DialogueEvent dialogue)
-        {
-            if (dialogue == null)
-                return;
-
-            if (dialogue == currentDialogue)
-                return;
-
-            currentDialogue = dialogue;
-            currentActor = null;
-            OnDialogue?.Invoke();
-            displayer.Display(currentDialogue);
         }
 
         private void OnScanInt(int index)
@@ -128,7 +54,7 @@ namespace Immerse
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
                 return;
-            
+
             print($"OnScanString {gameObject} scanned '{name}'.");
             if (holder.ActorsDict.ContainsKey(name))
             {
@@ -140,6 +66,72 @@ namespace Immerse
                 return;
 
             InteractWithDialogue(holder.DialogueDict[name]);
+        }
+
+        private void InteractWithActor(Actor actor)
+        {
+            if (actor == null)
+                return;
+
+            if (actor == currentActor)
+                return;
+
+            currentActor = actor;
+            question.question = $"Interview {Utils.CapitilizeFirst(currentActor.name)} ...";
+            question.includeOptional = history.props.Contains(actor.prop);
+
+            for (int i = 0; i < question.options.Length; i++)
+            {
+                if(question.options[i].tag == Tag.None)
+                    question.options[i].icon = currentActor.icon;
+            }
+
+            if (currentActor.interactionSounds != null && currentActor.interactionSounds.Length > 0)
+            {
+                question.clip = currentActor.interactionSounds[UnityEngine.Random.Range(0, currentActor.interactionSounds.Length)];
+            }
+            else
+            {
+                question.clip = null;
+            }
+
+            OnDisplayQuestion?.Invoke(question, gameplayState);
+            prompter.OnAnswer += OnAnswer;
+        }
+
+        private void InteractWithDialogue(DialogueEvent dialogue)
+        {
+            currentActor = null;
+            if (dialogue.speaker is Prop prop && !history.props.Contains(prop))
+                history.props.Add(prop);
+
+            OnDialogue?.Invoke();
+            displayer.Display(dialogue);
+        }
+
+        private void OnAnswer(int index)
+        {
+            prompter.OnAnswer -= OnAnswer;
+
+            if (index < 0 || currentActor == null)
+                return;
+
+            Option option = question.options[index];
+            if(option.tag == Tag.Cancel)
+            {
+                currentActor = null;
+                return;
+            }
+
+            if (option.tag == Tag.Blame)
+            {
+                blame.BlameActorIndex(currentActor.index);
+                currentActor = null;
+                return;
+            }
+
+            InteractWithDialogue(currentActor.dialogue[index]);
+            currentActor = null;
         }
 
         private void OnDestroy()

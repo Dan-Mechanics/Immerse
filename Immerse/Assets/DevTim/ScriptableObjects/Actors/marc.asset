@@ -15,9 +15,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 79c17f0db3af9784aac6ecb2723125fe, type: 3}
   description: CEO.
   interactionSounds: []
+  index: 1
+  prop: {fileID: 11400000, guid: 883a6638809364a4783b60f00c2311e4, type: 2}
   dialogue:
   - {fileID: 11400000, guid: 84a4942fa5dbfa64694e61586d7161c1, type: 2}
   - {fileID: 11400000, guid: 913823e11abe6494db62e763fdef17fd, type: 2}
   - {fileID: 11400000, guid: f30569a481740e841a085bfdaa4b53f8, type: 2}
   - {fileID: 11400000, guid: 99ec5a11d1b5afe488332fb5bb07c157, type: 2}
-  index: 0

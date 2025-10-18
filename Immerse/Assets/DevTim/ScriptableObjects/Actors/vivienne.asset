@@ -16,9 +16,10 @@ MonoBehaviour:
   description: 'Boekhouder. '
   interactionSounds:
   - {fileID: 8300000, guid: 370fab2d11493e144bd36821f57f6a8d, type: 3}
+  index: 3
+  prop: {fileID: 11400000, guid: 59774230895df4e4bbe250d85fdabb06, type: 2}
   dialogue:
   - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
   - {fileID: 11400000, guid: 857a6b9c17c7ff4438a6789aaf35b297, type: 2}
   - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
   - {fileID: 11400000, guid: 0b6b40fffdd4c9340a584e82da6300a7, type: 2}
-  index: 3

@@ -3,35 +3,14 @@ using UnityEngine;
 
 namespace Immerse
 {
+    /// <summary>
+    /// This needs to also have UI with it yupppp.
+    /// Make a HistoryDisplay state in gameplay state that visualizes.
+    /// </summary>
     public class History : MonoBehaviour
     {
-        [SerializeField] private Sprite[] dialogueSprites = default;
-
-
-        public void AddDialogue(DialogueEvent dialogue)
-        {
-
-        }
-
-        public void AddActor(Actor actor)
-        {
-
-        }
-
-        public class Some
-        {
-            public List<int> dialogues;
-            public bool hasObject;
-
-            public void Add(int index)
-            {
-                for (int i = dialogues.Count - 1; i >= 0; i--)
-                {
-                    // IDK IF THIS IS GOOD.
-                    if (index > dialogues[i])
-                        dialogues.Insert(i, index);
-                }
-            }
-        }
+        // Also actor itneractions as different colors of discussion here.
+        
+        public readonly List<Prop> props = new List<Prop>();
     }
 }

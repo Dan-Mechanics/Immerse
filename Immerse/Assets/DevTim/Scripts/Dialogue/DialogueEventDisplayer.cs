@@ -13,6 +13,7 @@ namespace Immerse
         [SerializeField] private AudioSource source = default;
         [SerializeField, Min(0.1f)] private float textBoxTrailTime = default;
 
+        private DialogueEvent currentDialogue;
         private float doneTime;
         
         public override void Close()
@@ -20,6 +21,7 @@ namespace Immerse
             base.Close();
             iconText.text = string.Empty;
             doneTime = 0f;
+            currentDialogue = null;
             lerper.Force();
 
             textWriter.Write(string.Empty);
@@ -32,11 +34,21 @@ namespace Immerse
         public override void DoTick()
         {
             base.DoTick();
-            lerper.Send(Time.time >= doneTime);
+
+            bool done = Time.time >= doneTime;
+            lerper.Send(done);
+            if (done)
+                currentDialogue = null;
         }
 
         public void Display(DialogueEvent dialogue)
         {
+            if (dialogue == null)
+                return;
+
+            if (currentDialogue != null && currentDialogue == dialogue)
+                return;
+            
             source.Stop();
 
             if (dialogue.clip != null)
@@ -45,9 +57,11 @@ namespace Immerse
                 print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
             }
 
-            icon.sprite = dialogue.actor.icon;
+            icon.sprite = dialogue.speaker.icon;
             textWriter.Write(dialogue.script);
-            iconText.text = dialogue.actor.name + " > " + "\n" + dialogue.actor.description;
+            iconText.text = dialogue.speaker.name + " > " + "\n" + dialogue.speaker.description;
+
+            currentDialogue = dialogue;
             doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
         }
     }

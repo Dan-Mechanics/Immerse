@@ -30,7 +30,7 @@ namespace Immerse
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                OnScanString("laura");
+                OnScanString("vivienne");
                 return;
             }
 

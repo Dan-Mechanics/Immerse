@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a85680773a3744a9b1c288684c83fe, type: 3}
-  m_Name: interview_question
+  m_Name: interview
   m_EditorClassIdentifier: 
   question: Interview Jeremy ...
   processLength: 4
@@ -18,22 +18,35 @@ MonoBehaviour:
   a: {r: 0, g: 1, b: 1, a: 1}
   b: {r: 0, g: 1, b: 0, a: 1}
   clip: {fileID: 0}
+  includeOptional: 0
   options:
   - text: Waar was jij op het moment van de moord?
     color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
   - text: Heb je iets verdachts gehoord of gezien?
     color: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
   - text: Wat was jouw relatie met het slachtoffer?
     color: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
   - text: Ik heb iets gevonden.
     color: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 1}
+    tag: 0
+    optional: 1
     icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
   - text: Beschuldigen.
     color: {r: 0.59607846, g: 0.18039216, b: 0.18039216, a: 1}
+    tag: 2
+    optional: 0
     icon: {fileID: 21300000, guid: 643c032f5efbc514293cdac9472b555f, type: 3}
   - text: Laat maar ...
     color: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
+    tag: 1
+    optional: 0
     icon: {fileID: 21300000, guid: c58c0f8998d890d459142a45c4510da0, type: 3}

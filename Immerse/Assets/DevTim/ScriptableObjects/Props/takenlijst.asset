@@ -15,6 +15,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 033692726b530734293bf222a15a11a6, type: 3}
   description: Vol krasjes tekst.
   interactionSounds: []
-  dialogue:
-  - {fileID: 11400000, guid: e9827f183e44a0840b2b4787620e42e6, type: 2}
   index: 0
+  dialogue: {fileID: 11400000, guid: e9827f183e44a0840b2b4787620e42e6, type: 2}

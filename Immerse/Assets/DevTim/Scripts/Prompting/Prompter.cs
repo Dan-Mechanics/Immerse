@@ -33,7 +33,15 @@ namespace Immerse
 
             for (int i = 0; i < question.options.Length; i++)
             {
-                SpawnOption(question.options[i], i, question);
+                if (question.includeOptional)
+                {
+                    SpawnOption(question.options[i], i, question);
+                }
+                else
+                {
+                    if (!question.options[i].optional)
+                        SpawnOption(question.options[i], i, question);
+                }
             }
 
             promptBehaviours.ForEach(x => x.Open());

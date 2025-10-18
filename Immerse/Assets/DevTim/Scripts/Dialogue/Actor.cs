@@ -3,17 +3,14 @@ using UnityEngine;
 namespace Immerse
 {
     [CreateAssetMenu(fileName = nameof(Actor), menuName = nameof(Actor))]
-    public class Actor : ScriptableObject
+    public class Actor : Entity
     {
-        public Sprite icon;
-        public string description;
-        public AudioClip[] interactionSounds;
+        public Prop prop;
         public DialogueEvent[] dialogue;
 
-        [HideInInspector] public int index;
-
-        public virtual void OnValidate()
+        public override void Setup()
         {
+            base.Setup();
             icon = Resources.Load<Sprite>(name);
         }
     }

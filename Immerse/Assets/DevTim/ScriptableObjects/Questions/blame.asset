@@ -10,26 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a85680773a3744a9b1c288684c83fe, type: 3}
-  m_Name: soft_blame
+  m_Name: blame
   m_EditorClassIdentifier: 
   question: Beschuldig iemand ...
   processLength: 4
   saturation: 0.25
   a: {r: 1, g: 1, b: 1, a: 1}
   b: {r: 0, g: 0, b: 0, a: 1}
+  clip: {fileID: 0}
+  includeOptional: 0
   options:
   - text: Beschuldig Jeremy!
     color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
   - text: Beschuldig Marc!
     color: {r: 0.59607846, g: 0.22639094, b: 0.18039215, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: e4e350bf0b64f2348a5553b1bf16f01d, type: 3}
   - text: Beschuldig Leonardo!
     color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: 7b3b1e59049c542448a896cd49e6f946, type: 3}
   - text: Beschuldig Laura!
     color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    tag: 0
+    optional: 0
     icon: {fileID: 21300000, guid: f5d41502b00cc7c48b3d61307524e2ad, type: 3}
   - text: Laat maar ...
     color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    tag: 0
+    optional: 1
     icon: {fileID: 21300000, guid: c58c0f8998d890d459142a45c4510da0, type: 3}

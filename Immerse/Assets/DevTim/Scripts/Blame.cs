@@ -17,8 +17,7 @@ namespace Immerse
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor murderer = default;
-        [SerializeField] private Question softBlame = default;
-        [SerializeField] private Question forceBlame = default;
+        [SerializeField] private Question blame = default;
 
         private bool hasStarted;
 
@@ -26,11 +25,11 @@ namespace Immerse
         {
             for (int i = 0; i < holder.Actors.Count; i++)
             {
-                softBlame.options[i].icon = holder.Actors[i].icon;
-                softBlame.options[i].text = $"Beschuldig {Utils.CapitilizeFirst(holder.Actors[i].name)}!";
+                blame.options[i].icon = holder.Actors[i].icon;
+                blame.options[i].text = $"Beschuldig {Utils.CapitilizeFirst(holder.Actors[i].name)}!";
 
-                forceBlame.options[i].icon = softBlame.options[i].icon;
-                forceBlame.options[i].text = softBlame.options[i].text;
+                //forceBlame.options[i].icon = blame.options[i].icon;
+                //forceBlame.options[i].text = blame.options[i].text;
             }
         }
 
@@ -60,7 +59,10 @@ namespace Immerse
 
         public void BlameActorIndex(int index)
         {
-            if (index >= 0 && index < holder.Actors.Count)
+            if (index < 0)
+                return;
+
+            if (blame.options[index].tag != Tag.Cancel)
             {
                 StopScanning();
                 OnWinOrLose?.Invoke(holder.Actors[index] == murderer);
@@ -71,7 +73,8 @@ namespace Immerse
 
         private void AskBlame()
         {
-            OnDisplayQuestion?.Invoke(softBlame, gameplayState);
+            blame.includeOptional = true;
+            OnDisplayQuestion?.Invoke(blame, gameplayState);
             prompter.OnAnswer += BlameActorIndex;
         }
 
@@ -87,11 +90,12 @@ namespace Immerse
         private void ForceBlame()
         {
             StopScanning();
-            
+
             // TIMER CALLS ITS OWN CLOSE(),
             // SO I THINK THIS MAKES SENSE HERE.
+            blame.includeOptional = false;
             timer.OnDone -= ForceBlame;
-            OnDisplayQuestion?.Invoke(forceBlame, null);
+            OnDisplayQuestion?.Invoke(blame, null);
             prompter.OnAnswer += BlameActorIndex;
         }
     }

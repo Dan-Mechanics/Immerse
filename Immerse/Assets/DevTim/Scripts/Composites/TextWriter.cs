@@ -54,6 +54,7 @@ namespace Immerse
                 return;
 
             this.message = message;
+            gameObject.name = message;
             StartCoroutine(WriteDelayed());
         }
 

@@ -15,6 +15,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c089ddba952dd064983ad81c73b0222d, type: 3}
   description: www.koningscroto.nl
   interactionSounds: []
-  dialogue:
-  - {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}
   index: 0
+  dialogue: {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}

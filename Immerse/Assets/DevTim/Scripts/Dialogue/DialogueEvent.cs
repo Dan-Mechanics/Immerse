@@ -8,15 +8,12 @@ namespace Immerse
         public AudioClip clip;
         public string script;
 
-        [HideInInspector] public Actor actor;
+        [HideInInspector] public Entity speaker;
         [HideInInspector] public int index;
 
-        public void OnValidate()
+        public void Setup()
         {
             clip = Resources.Load<AudioClip>(name);
-
-            /*if (clip == null)
-                Debug.LogWarning($"{nameof(clip)} is null.");*/
         }
     }
 }

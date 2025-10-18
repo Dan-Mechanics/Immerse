@@ -2834,7 +2834,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "VOOR DESGIN TIM: \nup = jeremy,\ndown = marc, \nleft = leonardo, \nright
-    = laura."
+    = vivienne."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3398,7 +3398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc196899cad22d43987de0930441ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueSprites: []
 --- !u!1 &1997093797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,6 +3524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 173168255}
     m_Modifications:
+    - target: {fileID: 153542572319245384, guid: b80bdad94c8bf9149b1da011011aed4f, type: 3}
+      propertyPath: blame
+      value: 
+      objectReference: {fileID: 11400000, guid: 142ce106bbfacfa4ebc8a354edf09bd6, type: 2}
     - target: {fileID: 153542572319245384, guid: b80bdad94c8bf9149b1da011011aed4f, type: 3}
       propertyPath: timer
       value: 
@@ -4717,6 +4720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: actor_dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 3109497621122723517, guid: 62cf8c6ef4bd16946b5106d757c99f39, type: 3}
+      propertyPath: m_Name
+      value: text
+      objectReference: {fileID: 0}
     - target: {fileID: 6512088093729819611, guid: 62cf8c6ef4bd16946b5106d757c99f39, type: 3}
       propertyPath: m_Color.b
       value: 0.2901961
@@ -4938,6 +4945,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5059850058445898768}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: history
+      value: 
+      objectReference: {fileID: 1974227853}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: scanner
       value: 
       objectReference: {fileID: 1464656454}
@@ -4945,6 +4956,10 @@ PrefabInstance:
       propertyPath: prompter
       value: 
       objectReference: {fileID: 908752998}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: question
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b11d716b9015224088f4362fcee54f7, type: 2}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: displayer
       value: 
@@ -5035,6 +5050,6 @@ SceneRoots:
   - {fileID: 3362920358281473591}
   - {fileID: 6163112673589168489}
   - {fileID: 8772908945300617959}
+  - {fileID: 1974227852}
   - {fileID: 1942549928}
   - {fileID: 1973876941}
-  - {fileID: 1974227852}
