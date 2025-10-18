@@ -18,46 +18,46 @@ namespace Immerse
         [SerializeField] private int reverseBlameIndex = default;
         [SerializeField] private int reverseCancelIndex = default;
 
-        private Actor scannedActor;
-        private DialogueEvent scannedDialogue;
-        private bool hasBegunAlready;
+        private Actor currentActor;
+        private DialogueEvent currentDialogue;
+        private bool hasStarted;
 
         public void Begin() 
         {
-            if (hasBegunAlready)
+            if (hasStarted)
                 return;
 
             scanner.OnScanInt += OnScanInt;
             scanner.OnScanString += OnScanString;
             OnScanString("Intro");
-            hasBegunAlready = true;
+            hasStarted = true;
         }
 
         private void OnAnswer(int index)
         {
             prompter.OnAnswer -= OnAnswer;
 
-            if (index < 0 || scannedActor == null)
+            if (index < 0 || currentActor == null)
                 return;
 
             int lastIndex = interviewQuestion.options.Length - 1;
             if (index == lastIndex - reverseCancelIndex)
             {
-                scannedActor = null;
-                scannedDialogue = null;
+                currentActor = null;
+                currentDialogue = null;
                 return;
             }
 
             if (index == lastIndex - reverseBlameIndex)
             {
-                blame.BlameActorIndex(scannedActor.index);
-                scannedActor = null;
-                scannedDialogue = null;
+                blame.BlameActorIndex(currentActor.index);
+                currentActor = null;
+                currentDialogue = null;
                 return;
             }
 
-            InteractWithDialogue(scannedActor.dialogue[index]);
-            scannedActor = null;
+            InteractWithDialogue(currentActor.dialogue[index]);
+            currentActor = null;
         }
 
         private void InteractWithActor(Actor actor)
@@ -65,22 +65,22 @@ namespace Immerse
             if (actor == null)
                 return;
 
-            if (actor == scannedActor)
+            if (actor == currentActor)
                 return;
 
-            scannedActor = actor;
-            scannedDialogue = null;
-            interviewQuestion.question = $"Interview {Utils.CapitilizeFirst(scannedActor.name)} ...";
+            currentActor = actor;
+            currentDialogue = null;
+            interviewQuestion.question = $"Interview {Utils.CapitilizeFirst(currentActor.name)} ...";
             for (int i = 0; i < interviewQuestion.options.Length - 1 - reverseCancelIndex; i++)
             {
-                interviewQuestion.options[i].icon = scannedActor.icon;
+                interviewQuestion.options[i].icon = currentActor.icon;
             }
 
             // PLAY A RANDOM INTERACTION NOISE IF 
             // THERE ARE ANY.
-            if (scannedActor.interactionSounds != null && scannedActor.interactionSounds.Length > 0)
+            if (currentActor.interactionSounds != null && currentActor.interactionSounds.Length > 0)
             {
-                interviewQuestion.clip = scannedActor.interactionSounds[UnityEngine.Random.Range(0, scannedActor.interactionSounds.Length)];
+                interviewQuestion.clip = currentActor.interactionSounds[UnityEngine.Random.Range(0, currentActor.interactionSounds.Length)];
             }
             else
             {
@@ -96,13 +96,13 @@ namespace Immerse
             if (dialogue == null)
                 return;
 
-            if (dialogue == scannedDialogue)
+            if (dialogue == currentDialogue)
                 return;
 
-            scannedDialogue = dialogue;
-            scannedActor = null;
+            currentDialogue = dialogue;
+            currentActor = null;
             OnDialogue?.Invoke();
-            displayer.Display(scannedDialogue);
+            displayer.Display(currentDialogue);
         }
 
         private void OnScanInt(int index)

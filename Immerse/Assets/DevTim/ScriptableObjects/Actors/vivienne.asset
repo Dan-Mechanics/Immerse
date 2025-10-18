@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
   m_Name: vivienne
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: ac603c7f76d2dc24c8cf400682f98ae3, type: 3}
-  description: Boekhouder.
+  icon: {fileID: 21300000, guid: bec15d6c8cbe9a74da64d97a53582df8, type: 3}
+  description: 'Boekhouder. '
   interactionSounds:
   - {fileID: 8300000, guid: 370fab2d11493e144bd36821f57f6a8d, type: 3}
   dialogue:

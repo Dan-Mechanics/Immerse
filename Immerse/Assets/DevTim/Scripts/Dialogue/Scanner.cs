@@ -8,11 +8,11 @@ namespace Immerse
         public event Action<string> OnScanString;
         public event Action<int> OnScanInt;
 
+        [SerializeField] private Holder holder = default;
         private readonly Keyboard keyboard = new Keyboard();
 
         private void Update()
         {
-            // YANDERE-DEV IS THAT YOU ?
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 OnScanString("jeremy");
@@ -38,16 +38,7 @@ namespace Immerse
             if (number < 0)
                 return;
 
-            OnScanInt?.Invoke(number);
-
-            /*if (Input.GetKeyDown(KeyCode.Alpha1))
-                OnNewScan?.Invoke("accountant");
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                OnNewScan?.Invoke("janitor");
-
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-                OnNewScan?.Invoke("Intro");*/
+            OnScanString?.Invoke(holder.Dialogue[number].name);
         }
     }
 }

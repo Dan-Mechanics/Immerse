@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
   m_Name: jeremy
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 76714f73673b10f4b911eeb13c96acfb, type: 3}
+  icon: {fileID: 21300000, guid: 5f5d80e5e0c081e4698de51eb5bece71, type: 3}
   description: Dev.
+  interactionSounds: []
   dialogue:
   - {fileID: 11400000, guid: 5dddd50ecf72d424c9279270e7037cc3, type: 2}
   - {fileID: 11400000, guid: 33083a1e9cf512340ae29c691e3f0710, type: 2}

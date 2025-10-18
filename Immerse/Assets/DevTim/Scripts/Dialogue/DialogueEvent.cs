@@ -7,12 +7,16 @@ namespace Immerse
     {
         public AudioClip clip;
         public string script;
-        [HideInInspector] public Actor actor;
 
-        private void OnValidate()
+        [HideInInspector] public Actor actor;
+        [HideInInspector] public int index;
+
+        public void OnValidate()
         {
-            if (clip != null && clip.name != name)
-                Debug.LogWarning($"It might be a good idea to name '{name}' '{clip.name}', or the other way around.");
+            clip = Resources.Load<AudioClip>(name);
+
+            /*if (clip == null)
+                Debug.LogWarning($"{nameof(clip)} is null.");*/
         }
     }
 }

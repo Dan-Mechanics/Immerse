@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49eb32dc14f2994490383465a82b2fb, type: 3}
   m_Name: marc
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e4e350bf0b64f2348a5553b1bf16f01d, type: 3}
+  icon: {fileID: 21300000, guid: 79c17f0db3af9784aac6ecb2723125fe, type: 3}
   description: CEO.
+  interactionSounds: []
   dialogue:
   - {fileID: 11400000, guid: 84a4942fa5dbfa64694e61586d7161c1, type: 2}
   - {fileID: 11400000, guid: 913823e11abe6494db62e763fdef17fd, type: 2}

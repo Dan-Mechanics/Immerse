@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f5b8735024f6534c90fc013500361a2, type: 3}
-  m_Name: Koffiebeker
+  m_Name: Verhaal
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 649c29dff7916d04087f9faf3cedbda1, type: 3}
   script: ...
-  actor: {fileID: 0}
+  actor: {fileID: 11400000, guid: fe872cff6e1872341affa912c025b811, type: 2}
+  index: 0

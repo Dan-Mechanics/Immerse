@@ -11,5 +11,10 @@ namespace Immerse
         public DialogueEvent[] dialogue;
 
         [HideInInspector] public int index;
+
+        public virtual void OnValidate()
+        {
+            icon = Resources.Load<Sprite>(name);
+        }
     }
 }

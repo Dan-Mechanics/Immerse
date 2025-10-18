@@ -10,36 +10,52 @@ namespace Immerse
     {
         public List<DialogueEvent> Dialogue => dialogueEvents;
         public List<Actor> Actors => actors;
+        public List<Prop> Props => props;
 
         public readonly Dictionary<string, DialogueEvent> DialogueDict = new Dictionary<string, DialogueEvent>();
         public readonly Dictionary<string, Actor> ActorsDict = new Dictionary<string, Actor>();
+        public readonly Dictionary<string, Prop> PropsDict = new Dictionary<string, Prop>();
 
         [SerializeField] private List<DialogueEvent> dialogueEvents = default;
         [SerializeField] private List<Actor> actors = default;
-        [SerializeField] private List<Actor> unlisted = default;
+        [SerializeField] private List<Prop> props = default;
 
         private void Awake()
         {
             for (int i = 0; i < actors.Count; i++)
             {
-                actors[i].index = i;
-                for (int j = 0; j < actors[i].dialogue.Length; j++)
+                Actor actor = actors[i];
+                actor.OnValidate();
+                actor.index = i;
+
+                for (int j = 0; j < actor.dialogue.Length; j++)
                 {
-                    actors[i].dialogue[j].actor = actors[i];
+                    actor.dialogue[j].actor = actor;
+                    actor.dialogue[j].index = j;
                 }
             }
 
-            for (int i = 0; i < unlisted.Count; i++)
+            for (int i = 0; i < props.Count; i++)
             {
-                unlisted[i].index = actors.Count + i;
-                for (int j = 0; j < unlisted[i].dialogue.Length; j++)
+                Prop prop = props[i];
+                prop.OnValidate();
+                prop.index = i;
+
+                for (int j = 0; j < prop.dialogue.Length; j++)
                 {
-                    unlisted[i].dialogue[j].actor = unlisted[i];
+                    prop.dialogue[j].actor = prop;
+                    prop.dialogue[j].index = j;
                 }
             }
-            
+
+            for (int i = 0; i < dialogueEvents.Count; i++)
+            {
+                dialogueEvents[i].OnValidate();
+            }
+
             dialogueEvents.ForEach(x => DialogueDict.Add(x.name, x));
             actors.ForEach(x => ActorsDict.Add(x.name, x));
+            props.ForEach(x => PropsDict.Add(x.name, x));
         }
     }
 }
