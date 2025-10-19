@@ -36,7 +36,7 @@ namespace Immerse
             if (index < 0)
                 return;
 
-            print($"OnScanInt {gameObject} scanned '{index}'.");
+            print($"OnScanInt {gameObject.name} scanned '{index}'.");
             if (index < holder.Actors.Count)
             {
                 InteractWithActor(holder.Actors[index]);
@@ -55,7 +55,7 @@ namespace Immerse
             if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
                 return;
 
-            print($"OnScanString {gameObject} scanned '{name}'.");
+            print($"OnScanString {gameObject.name} scanned '{name}'.");
             if (holder.ActorsDict.ContainsKey(name))
             {
                 InteractWithActor(holder.ActorsDict[name]);
@@ -77,33 +77,36 @@ namespace Immerse
                 return;
 
             currentActor = actor;
-            question.question = $"Interview {Utils.CapitilizeFirst(currentActor.name)} ...";
-            question.includeOptional = history.props.Contains(actor.prop);
-
-            for (int i = 0; i < question.options.Length; i++)
-            {
-                if(question.options[i].tag == Tag.None)
-                    question.options[i].icon = currentActor.icon;
-            }
-
-            if (currentActor.interactionSounds != null && currentActor.interactionSounds.Length > 0)
-            {
-                question.clip = currentActor.interactionSounds[UnityEngine.Random.Range(0, currentActor.interactionSounds.Length)];
-            }
-            else
-            {
-                question.clip = null;
-            }
+            MatchQuestionToActor(currentActor);
 
             OnDisplayQuestion?.Invoke(question, gameplayState);
             prompter.OnAnswer += OnAnswer;
         }
 
+        private void MatchQuestionToActor(Actor actor)
+        {
+            question.question = $"Interview {Utils.CapitilizeFirst(actor.name)} ...";
+            question.includeOptional = history.Has(actor.prop);
+
+            for (int i = 0; i < question.options.Length; i++)
+            {
+                if (question.options[i].tag == Tag.None)
+                    question.options[i].icon = actor.icon;
+            }
+
+            question.clip = null;
+            if (actor.interactionSounds != null && actor.interactionSounds.Length > 0)
+                question.clip = actor.interactionSounds[UnityEngine.Random.Range(0, actor.interactionSounds.Length)];
+        }
+
         private void InteractWithDialogue(DialogueEvent dialogue)
         {
             currentActor = null;
-            if (dialogue.speaker is Prop prop && !history.props.Contains(prop))
-                history.props.Add(prop);
+            if (dialogue.speaker is Prop prop && !history.Has(prop))
+                history.Add(prop);
+
+            if (dialogue.speaker is Actor actor)
+                history.Add(actor, dialogue.index);
 
             OnDialogue?.Invoke();
             displayer.Display(dialogue);

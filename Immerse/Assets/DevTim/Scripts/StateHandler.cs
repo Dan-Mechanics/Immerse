@@ -63,6 +63,16 @@ namespace Immerse
 
         private void Update()
         {
+            // CLEAN.
+            for (int i = 0; i < states.Count; i++)
+            {
+                for (int j = states[i].elements.Count - 1; j >= 0; j--)
+                {
+                    if (states[i].elements[j] == null)
+                        states[i].elements.RemoveAt(j);
+                }
+            }
+            
             current?.elements.ForEach(x => x.DoFrame());
         }
 
@@ -77,9 +87,6 @@ namespace Immerse
 
             for (int i = 0; i < current.elements.Count; i++)
             {
-                if (current.elements[i] == null)
-                    continue;
-
                 current.elements[i].DoTick();
             }
         }

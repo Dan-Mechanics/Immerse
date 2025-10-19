@@ -1,16 +1,33 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Immerse
 {
-    /// <summary>
-    /// This needs to also have UI with it yupppp.
-    /// Make a HistoryDisplay state in gameplay state that visualizes.
-    /// </summary>
     public class History : MonoBehaviour
     {
-        // Also actor itneractions as different colors of discussion here.
-        
-        public readonly List<Prop> props = new List<Prop>();
+        public Action<List<Prop>> OnNewProps;
+        public Action<Dictionary<Actor, List<int>>> OnNewActorHistory;
+
+        private readonly List<Prop> props = new List<Prop>();
+        private readonly Dictionary<Actor, List<int>> actorHistory = new Dictionary<Actor, List<int>>();
+
+        public bool Has(Prop prop) => props.Contains(prop); 
+
+        public void Add(Prop prop)
+        {
+            props.Add(prop);
+            OnNewProps?.Invoke(props);
+        }
+
+        public void Add(Actor actor, int index)
+        {
+            actorHistory.TryAdd(actor, new List<int>());
+
+            if (!actorHistory[actor].Contains(index))
+                actorHistory[actor].Add(index);
+
+            OnNewActorHistory?.Invoke(actorHistory);
+        }
     }
 }
