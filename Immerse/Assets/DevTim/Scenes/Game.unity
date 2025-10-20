@@ -4149,6 +4149,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: hidekey
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: showKey
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1942549927}

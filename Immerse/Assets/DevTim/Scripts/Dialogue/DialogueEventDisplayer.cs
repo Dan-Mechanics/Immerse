@@ -21,7 +21,7 @@ namespace Immerse
         {
             base.Open();
             notepadHandler.OnOpen += HideDialogue;
-            notepadHandler.OnClose += HideDialogue;
+           // notepadHandler.OnClose += HideDialogue;
         }
 
         public override void Close()
@@ -39,7 +39,7 @@ namespace Immerse
             source.Stop();
 
             notepadHandler.OnOpen -= HideDialogue;
-            notepadHandler.OnClose -= HideDialogue;
+            //notepadHandler.OnClose -= HideDialogue;
         }
 
         public override void DoTick()

@@ -36,49 +36,49 @@ Pedro: Stapel koffiebekers en blikjes energy - interactie is *oh hij heeft veel 
 
 A_marc
 =
-Dat gaat jou toch niks aan? Je bent nieuw hier… maar als je het zo nodig moest weten was ik lunch gaan halen bij de pizzeria aan de overkant.
+Waar bemoei jij je mee? Ik was in de audio-room. Bezig met… audio dingen.
 
 ///
 
 B_marc
 =
-Als ik iets verdachts had gezien had ik het wel tegen de politie verteld, wijsneus. Maar als je zo graag de detective uit wilt hangen, zou ik beginnen bij Jeremy. Hij steekt al de hele week zijn neus in mijn zaken.
+Hang lekker ergens anders de detective uit. Hier betaal ik je niet voor.
 
 ///
 
 C_marc
 =
-Pedro was mijn werknemer. Niet meer, niet minder.
+Pedro was een goede, of ja, prima werknemer. Persoonlijk kende ik ‘m nooit goed.
 
 ///
 
 D_marc
 =
-Wat is dat? Wat moet ik hiermee?                         Nee, geen idee.
+Waarom neus jij rond in mijn kantoor? Dit zijn grote-mensenpullen, dus afblijven.
 
 ///
 
 A_jeremy
 =
-Ik zat aan mijn bureau de laatste bugfixes te doen voor release.
+Ik? Ik was in de kantine met Pedro, heb je die nieuwe cup-a-soep geproefd ouwe? Monster lekker, ik zeg het je.
 
 ///
 
 B_jeremy
 =
-Pfff, ik heb een dinsdagdip dus ben er niet helemaal meer bij maar volgens mij zag ik Marc met zijn secretaresse zijn kantoor binnen sluipen.                 Oja! Pedro zag er al de hele week gestresst uit, bijna angstig. Hij vertelde me dat hij bang was dat iemand er achter kwam dat hij A.I. gebruikte om deadlines te halen.
+Ehm… ja, ik heb inderdaad iets tantoe raars gezien. Marc en Vivienne gedragen zich de laatste tijd al boem vreemd, en ik zag ze laatst stiekem samen het kantoor in sluipen. Maar zeg dit yusu tegen niemand, ait?
 
 ///
 
 C_jeremy
 =
-Pedro was mijn maatje, ik heb nog nooit iemand zoveel coke zien snuiven op een rave als die vent. Ik ga hem missen…
+Pedro was echt m’n tjabo, weet je. We deden alles samen, er ging geen weekend voorbij zonder een biertje en een potje voetbal.
 
 ///
 
 D_jeremy
 =
-Ik weet niet van wie dat is, maar ik zag het als laatste in de server room. Ik denk dat je daar het beste alweer kunt kijken.
+Oké, ik heb op zijn account gespeeld. Ik dacht dat het niet zo'n big deal was. Ik… ik. Zit eigenlijk gewoon op een gok-stop, oké? Ik kan niet langer zonder dat gevoel.
 
 ///
 

@@ -15,8 +15,8 @@ namespace Immerse
         [SerializeField] private TMP_InputField inputField = default;
         [SerializeField] private EventSystem eventSystem = default;
         [SerializeField] private Button toggleNotepadButton = default;
-        [SerializeField] private KeyCode upKey = default;
-        [SerializeField] private KeyCode downKey = default;
+        [SerializeField] private KeyCode showKey = default;
+        [SerializeField] private KeyCode hidekey = default;
         [SerializeField] private List<Lerper> lerpers = default;
 
         private bool showingNotes;
@@ -44,10 +44,10 @@ namespace Immerse
         public override void DoFrame()
         {
             base.DoFrame();
-            if (Input.GetKeyDown(upKey))
+            if (Input.GetKeyDown(showKey))
                 SetVisible(true);
 
-            if (Input.GetKeyDown(downKey))
+            if (Input.GetKeyDown(hidekey))
                 SetVisible(false);
         }
 
@@ -55,9 +55,10 @@ namespace Immerse
 
         private void SetVisible(bool visible)
         {
-            showingNotes = visible;
+            if (showingNotes != visible)
+                (showingNotes ? OnOpen : OnClose)?.Invoke();
 
-            (showingNotes ? OnOpen : OnClose)?.Invoke();
+            showingNotes = visible;
 
             if (!showingNotes)
                 eventSystem.SetSelectedGameObject(null);
