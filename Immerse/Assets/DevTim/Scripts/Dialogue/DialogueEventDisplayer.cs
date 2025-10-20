@@ -8,6 +8,7 @@ namespace Immerse
     {
         [SerializeField] private Image icon = default;
         [SerializeField] private TextWriter textWriter = default;
+        [SerializeField] private NotepadHandler notepadHandler = default;
         [SerializeField] private Lerper lerper = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
@@ -15,7 +16,14 @@ namespace Immerse
 
         private DialogueEvent currentDialogue;
         private float doneTime;
-        
+
+        public override void Open()
+        {
+            base.Open();
+            notepadHandler.OnOpen += HideDialogue;
+            notepadHandler.OnClose += HideDialogue;
+        }
+
         public override void Close()
         {
             base.Close();
@@ -29,18 +37,25 @@ namespace Immerse
             source.playOnAwake = false;
             source.dopplerLevel = 0f;
             source.Stop();
+
+            notepadHandler.OnOpen -= HideDialogue;
+            notepadHandler.OnClose -= HideDialogue;
         }
 
         public override void DoTick()
         {
             base.DoTick();
 
-            bool done = Time.time >= doneTime;
+            bool done = Time.time > doneTime;
             lerper.Send(done);
             if (done)
                 currentDialogue = null;
         }
 
+        /// <summary>
+        /// Possible todo: make it so that when you press O or L that the shit goes away.
+        /// </summary>
+        /// <param name="dialogue"></param>
         public void Display(DialogueEvent dialogue)
         {
             if (dialogue == null)
@@ -63,6 +78,13 @@ namespace Immerse
 
             currentDialogue = dialogue;
             doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
+        }
+
+        public void HideDialogue()
+        {
+            doneTime = 0f;
+            currentDialogue = null;
+            source.Stop();
         }
     }
 }

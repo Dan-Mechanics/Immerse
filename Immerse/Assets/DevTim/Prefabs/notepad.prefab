@@ -859,10 +859,11 @@ MonoBehaviour:
   inputField: {fileID: 7785892143855190972}
   eventSystem: {fileID: 0}
   toggleNotepadButton: {fileID: 185944780167299263}
+  upKey: 108
+  downKey: 111
   lerpers:
   - {fileID: 764216839431465381}
   - {fileID: 7901233671454273223}
-  showingNotes: 0
 --- !u!114 &764216839431465381
 MonoBehaviour:
   m_ObjectHideFlags: 0

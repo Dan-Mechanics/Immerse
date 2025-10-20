@@ -2521,6 +2521,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a82184be65ca04398f1f0250f73b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1469893385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+  m_PrefabInstance: {fileID: 4993590890514022906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ca78be824d4543913e07fb20ccdab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1519656950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,9 +4846,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7398435387983777684}
     - target: {fileID: 2510222395593345554, guid: 3f4c6dd26e8300941a85d8c434b4d83e, type: 3}
-      propertyPath: textBoxTrailTime
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: notepadHandler
+      value: 
+      objectReference: {fileID: 1469893385}
     - target: {fileID: 2972063033328743376, guid: 3f4c6dd26e8300941a85d8c434b4d83e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

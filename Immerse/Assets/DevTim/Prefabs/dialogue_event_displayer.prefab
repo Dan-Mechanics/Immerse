@@ -47,9 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   textWriter: {fileID: 0}
+  notepadHandler: {fileID: 0}
   lerper: {fileID: 0}
   iconText: {fileID: 0}
   source: {fileID: 5399289692029953120}
+  textBoxTrailTime: 2
 --- !u!82 &5399289692029953120
 AudioSource:
   m_ObjectHideFlags: 0
