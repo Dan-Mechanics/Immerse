@@ -11,6 +11,9 @@ namespace Immerse
         [SerializeField] private Holder holder = default;
         private readonly Keyboard keyboard = new Keyboard();
 
+        /// <summary>
+        /// ALL OF THIS IS FOR DEBUG !!
+        /// </summary>
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))

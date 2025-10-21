@@ -10,33 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a85680773a3744a9b1c288684c83fe, type: 3}
-  m_Name: blame
+  m_Name: blame_question
   m_EditorClassIdentifier: 
-  question: Beschuldig iemand ...
-  processLength: 4
-  saturation: 0.25
-  a: {r: 1, g: 1, b: 1, a: 1}
-  b: {r: 0, g: 0, b: 0, a: 1}
+  message: 
   clip: {fileID: 0}
   includeOptional: 1
   options:
   - text: Beschuldig Jeremy!
-    color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    color: {r: 0.69705886, g: 0.42058823, b: 0.3852941, a: 1}
     tag: 0
     optional: 0
     icon: {fileID: 21300000, guid: 5f5d80e5e0c081e4698de51eb5bece71, type: 3}
   - text: Beschuldig Marc!
-    color: {r: 0.59607846, g: 0.22639094, b: 0.18039215, a: 1}
+    color: {r: 0.6137255, g: 0.33645988, b: 0.30196077, a: 1}
     tag: 0
     optional: 0
     icon: {fileID: 21300000, guid: 79c17f0db3af9784aac6ecb2723125fe, type: 3}
   - text: Beschuldig Leonardo!
-    color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    color: {r: 0.53039217, g: 0.25392157, b: 0.21862745, a: 1}
     tag: 0
     optional: 0
     icon: {fileID: 21300000, guid: f5f9b268a6ef4fc4dbfe79677702c7f2, type: 3}
   - text: Beschuldig Vivienne!
-    color: {r: 0.59607846, g: 0.22745098, b: 0.18039216, a: 1}
+    color: {r: 0.44705886, g: 0.17058824, b: 0.13529412, a: 1}
     tag: 0
     optional: 0
     icon: {fileID: 21300000, guid: bec15d6c8cbe9a74da64d97a53582df8, type: 3}
@@ -45,3 +41,8 @@ MonoBehaviour:
     tag: 1
     optional: 1
     icon: {fileID: 21300000, guid: c58c0f8998d890d459142a45c4510da0, type: 3}
+  start: 0
+  end: 4
+  saturation: 0.25
+  a: {r: 1, g: 1, b: 1, a: 1}
+  b: {r: 0, g: 0, b: 0, a: 1}

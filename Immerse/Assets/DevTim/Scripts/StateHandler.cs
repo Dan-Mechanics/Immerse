@@ -6,9 +6,10 @@ namespace Immerse
 {
     public class StateHandler : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> parents = default;
+        [SerializeField] private Transform root = default;
         [SerializeField] private GameObject startingParent = default;
 
+        private readonly List<GameObject> parents = new List<GameObject>();
         private readonly List<State> states = new List<State>();
         private State current;
 
@@ -40,12 +41,15 @@ namespace Immerse
 
         private void Awake()
         {
+            for (int i = 0; i < root.childCount; i++)
+            {
+                parents.Add(root.GetChild(i).gameObject);
+            }
+
             foreach (GameObject parent in parents)
             {
-                this.states.Add(new State(parent, new List<StateElement>()));
-                List<StateElement> states = parent.GetComponentsInChildren<StateElement>().ToList();
-                states.ForEach(x => this.states[^1].elements.Add(x));
                 parent.SetActive(true);
+                states.Add(new State(parent, parent.GetComponentsInChildren<StateElement>().ToList()));
             }
         }
 
@@ -67,7 +71,6 @@ namespace Immerse
                 return;
 
             Clean();
-
             current.elements.ForEach(x => x.DoFrame());
         }
 
@@ -81,7 +84,6 @@ namespace Immerse
                 return;
 
             Clean();
-
             for (int i = 0; i < current.elements.Count; i++)
             {
                 current.elements[i].DoTick();
@@ -90,10 +92,10 @@ namespace Immerse
 
         private void Clean()
         {
-            for (int j = current.elements.Count - 1; j >= 0; j--)
+            for (int i = current.elements.Count - 1; i >= 0; i--)
             {
-                if (current.elements[j] == null)
-                    current.elements.RemoveAt(j);
+                if (current.elements[i] == null)
+                    current.elements.RemoveAt(i);
             }
         }
 
@@ -107,13 +109,14 @@ namespace Immerse
             if (parent == null || !parents.Contains(parent))
                 return;
 
-            foreach (State wrapper in states)
+            foreach (State state in states)
             {
-                if (wrapper.parent != parent)
+                if (state.parent != parent)
                     continue;
 
-                wrapper.Open();
-                current = wrapper;
+                // NOTE: THE ORDER OF THIS IS VERY IMPORTANT.
+                current = state;
+                state.Open();
                 return;
             }
         }

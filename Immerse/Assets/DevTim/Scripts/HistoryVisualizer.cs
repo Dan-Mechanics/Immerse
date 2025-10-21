@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class HistoryVisual : StateElement
+    public class HistoryVisualizer : MonoBehaviour
     {
         [SerializeField] private History history = default;
         
@@ -21,16 +21,14 @@ namespace Immerse
         private readonly List<Image> propImages = new List<Image>();
         private readonly List<Image> actorHistoryImages = new List<Image>();
 
-        public override void Open()
+        private void Awake()
         {
-            base.Open();
             history.OnNewProps += ShowProps;
             history.OnNewActorHistory += ShowActorHistory;
         }
 
-        public override void Close()
+        private void OnDestroy()
         {
-            base.Close();
             history.OnNewProps -= ShowProps;
             history.OnNewActorHistory -= ShowActorHistory;
         }

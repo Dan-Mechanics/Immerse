@@ -1,4 +1,24 @@
-﻿7 okt:
+﻿21 okt:
+
+todo: solve duizend problems wtih code,
+mainly that the everything is a littel fucked
+you need to lsiten to scanResponder events not scanner
+because we want to abstract that away. call it interaction ipv gameplay i think.
+
+test criteria:
+does notepad work?
+does blame work
+does cancel work?
+does forced blame after time run out work?
+does interact with dialgoue work
+etc etc
+
+test literally everything and try to break it by spamming and shit
+really try to find those bugs yo.
+
+VV i also wanna fix the ugly and come color lerp code and make something better for that.
+
+7 okt:
 
 Maak questions scriptable object zorg dat dat goed werkt
 nice colors and tools and string replacement and such.

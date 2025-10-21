@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +7,10 @@ namespace Immerse
 {
     public partial class Prompter : StateElement
     {
-        public event Action<int> OnAnswer;
-        
+        [SerializeField] private GameObject gameplayState = default;
+        [SerializeField] private GameObject promptState = default;
+        [SerializeField] private StateHandler stateHandler = default;
+
         [SerializeField] private Transform promptHolder = default;
         [SerializeField] private AudioSource source = default;
         [SerializeField] private GameObject promptPrefab = default;
@@ -19,53 +19,70 @@ namespace Immerse
 
         private readonly List<StateElement> promptBehaviours = new List<StateElement>();
         private readonly List<GameObject> spawned = new List<GameObject>();
-        private Keyboard keyboard;
-        private int optionsLength;
+        private readonly Keyboard keyboard = new Keyboard();
 
-        public bool DisplayQuestion(Question question) 
+        private Current current;
+
+        private class Current
         {
-            DestroyPrompts();
+            public IAnswerListener listener;
+            public Question question;
+        }
 
-            questionText.text = question.question;
+        /// <summary>
+        /// Init prompt.
+        /// </summary>
+        public void Ask(Question question, IAnswerListener listener) 
+        {
+            if (current != null)
+                current.listener?.Dismiss();
+
+            if (question == null || listener == null)
+                return;
+
+            stateHandler.Open(promptState);
+            DestroyPrompts();
             source.Stop();
+
+            current = new Current() { listener = listener, question = question };
+
+            questionText.text = question.message;
             if (question.clip != null)
                 source.PlayOneShot(question.clip);
 
             for (int i = 0; i < question.options.Length; i++)
             {
-                if (question.includeOptional)
-                {
-                    SpawnOption(question.options[i], i, question);
-                }
-                else
-                {
-                    if (!question.options[i].optional)
-                        SpawnOption(question.options[i], i, question);
-                }
+                if(question.includeOptional || !question.options[i].optional)
+                    SpawnOption(question.options[i], i);
             }
 
             promptBehaviours.ForEach(x => x.Open());
-
-            optionsLength = question.options.Length;
-            keyboard = new Keyboard();
-            return true;
         }
 
-        private void GiveAnswer(int answer) 
+        private void GetAnswer(int answer) 
         {
             if (answer < 0)
                 return;
 
-            if (answer >= optionsLength)
+            if (current == null)
                 return;
-            
-            keyboard = null;
-            OnAnswer?.Invoke(answer);
+
+            if (answer >= current.question.options.Length)
+                return;
+
+            current.listener?.GetAnswer(answer, current.question.options[answer]);
+            current = null;
+            stateHandler.Open(gameplayState);
         }
 
         public override void Close()
         {
             base.Close();
+
+            if (current != null)
+                current.listener.Dismiss();
+
+            current = null;
             DestroyPrompts();
             source.Stop();
         }
@@ -73,10 +90,11 @@ namespace Immerse
         public override void DoFrame()
         {
             base.DoFrame();
-            
-            if (keyboard != null)
-                GiveAnswer(keyboard.GetPressedLetterIndex());
 
+            if (current == null)
+                return;
+
+            GetAnswer(keyboard.GetPressedLetterIndex());
             promptBehaviours.ForEach(x => x.DoFrame());
         }
 
@@ -86,7 +104,7 @@ namespace Immerse
             promptBehaviours.ForEach(x => x.DoTick());
         }
 
-        private void SpawnOption(Option option, int i, Question question)
+        private void SpawnOption(Option option, int i)
         {
             GameObject go = Instantiate(promptPrefab, promptHolder);
             RectTransform rect = go.GetComponent<RectTransform>();
@@ -95,18 +113,9 @@ namespace Immerse
             rect.anchoredPosition = Vector2.up * verticalSpacing + (i * verticalSpacing * Vector2.down);
 
             go.GetComponent<Image>().color = option.color;
-            if (question.saturation > 0f && i < question.processLength)
-            {
-                float lerp = 0f;
-                if (question.options.Length > 1)
-                    lerp = (float)i / (question.options.Length - 1);
-
-                go.GetComponent<Image>().color = Color.Lerp(option.color, Color.Lerp(question.a, question.b, lerp), question.saturation);
-            }
-
             go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
-            go.GetComponent<Button>().onClick.AddListener(delegate { GiveAnswer(i); });
+            go.GetComponent<Button>().onClick.AddListener(delegate { GetAnswer(i); });
             go.GetComponent<Lerper>().Send(false);
 
             promptBehaviours.AddRange(go.GetComponentsInChildren<StateElement>());
@@ -119,9 +128,6 @@ namespace Immerse
         /// </summary>
         private void DestroyPrompts() 
         {
-            OnAnswer?.GetInvocationList().ToList().ForEach(x => OnAnswer -= (Action<int>)x);
-            keyboard = null;
-
             foreach (GameObject go in spawned)
             {
                 go.GetComponent<Button>().onClick.RemoveAllListeners();

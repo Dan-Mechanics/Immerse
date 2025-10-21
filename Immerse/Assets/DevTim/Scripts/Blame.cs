@@ -4,20 +4,18 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Blame : StateElement
+    public class Blame : StateElement, IAnswerListener
     {
         public event Action<bool> OnWinOrLose;
-        public event Action<Question, GameObject> OnDisplayQuestion;
 
-        [SerializeField] private GameObject scanner = default;
-        [SerializeField] private GameObject gameplayState = default;
+        [SerializeField] private GameObject scanResponder = default;
         [SerializeField] private TextWriter textWriter = default;
         [SerializeField] private Timer timer = default;
         [SerializeField] private Prompter prompter = default;
         [SerializeField] private Button blameButton = default;
         [SerializeField] private Holder holder = default;
         [SerializeField] private Actor murderer = default;
-        [SerializeField] private Question blame = default;
+        [SerializeField] private Question blameQuestion = default;
 
         private bool hasStarted;
 
@@ -25,11 +23,8 @@ namespace Immerse
         {
             for (int i = 0; i < holder.Actors.Count; i++)
             {
-                blame.options[i].icon = holder.Actors[i].icon;
-                blame.options[i].text = $"Beschuldig {Utils.CapitilizeFirst(holder.Actors[i].name)}!";
-
-                //forceBlame.options[i].icon = blame.options[i].icon;
-                //forceBlame.options[i].text = blame.options[i].text;
+                blameQuestion.options[i].icon = holder.Actors[i].icon;
+                blameQuestion.options[i].text = $"Beschuldig {Utils.CapitilizeFirst(holder.Actors[i].name)}!";
             }
         }
 
@@ -52,51 +47,49 @@ namespace Immerse
         {
             base.Close();
             blameButton.onClick.RemoveAllListeners();
-            prompter.OnAnswer -= BlameActorIndex;
+
             timer.OnNewTime -= OnNewTime;
             timer.OnDone -= ForceBlame;
         }
 
-        public void BlameActorIndex(int index)
-        {
-            if (index < 0)
-                return;
-
-            if (blame.options[index].tag != Tag.Cancel)
-            {
-                StopScanning();
-                OnWinOrLose?.Invoke(holder.Actors[index] == murderer);
-            }
-
-            prompter.OnAnswer -= BlameActorIndex;
-        }
-
         private void AskBlame()
         {
-            blame.includeOptional = true;
-            OnDisplayQuestion?.Invoke(blame, gameplayState);
-            prompter.OnAnswer += BlameActorIndex;
+            blameQuestion.includeOptional = true;
+            prompter.Ask(blameQuestion, this);
         }
 
         private void StopScanning()
         {
-            if (scanner == null)
+            if (scanResponder == null)
                 return;
 
-            scanner.SetActive(false);
-            Destroy(scanner);
+            scanResponder.SetActive(false);
+            Destroy(scanResponder);
+            scanResponder = null;
         }
 
         private void ForceBlame()
         {
             StopScanning();
 
-            // TIMER CALLS ITS OWN CLOSE(),
-            // SO I THINK THIS MAKES SENSE HERE.
-            blame.includeOptional = false;
+            blameQuestion.includeOptional = false;
             timer.OnDone -= ForceBlame;
-            OnDisplayQuestion?.Invoke(blame, null);
-            prompter.OnAnswer += BlameActorIndex;
+
+            prompter.Ask(blameQuestion, this);
         }
+
+        /// <summary>
+        /// Who did you blame?
+        /// </summary>
+        public void GetAnswer(int index, Option option)
+        {
+            if (option.tag == Tag.Cancel)
+                return;
+
+            StopScanning();
+            OnWinOrLose?.Invoke(holder.Actors[index] == murderer);
+        }
+
+        public void Dismiss() { }
     }
 }

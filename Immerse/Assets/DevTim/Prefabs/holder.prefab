@@ -46,24 +46,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueEvents:
   - {fileID: 11400000, guid: 5933380175d1d4240a8c8d0391446445, type: 2}
+  - {fileID: 11400000, guid: 7ba439309ae7e3146aa3f98699d808a2, type: 2}
+  - {fileID: 11400000, guid: db33b6298ab93e141aa2a082591663c8, type: 2}
+  - {fileID: 11400000, guid: e9827f183e44a0840b2b4787620e42e6, type: 2}
+  - {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}
+  - {fileID: 11400000, guid: 9e1e0b9372531474d91d7faa0e4bb99c, type: 2}
   - {fileID: 11400000, guid: 5dddd50ecf72d424c9279270e7037cc3, type: 2}
-  - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
-  - {fileID: 11400000, guid: f1327da5c17487f44a785d686e13631e, type: 2}
-  - {fileID: 11400000, guid: 84a4942fa5dbfa64694e61586d7161c1, type: 2}
   - {fileID: 11400000, guid: 33083a1e9cf512340ae29c691e3f0710, type: 2}
-  - {fileID: 11400000, guid: 857a6b9c17c7ff4438a6789aaf35b297, type: 2}
-  - {fileID: 11400000, guid: 6947f89633960424c8fb5d9ce065c0af, type: 2}
-  - {fileID: 11400000, guid: 913823e11abe6494db62e763fdef17fd, type: 2}
   - {fileID: 11400000, guid: 50608fee4fd9c9c4bbcf4424a8a0a4a2, type: 2}
-  - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
-  - {fileID: 11400000, guid: fef2b0e997e575f43b08d7144fd95f4f, type: 2}
-  - {fileID: 11400000, guid: f30569a481740e841a085bfdaa4b53f8, type: 2}
   - {fileID: 11400000, guid: 80ce80a7546250047a1d3b8929d76e6d, type: 2}
-  - {fileID: 11400000, guid: 0b6b40fffdd4c9340a584e82da6300a7, type: 2}
+  - {fileID: 11400000, guid: f1327da5c17487f44a785d686e13631e, type: 2}
+  - {fileID: 11400000, guid: 6947f89633960424c8fb5d9ce065c0af, type: 2}
+  - {fileID: 11400000, guid: fef2b0e997e575f43b08d7144fd95f4f, type: 2}
   - {fileID: 11400000, guid: fc409162f30103348a59990f13f8468b, type: 2}
+  - {fileID: 11400000, guid: 84a4942fa5dbfa64694e61586d7161c1, type: 2}
+  - {fileID: 11400000, guid: 913823e11abe6494db62e763fdef17fd, type: 2}
+  - {fileID: 11400000, guid: f30569a481740e841a085bfdaa4b53f8, type: 2}
   - {fileID: 11400000, guid: 99ec5a11d1b5afe488332fb5bb07c157, type: 2}
+  - {fileID: 11400000, guid: 30fd146810ab270418313d851acdcfdf, type: 2}
+  - {fileID: 11400000, guid: 857a6b9c17c7ff4438a6789aaf35b297, type: 2}
+  - {fileID: 11400000, guid: 4b95a270bc4cdac488796de770c4877a, type: 2}
+  - {fileID: 11400000, guid: 0b6b40fffdd4c9340a584e82da6300a7, type: 2}
   actors:
   - {fileID: 11400000, guid: 1fbf41a24dbc2504e8e0bb446a09f9aa, type: 2}
   - {fileID: 11400000, guid: 517d46e3c8a0e224abbaa1f53255c65e, type: 2}
   - {fileID: 11400000, guid: 6746f30c0a3fd40409c46447097aeedc, type: 2}
   - {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
+  props:
+  - {fileID: 11400000, guid: 883a6638809364a4783b60f00c2311e4, type: 2}
+  - {fileID: 11400000, guid: c32cc3f69501dc1438eafd8ed53ea8d4, type: 2}
+  - {fileID: 11400000, guid: cf264c89808bef44687c602125937f06, type: 2}
+  - {fileID: 11400000, guid: 825c3139d6b4d7940b568283aff10d27, type: 2}
+  - {fileID: 11400000, guid: 59774230895df4e4bbe250d85fdabb06, type: 2}
+  - {fileID: 11400000, guid: d0eee8403bc136f43975711556d7f87a, type: 2}

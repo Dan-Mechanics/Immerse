@@ -41,14 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2196683711434877599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42641d0237e893940af10018a17deaaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 308e364bb4e6d384490ebfdfe097c5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stateHandler: {fileID: 0}
-  scannerResponse: {fileID: 0}
-  openingVideo: {fileID: 32900000, guid: c58e310af776dfc44974c35632a67bf4, type: 3}
-  closingVideo: {fileID: 32900000, guid: ed426d560e2f37b42a99a3079f9bf4dd, type: 3}
+  scanResponder: {fileID: 0}
+  openingVideo: {fileID: 0}
+  closingVideo: {fileID: 0}
   gameplayState: {fileID: 0}
-  prompterState: {fileID: 0}
   videoState: {fileID: 0}
   endScreenState: {fileID: 0}

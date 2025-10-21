@@ -9,8 +9,28 @@ namespace Immerse
         public Action<List<Prop>> OnNewProps;
         public Action<Dictionary<Actor, List<int>>> OnNewActorHistory;
 
+        [SerializeField] private ScanResponder scanResponder = default;
         private readonly List<Prop> props = new List<Prop>();
         private readonly Dictionary<Actor, List<int>> actorHistory = new Dictionary<Actor, List<int>>();
+
+        private void Awake()
+        {
+            scanResponder.OnInteractWithDialogue += OnInteractWithDialogue;
+        }
+
+        private void OnDestroy()
+        {
+            scanResponder.OnInteractWithDialogue -= OnInteractWithDialogue;
+        }
+
+        private void OnInteractWithDialogue(DialogueEvent dialogue)
+        {
+            if (dialogue.speaker is Prop prop && !Has(prop))
+                Add(prop);
+
+            if (dialogue.speaker is Actor actor)
+                Add(actor, dialogue.index);
+        }
 
         public bool Has(Prop prop) => props.Contains(prop); 
 
