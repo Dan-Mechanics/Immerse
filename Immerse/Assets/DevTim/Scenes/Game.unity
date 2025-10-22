@@ -4128,6 +4128,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: hidekey
+      value: 282
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
+      propertyPath: showKey
+      value: 283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1942549927}
@@ -4396,6 +4404,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 332866110}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
+      propertyPath: closingVideo
+      value: 
+      objectReference: {fileID: 32900000, guid: c58e310af776dfc44974c35632a67bf4, type: 3}
+    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
+      propertyPath: openingVideo
+      value: 
+      objectReference: {fileID: 32900000, guid: 45c616b9640eb1b419f8c41990dd4702, type: 3}
+    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: stateHandler
       value: 
       objectReference: {fileID: 214652312}
@@ -4550,6 +4566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 173168255}
     m_Modifications:
+    - target: {fileID: 7305107877932159394, guid: b23e328727ca0c14caaa1b13cef59586, type: 3}
+      propertyPath: doneMinutes
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7305107877932159394, guid: b23e328727ca0c14caaa1b13cef59586, type: 3}
       propertyPath: doneWhenOutput
       value: 
