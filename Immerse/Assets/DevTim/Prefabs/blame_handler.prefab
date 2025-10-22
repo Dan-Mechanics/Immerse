@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6951814003429104992}
   - component: {fileID: 153542572319245384}
   m_Layer: 0
-  m_Name: blame
+  m_Name: blame_handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,13 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa88c69961864564b8479c1b1428318c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayState: {fileID: 0}
+  scanResponder: {fileID: 0}
   textWriter: {fileID: 0}
   timer: {fileID: 0}
   prompter: {fileID: 0}
   blameButton: {fileID: 0}
   holder: {fileID: 0}
   murderer: {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
-  forceBlameMinutes: 10
-  softBlame: {fileID: 11400000, guid: 142ce106bbfacfa4ebc8a354edf09bd6, type: 2}
-  forceBlame: {fileID: 11400000, guid: f3b0b15bd18c4ce4581abc61b9f4122f, type: 2}
+  blameQuestion: {fileID: 0}

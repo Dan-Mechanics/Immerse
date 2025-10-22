@@ -8,7 +8,7 @@ namespace Immerse
     /// </summary>
     public class InteractionHandler : MonoBehaviour, IAnswerListener
     {
-        [SerializeField] private Blame blame = default;
+        [SerializeField] private BlameHandler blame = default;
         [SerializeField] private ScanResponder scanResponder = default;
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private DialogueEventDisplayer displayer = default;

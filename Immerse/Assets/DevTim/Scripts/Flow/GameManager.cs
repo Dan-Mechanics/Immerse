@@ -15,12 +15,12 @@ namespace Immerse
         private VideoViewer videoViewer;
         private GameObject doneState;
         private EndScreen endScreen;
-        private Blame blame;
+        private BlameHandler blame;
         
         private void Awake()
         {
             endScreen = endScreenState.GetComponentInChildren<EndScreen>();
-            blame = gameplayState.GetComponentInChildren<Blame>();
+            blame = gameplayState.GetComponentInChildren<BlameHandler>();
             videoViewer = videoState.GetComponentInChildren<VideoViewer>();
             
             blame.OnWinOrLose += OnWinOrLose;

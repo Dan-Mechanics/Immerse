@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public class Blame : StateElement, IAnswerListener
+    public class BlameHandler : StateElement, IAnswerListener
     {
         public event Action<bool> OnWinOrLose;
 
