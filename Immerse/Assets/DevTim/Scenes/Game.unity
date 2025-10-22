@@ -2761,7 +2761,7 @@ GameObject:
   - component: {fileID: 1581563039}
   - component: {fileID: 1581563041}
   m_Layer: 5
-  m_Name: end_screen
+  m_Name: end_screen_state
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5079,15 +5079,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7845478341209643458, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845478341209643458, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845478341209643458, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845478341209643458, guid: f9512c7305b59a74e937afe684eb4095, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

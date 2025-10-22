@@ -30,7 +30,7 @@ namespace Immerse
 
                 for (int j = 0; j < actor.dialogue.Length; j++)
                 {
-                    actor.dialogue[j].speaker = actor;
+                    actor.dialogue[j].owner = actor;
                     actor.dialogue[j].index = j;
                 }
             }
@@ -41,7 +41,7 @@ namespace Immerse
                 prop.Setup();
                 prop.index = i;
 
-                prop.dialogue.speaker = prop;
+                prop.dialogue.owner = prop;
                 prop.dialogue.index = 0;
             }
 

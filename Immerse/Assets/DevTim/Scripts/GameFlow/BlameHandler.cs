@@ -37,10 +37,11 @@ namespace Immerse
             timer.OnNewTime += OnNewTime;
             timer.OnDone += ForceBlame;
 
-            if (!hasStarted)
-                timer.Begin();
+            if (hasStarted)
+                return;
 
             hasStarted = true;
+            timer.Begin();
         }
 
         public override void Close()

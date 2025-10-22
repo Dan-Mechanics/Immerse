@@ -33,12 +33,6 @@ namespace Immerse
             videoViewer.OnVideoDone         -= OnVideoDone;
         }
 
-        private void OnWinOrLose(bool won)
-        {
-            endScreen.SetWon(won);
-            PlayVideo(closingVideo, endScreenState);
-        }
-
         /// <summary>
         /// Called by button.
         /// </summary>
@@ -58,6 +52,12 @@ namespace Immerse
             this.doneState = doneState;
             stateHandler.Open(videoState);
             videoViewer.Play(clip);
+        }
+
+        private void OnWinOrLose(bool won)
+        {
+            endScreen.SetWon(won);
+            PlayVideo(closingVideo, endScreenState);
         }
     }
 }

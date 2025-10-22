@@ -8,7 +8,7 @@ namespace Immerse
         public AudioClip clip;
         public string script;
 
-        [HideInInspector] public Entity speaker;
+        [HideInInspector] public Entity owner;
         [HideInInspector] public int index;
 
         public void Setup()

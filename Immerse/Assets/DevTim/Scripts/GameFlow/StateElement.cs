@@ -3,8 +3,8 @@ using UnityEngine;
 namespace Immerse
 {
     /// <summary>
-    /// Possibly add in the future
-    /// reset feature so you dont have
+    /// Possibly add in the future:
+    /// reset feature so you don't have
     /// to reload the scene.
     /// </summary>
     public abstract class StateElement : MonoBehaviour

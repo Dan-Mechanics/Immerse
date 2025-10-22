@@ -22,11 +22,11 @@ namespace Immerse
             if (hasStarted)
                 return;
 
+            hasStarted = true;
+
             scanner.OnScanInt += OnScanInt;
             scanner.OnScanString += OnScanString;
             OnScanString("Verhaal");
-            Debug.Log("Hello");
-            hasStarted = true;
         }
 
         private void OnScanInt(int index)

@@ -25,10 +25,10 @@ namespace Immerse
 
         private void OnInteractWithDialogue(DialogueEvent dialogue)
         {
-            if (dialogue.speaker is Prop prop && !Has(prop))
+            if (dialogue.owner is Prop prop && !Has(prop))
                 Add(prop);
 
-            if (dialogue.speaker is Actor actor)
+            if (dialogue.owner is Actor actor)
                 Add(actor, dialogue.index);
         }
 

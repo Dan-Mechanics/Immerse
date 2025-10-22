@@ -72,9 +72,9 @@ namespace Immerse
                 print($"Playing: '{dialogue.name} | {dialogue.clip.name}'");
             }
 
-            icon.sprite = dialogue.speaker.icon;
+            icon.sprite = dialogue.owner.icon;
             textWriter.Write(dialogue.script);
-            iconText.text = dialogue.speaker.name + " > " + "\n" + dialogue.speaker.description;
+            iconText.text = dialogue.owner.name + " > " + "\n" + dialogue.owner.description;
 
             currentDialogue = dialogue;
             doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
