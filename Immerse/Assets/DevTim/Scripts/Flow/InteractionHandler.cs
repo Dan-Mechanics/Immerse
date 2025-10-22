@@ -3,10 +3,10 @@ using UnityEngine;
 namespace Immerse
 {
     /// <summary>
-    /// Responsibility:
-    /// Store and update state of the gameplay.
+    /// Listens to ScanRespondder.cs and calls 
+    /// other methods.
     /// </summary>
-    public class Gameplay : MonoBehaviour, IAnswerListener
+    public class InteractionHandler : MonoBehaviour, IAnswerListener
     {
         [SerializeField] private Blame blame = default;
         [SerializeField] private ScanResponder scanResponder = default;
@@ -84,7 +84,5 @@ namespace Immerse
 
             currentActor = null;
         }
-
-        public void Dismiss() { }
     }
 }

@@ -89,7 +89,5 @@ namespace Immerse
             StopScanning();
             OnWinOrLose?.Invoke(holder.Actors[index] == murderer);
         }
-
-        public void Dismiss() { }
     }
 }

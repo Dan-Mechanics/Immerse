@@ -3653,7 +3653,7 @@ PrefabInstance:
       objectReference: {fileID: 9147991552012753224}
     - target: {fileID: 6505816008866922809, guid: 046c5267a164b224f80e848735747946, type: 3}
       propertyPath: m_Name
-      value: gameplay
+      value: interaction_handler
       objectReference: {fileID: 0}
     - target: {fileID: 8549875937873006640, guid: 046c5267a164b224f80e848735747946, type: 3}
       propertyPath: m_LocalPosition.x

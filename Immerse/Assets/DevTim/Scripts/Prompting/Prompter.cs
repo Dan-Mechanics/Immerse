@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Immerse
 {
-    public partial class Prompter : StateElement
+    public class Prompter : StateElement
     {
         [SerializeField] private GameObject gameplayState = default;
         [SerializeField] private GameObject promptState = default;
@@ -34,9 +34,6 @@ namespace Immerse
         /// </summary>
         public void Ask(Question question, IAnswerListener listener) 
         {
-            if (current != null)
-                current.listener?.Dismiss();
-
             if (question == null || listener == null)
                 return;
 
@@ -78,9 +75,6 @@ namespace Immerse
         public override void Close()
         {
             base.Close();
-
-            if (current != null)
-                current.listener.Dismiss();
 
             current = null;
             DestroyPrompts();
