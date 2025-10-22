@@ -1,5 +1,12 @@
 ﻿21 okt:
 
+sidenote:
+struct Reference<T>
+T comp --> can this be T or needs to be monobehaviour ??
+findmy
+findscene
+findinfamily
+
 todo: solve duizend problems wtih code,
 mainly that the everything is a littel fucked
 you need to lsiten to scanResponder events not scanner
