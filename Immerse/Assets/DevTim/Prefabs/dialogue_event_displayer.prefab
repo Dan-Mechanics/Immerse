@@ -51,7 +51,7 @@ MonoBehaviour:
   lerper: {fileID: 0}
   iconText: {fileID: 0}
   source: {fileID: 5399289692029953120}
-  textBoxTrailTime: 2
+  endLag: 2
 --- !u!82 &5399289692029953120
 AudioSource:
   m_ObjectHideFlags: 0

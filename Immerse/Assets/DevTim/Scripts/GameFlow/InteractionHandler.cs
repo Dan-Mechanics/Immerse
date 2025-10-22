@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Immerse
@@ -8,6 +9,8 @@ namespace Immerse
     /// </summary>
     public class InteractionHandler : MonoBehaviour, IAnswerListener
     {
+        public Action<DialogueEvent> OnInteractWithDialogue;
+
         [SerializeField] private BlameHandler blame = default;
         [SerializeField] private ScanResponder scanResponder = default;
         [SerializeField] private GameObject gameplayState = default;
@@ -22,13 +25,13 @@ namespace Immerse
         private void Awake()
         {
             scanResponder.OnInteractWithActor += OnInteractWithActor;
-            scanResponder.OnInteractWithDialogue += OnInteractWithDialogue;
+            scanResponder.OnDirectDialogue += InteractWithDialogue;
         }
 
         private void OnDestroy()
         {
             scanResponder.OnInteractWithActor -= OnInteractWithActor;
-            scanResponder.OnInteractWithDialogue -= OnInteractWithDialogue;
+            scanResponder.OnDirectDialogue -= InteractWithDialogue;
         }
 
         private void MatchInterviewQuestionToActor(Actor actor, ref Question question)
@@ -58,11 +61,13 @@ namespace Immerse
             prompter.Ask(interviewQuestion, this);
         }
 
-        private void OnInteractWithDialogue(DialogueEvent dialogue)
+        private void InteractWithDialogue(DialogueEvent dialogue)
         {
             currentActor = null;
             stateHandler.Open(gameplayState);
             displayer.Display(dialogue);
+
+            OnInteractWithDialogue?.Invoke(dialogue);
         }
 
         public void GetAnswer(int index, Option option)
@@ -73,7 +78,7 @@ namespace Immerse
             switch (option.tag)
             {
                 case Tag.None:
-                    OnInteractWithDialogue(currentActor.dialogue[index]);
+                    InteractWithDialogue(currentActor.dialogue[index]);
                     break;
                 case Tag.Blame:
                     blame.GetAnswer(currentActor.index, option);

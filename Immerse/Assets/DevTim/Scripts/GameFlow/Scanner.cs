@@ -18,22 +18,22 @@ namespace Immerse
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                OnScanString("jeremy");
+                OnScanString?.Invoke("jeremy");
                 return;
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                OnScanString("marc");
+                OnScanString?.Invoke("marc");
                 return;
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                OnScanString("leonardo");
+                OnScanString?.Invoke("leonardo");
                 return;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                OnScanString("vivienne");
+                OnScanString?.Invoke("vivienne");
                 return;
             }
 

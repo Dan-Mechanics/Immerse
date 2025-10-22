@@ -56,7 +56,7 @@ namespace Immerse
         private void SetVisible(bool visible)
         {
             if (showingNotes != visible)
-                (showingNotes ? OnOpen : OnClose)?.Invoke();
+                (visible ? OnOpen : OnClose)?.Invoke();
 
             showingNotes = visible;
 

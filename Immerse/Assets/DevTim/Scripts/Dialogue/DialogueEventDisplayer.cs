@@ -12,7 +12,7 @@ namespace Immerse
         [SerializeField] private Lerper lerper = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
-        [SerializeField, Min(0.1f)] private float textBoxTrailTime = default;
+        [SerializeField, Min(0.1f)] private float endLag = default;
 
         private DialogueEvent currentDialogue;
         private float doneTime;
@@ -77,7 +77,7 @@ namespace Immerse
             iconText.text = dialogue.owner.name + " > " + "\n" + dialogue.owner.description;
 
             currentDialogue = dialogue;
-            doneTime = Time.time + textBoxTrailTime + dialogue.script.Length * TextWriter.INTERVAL;
+            doneTime = Time.time + endLag + dialogue.script.Length * TextWriter.INTERVAL;
         }
 
         public void HideDialogue()

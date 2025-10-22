@@ -9,7 +9,7 @@ namespace Immerse
     /// </summary>
     public class ScanResponder : StateElement
     {
-        public Action<DialogueEvent> OnInteractWithDialogue;
+        public Action<DialogueEvent> OnDirectDialogue;
         public Action<Actor> OnInteractWithActor;
       
         [SerializeField] private Holder holder = default;
@@ -48,7 +48,7 @@ namespace Immerse
             if (index >= holder.Dialogue.Count)
                 return;
 
-            InteractWithDialogue(holder.Dialogue[index]);
+            DirectDialogue(holder.Dialogue[index]);
         }
 
         private void OnScanString(string name)
@@ -69,10 +69,10 @@ namespace Immerse
             if (!holder.DialogueDict.ContainsKey(name))
                 return;
 
-            InteractWithDialogue(holder.DialogueDict[name]);
+            DirectDialogue(holder.DialogueDict[name]);
         }
 
-        private void InteractWithDialogue(DialogueEvent dialogue)
+        private void DirectDialogue(DialogueEvent dialogue)
         {
             if (dialogue == null)
                 return;
@@ -80,7 +80,7 @@ namespace Immerse
             if (!holder.Dialogue.Contains(dialogue))
                 return;
 
-            OnInteractWithDialogue?.Invoke(dialogue);
+            OnDirectDialogue?.Invoke(dialogue);
         }
 
         private void InteractWithActor(Actor actor)

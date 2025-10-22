@@ -9,18 +9,18 @@ namespace Immerse
         public Action<List<Prop>> OnNewProps;
         public Action<Dictionary<Actor, List<int>>> OnNewActorHistory;
 
-        [SerializeField] private ScanResponder scanResponder = default;
+        [SerializeField] private InteractionHandler interactionHandler = default;
         private readonly List<Prop> props = new List<Prop>();
         private readonly Dictionary<Actor, List<int>> actorHistory = new Dictionary<Actor, List<int>>();
 
         private void Awake()
         {
-            scanResponder.OnInteractWithDialogue += OnInteractWithDialogue;
+            interactionHandler.OnInteractWithDialogue += OnInteractWithDialogue;
         }
 
         private void OnDestroy()
         {
-            scanResponder.OnInteractWithDialogue -= OnInteractWithDialogue;
+            interactionHandler.OnInteractWithDialogue -= OnInteractWithDialogue;
         }
 
         private void OnInteractWithDialogue(DialogueEvent dialogue)

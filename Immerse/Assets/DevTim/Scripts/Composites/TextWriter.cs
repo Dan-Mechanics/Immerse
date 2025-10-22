@@ -8,7 +8,7 @@ namespace Immerse
     [RequireComponent(typeof(TMP_Text))]
     public class TextWriter : StateElement
     {
-        public const float INTERVAL = 0.07f;
+        public const float INTERVAL = 0.0625f;
 
         [SerializeField] private string startingMessage = default;
 

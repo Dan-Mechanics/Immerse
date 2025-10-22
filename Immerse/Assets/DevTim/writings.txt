@@ -1,4 +1,9 @@
-﻿21 okt:
+﻿22 okt:
+seems like everytihng is in a pretty good state now.
+
+
+
+21 okt:
 
 sidenote:
 struct Reference<T>

@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateHandler: {fileID: 0}
-  scanResponder: {fileID: 0}
-  openingVideo: {fileID: 0}
-  closingVideo: {fileID: 0}
+  openingVideo: {fileID: 32900000, guid: c58e310af776dfc44974c35632a67bf4, type: 3}
+  closingVideo: {fileID: 32900000, guid: 45c616b9640eb1b419f8c41990dd4702, type: 3}
   gameplayState: {fileID: 0}
   videoState: {fileID: 0}
   endScreenState: {fileID: 0}

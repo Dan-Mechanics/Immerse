@@ -49,8 +49,10 @@ namespace Immerse
 
             for (int i = 0; i < question.options.Length; i++)
             {
-                if(question.includeOptional || !question.options[i].optional)
-                    SpawnOption(question.options[i], i);
+                SpawnOption(question.options[i], i, question.includeOptional || !question.options[i].optional);
+
+                /*if (question.includeOptional || !question.options[i].optional)
+                    SpawnOption(question.options[i], i);*/
             }
 
             promptBehaviours.ForEach(x => x.Open());
@@ -67,16 +69,17 @@ namespace Immerse
             if (answer >= current.question.options.Length)
                 return;
 
+            // NOTE: THE ORDER OF ALL THIS IS VERY IMPORTANT.
+            stateHandler.Open(gameplayState);
             current.listener?.GetAnswer(answer, current.question.options[answer]);
             current = null;
-            stateHandler.Open(gameplayState);
         }
 
         public override void Close()
         {
             base.Close();
 
-            current = null;
+            //current = null;
             DestroyPrompts();
             source.Stop();
         }
@@ -98,7 +101,7 @@ namespace Immerse
             promptBehaviours.ForEach(x => x.DoTick());
         }
 
-        private void SpawnOption(Option option, int i)
+        private void SpawnOption(Option option, int i, bool interactable)
         {
             GameObject go = Instantiate(promptPrefab, promptHolder);
             RectTransform rect = go.GetComponent<RectTransform>();
@@ -110,6 +113,7 @@ namespace Immerse
             go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[i].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
             go.GetComponent<Button>().onClick.AddListener(delegate { GetAnswer(i); });
+            go.GetComponent<Button>().interactable = interactable;
             go.GetComponent<Lerper>().Send(false);
 
             promptBehaviours.AddRange(go.GetComponentsInChildren<StateElement>());
