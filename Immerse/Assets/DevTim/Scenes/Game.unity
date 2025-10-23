@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68490565, g: 0.7310833, b: 1, a: 1}
+  m_Color: {r: 0.6273585, g: 0.6799666, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4330,11 +4330,11 @@ PrefabInstance:
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: closingVideo
       value: 
-      objectReference: {fileID: 32900000, guid: c58e310af776dfc44974c35632a67bf4, type: 3}
+      objectReference: {fileID: 32900000, guid: 45c616b9640eb1b419f8c41990dd4702, type: 3}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: openingVideo
       value: 
-      objectReference: {fileID: 32900000, guid: 45c616b9640eb1b419f8c41990dd4702, type: 3}
+      objectReference: {fileID: 32900000, guid: c58e310af776dfc44974c35632a67bf4, type: 3}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: stateHandler
       value: 
