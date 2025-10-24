@@ -6,31 +6,38 @@ Een lijk werd gevonden in de server room van een kleine Nederlandse games studio
 
 FluffyHandcuffs
 =
-Marc: Fluffy handcuffs - interactie is *ew, wat doet dit hier?*
+*Ew, wat doet dit hier?*
 
 ///
 
 Takenlijst
 =
-Vivienne: Takenlijst (belastingaangifte gister afgemaakt, uitstel pedro deadline 5x zonder checkje). - gaat er over liegen
+Pedro Art Deadline - 01-11-2025                     ☐ Uitstel
+Sollicitatiegesprek Marc - 01-11-2025              V
+Pedro Art Deadline - 02-11-2025                     ☐ Uitstel
+One page design document - 03-11-2025              V
+Pedro Art Deadline - 03-11-2025                     ☐ Uitstel
+Pedro Art Deadline - 04-11-2025                     ☐ Uitstel
+Pedro Art Deadline - 05-11-2025                     ☐ Uitstel
+Belastingaangifte - 05-11-2025                     V
 
 ///
 
 Gokwebsite
 =
-Jeremy: Op jeremies computer staat een gokwebsite open - interactie laat zien dat ingelogd is op pedros account - dialoog is dat jeremy beschaamd zegt dat hij een gokstop heeft
+*Waarom is hij ingelogd op Pedro’s account op Totocasino.com?*
 
 ///
 
 Kunstwerk
 =
-Leo: Een poster van een artist met een handtekening er op - Raakt in paniek als je er naar vraagt.
+*Hmm, er staat hier een handtekening op. Van wie zou die zijn?*
 
 ///
 
 Koffiebeker
 =
-Pedro: Stapel koffiebekers en blikjes energy - interactie is *oh hij heeft veel nachten doorgehaalt om de deadlines te halen*
+*Oh, Huh. hij heeft veel nachten doorgehaalt om de deadlines te halen*
 
 ///
 
@@ -66,7 +73,7 @@ Ik? Ik was in de kantine met Pedro, heb je die nieuwe cup-a-soep geproefd ouwe? 
 
 B_jeremy
 =
-Ehm… ja, ik heb inderdaad iets tantoe raars gezien. Marc en Vivienne gedragen zich de laatste tijd al boem vreemd, en ik zag ze laatst stiekem samen het kantoor in sluipen. Maar zeg dit yusu tegen niemand, ait?
+Ehm… ja, ik heb inderdaad iets tantoe raars gezien. Marc en Vivienne gedragen zich de laatste tijd al boem vreemd, en ik zag ze laatst stiekem samen het kantoor in sluipen. Maar zeg dit yusu tegen niemand.
 
 ///
 
