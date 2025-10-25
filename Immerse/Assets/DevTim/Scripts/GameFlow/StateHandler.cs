@@ -74,20 +74,13 @@ namespace Immerse
             current.elements.ForEach(x => x.DoFrame());
         }
 
-        /// <summary>
-        /// This is to avoid a bug where 
-        /// the preview is deleted.
-        /// </summary>
         private void FixedUpdate()
         {
             if (current == null)
                 return;
 
             Clean();
-            for (int i = 0; i < current.elements.Count; i++)
-            {
-                current.elements[i].DoTick();
-            }
+            current.elements.ForEach(x => x.DoTick());
         }
 
         private void Clean()
