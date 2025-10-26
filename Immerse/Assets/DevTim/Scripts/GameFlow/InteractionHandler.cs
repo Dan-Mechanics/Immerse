@@ -9,7 +9,7 @@ namespace Immerse
     /// </summary>
     public class InteractionHandler : MonoBehaviour, IAnswerListener
     {
-        public Action<DialogueEvent> OnInteractWithDialogue;
+        public Action<DialogueEvent> OnInteractWithAnyDialogue;
 
         [SerializeField] private BlameHandler blame = default;
         [SerializeField] private ScanResponder scanResponder = default;
@@ -67,7 +67,7 @@ namespace Immerse
             stateHandler.Open(gameplayState);
             displayer.Display(dialogue);
 
-            OnInteractWithDialogue?.Invoke(dialogue);
+            OnInteractWithAnyDialogue?.Invoke(dialogue);
         }
 
         public void GetAnswer(int index, Option option)

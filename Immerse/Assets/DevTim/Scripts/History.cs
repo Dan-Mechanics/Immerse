@@ -15,12 +15,12 @@ namespace Immerse
 
         private void Awake()
         {
-            interactionHandler.OnInteractWithDialogue += OnInteractWithDialogue;
+            interactionHandler.OnInteractWithAnyDialogue += OnInteractWithDialogue;
         }
 
         private void OnDestroy()
         {
-            interactionHandler.OnInteractWithDialogue -= OnInteractWithDialogue;
+            interactionHandler.OnInteractWithAnyDialogue -= OnInteractWithDialogue;
         }
 
         private void OnInteractWithDialogue(DialogueEvent dialogue)
