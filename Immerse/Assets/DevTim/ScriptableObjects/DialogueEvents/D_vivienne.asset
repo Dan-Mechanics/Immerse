@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: D_vivienne
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
-  script: ...
-  actor: {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
+  script: Oh geen idee wat dat is, ik ben druk, ik heb liever niet dat je me weer
+    stoort.
+  owner: {fileID: 11400000, guid: ad7828ef7c329b84c84012cb8b8562f3, type: 2}
+  index: 3

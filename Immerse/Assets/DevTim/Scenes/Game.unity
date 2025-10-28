@@ -4330,7 +4330,7 @@ PrefabInstance:
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: closingVideo
       value: 
-      objectReference: {fileID: 32900000, guid: 45c616b9640eb1b419f8c41990dd4702, type: 3}
+      objectReference: {fileID: 32900000, guid: 1420618bc59903f49a963c0b936eef65, type: 3}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: openingVideo
       value: 
