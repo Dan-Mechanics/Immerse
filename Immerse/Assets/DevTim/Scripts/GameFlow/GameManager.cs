@@ -7,7 +7,8 @@ namespace Immerse
     {
         [SerializeField] private StateHandler stateHandler = default;
         [SerializeField] private VideoClip openingVideo = default;
-        [SerializeField] private VideoClip closingVideo = default;
+        [SerializeField] private VideoClip winVideo = default;
+        [SerializeField] private VideoClip loseVideo = default;
         [SerializeField] private GameObject gameplayState = default;    
         [SerializeField] private GameObject videoState = default;
         [SerializeField] private GameObject endScreenState = default;
@@ -57,7 +58,7 @@ namespace Immerse
         private void OnWinOrLose(bool won)
         {
             endScreen.SetWon(won);
-            PlayVideo(closingVideo, endScreenState);
+            PlayVideo(won ? winVideo : loseVideo, endScreenState);
         }
     }
 }

@@ -4324,6 +4324,14 @@ PrefabInstance:
       value: game_manager
       objectReference: {fileID: 0}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
+      propertyPath: winVideo
+      value: 
+      objectReference: {fileID: 32900000, guid: 1420618bc59903f49a963c0b936eef65, type: 3}
+    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
+      propertyPath: loseVideo
+      value: 
+      objectReference: {fileID: 32900000, guid: 1420618bc59903f49a963c0b936eef65, type: 3}
+    - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: videoState
       value: 
       objectReference: {fileID: 332866110}
@@ -5035,6 +5043,10 @@ PrefabInstance:
       propertyPath: displayer
       value: 
       objectReference: {fileID: 347467545}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: introString
+      value: Intro
+      objectReference: {fileID: 0}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: gameplayState
       value: 

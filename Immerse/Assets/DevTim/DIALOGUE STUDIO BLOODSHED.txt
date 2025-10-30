@@ -1,6 +1,12 @@
-﻿Verhaal
+﻿Intro
 =
-Een lijk werd gevonden in de server room van een kleine Nederlandse games studio. 
+[SIEBE HIER SCRIPT MAKEN]
+
+///
+
+Outro
+=
+[SIEBE TIM HIER SCRIPT MAKEN]
 
 ///
 
@@ -12,14 +18,14 @@ FluffyHandcuffs
 
 Takenlijst
 =
-Pedro Art Deadline - 01-11-2025                    ☐ Uitstel
-Sollicitatiegesprek Marc - 01-11-2025       🗹
-Pedro Art Deadline - 02-11-2025                     ☐ Uitstel
-One page design document - 03-11-2025 🗹
-Pedro Art Deadline - 03-11-2025                     ☐ Uitstel
-Pedro Art Deadline - 04-11-2025                     ☐ Uitstel
-Pedro Art Deadline - 05-11-2025                     ☐ Uitstel
-Belastingaangifte - 05-11-2025                  🗹
+Pedro Art Deadline - 01-11-2025                    X  - Uitstel
+Sollicitatiegesprek Marc - 01-11-2025            V
+Pedro Art Deadline - 02-11-2025                    X  - Uitstel
+One page design document - 03-11-2025      V
+Pedro Art Deadline - 03-11-2025                     X  - Uitstel
+Pedro Art Deadline - 04-11-2025                     X  - Uitstel
+Pedro Art Deadline - 05-11-2025                     X  - Uitstel
+Belastingaangifte - 05-11-2025                       V
 
 ///
 

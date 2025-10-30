@@ -14,6 +14,7 @@ namespace Immerse
       
         [SerializeField] private Holder holder = default;
         [SerializeField] private Scanner scanner = default;
+        [SerializeField] private string introString = default;
         private bool hasStarted;
 
         public override void Open()
@@ -26,7 +27,7 @@ namespace Immerse
 
             scanner.OnScanInt += OnScanInt;
             scanner.OnScanString += OnScanString;
-            OnScanString("Verhaal");
+            OnScanString(introString);
         }
 
         private void OnScanInt(int index)
