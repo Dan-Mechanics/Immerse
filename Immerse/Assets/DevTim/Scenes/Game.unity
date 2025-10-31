@@ -5016,49 +5016,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 173168255}
     m_Modifications:
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: blame
-      value: 
-      objectReference: {fileID: 140270804}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: holder
       value: 
       objectReference: {fileID: 5059850058445898768}
     - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: history
-      value: 
-      objectReference: {fileID: 1974227853}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: scanner
       value: 
       objectReference: {fileID: 1464656454}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: prompter
-      value: 
-      objectReference: {fileID: 908752998}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: question
-      value: 
-      objectReference: {fileID: 11400000, guid: 3b11d716b9015224088f4362fcee54f7, type: 2}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: displayer
-      value: 
-      objectReference: {fileID: 347467545}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: introString
-      value: Intro
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: gameplayState
-      value: 
-      objectReference: {fileID: 173168254}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: reverseBlameIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
-      propertyPath: reverseCancelIndex
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4108826302290114726, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: m_Name
       value: scan_responder

@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   scanner: {fileID: 0}
+  introString: Intro
