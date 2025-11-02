@@ -5023,6 +5023,10 @@ PrefabInstance:
       propertyPath: scanner
       value: 
       objectReference: {fileID: 1464656454}
+    - target: {fileID: 1681264970794441297, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
+      propertyPath: introString
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4108826302290114726, guid: 9abfddb1f80521b479738c31e9137d45, type: 3}
       propertyPath: m_Name
       value: scan_responder

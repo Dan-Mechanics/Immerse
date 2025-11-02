@@ -1,20 +1,10 @@
-﻿Intro
-=
-[SIEBE HIER SCRIPT MAKEN]
-
-///
-
-Outro
-=
-[SIEBE TIM HIER SCRIPT MAKEN]
-
-///
-
-FluffyHandcuffs
+﻿FluffyHandcuffs
 =
 *Ew, wat doet dit hier?*
 
+
 ///
+
 
 Takenlijst
 =
@@ -27,115 +17,153 @@ Pedro Art Deadline - 04-11-2025                     X  - Uitstel
 Pedro Art Deadline - 05-11-2025                     X  - Uitstel
 Belastingaangifte - 05-11-2025                       V
 
+
 ///
+
 
 Gokwebsite
 =
 *Waarom is hij ingelogd op Pedro’s account op Totocasino.com?*
 
+
 ///
+
 
 Kunstwerk
 =
 *Hmm, er staat hier een handtekening op. Van wie zou die zijn?*
 
+
 ///
+
 
 Koffiebeker
 =
 *Oh, Huh. hij heeft veel nachten doorgehaalt om de deadlines te halen*
 
+
 ///
+
 
 A_marc
 =
 Waar bemoei jij je mee? Ik was in de audio-room. Bezig met… audio dingen.
 
+
 ///
+
 
 B_marc
 =
 Hang lekker ergens anders de detective uit. Hier betaal ik je niet voor.
 
+
 ///
+
 
 C_marc
 =
 Pedro was een goede, of ja, prima werknemer. Persoonlijk kende ik ‘m nooit goed.
 
+
 ///
+
 
 D_marc
 =
 Waarom neus jij rond in mijn kantoor? Dit zijn grote-mensenpullen, dus afblijven.
 
+
 ///
+
 
 A_jeremy
 =
 Ik? Ik was in de kantine met Pedro, heb je die nieuwe cup-a-soep geproefd ouwe? Monster lekker, ik zeg het je.
 
+
 ///
+
 
 B_jeremy
 =
 Ehm… ja, ik heb inderdaad iets tantoe raars gezien. Marc en Vivienne gedragen zich de laatste tijd al boem vreemd, en ik zag ze laatst stiekem samen het kantoor in sluipen. Maar zeg dit yusu tegen niemand.
 
+
 ///
+
 
 C_jeremy
 =
 Pedro was echt m’n tjabo, weet je. We deden alles samen, er ging geen weekend voorbij zonder een biertje en een potje voetbal.
 
+
 ///
+
 
 D_jeremy
 =
 Oké, ik heb op zijn account gespeeld. Ik dacht dat het niet zo'n big deal was. Ik… ik. Zit eigenlijk gewoon op een gok-stop, oké? Ik kan niet langer zonder dat gevoel.
 
+
 ///
+
 
 A_vivienne
 =
 Druk, bezig. Waarom? Ik zat gewoon aan m'n bureau, belasting aangifte te doen. De geldzaken lopen zoals je weet niet heel lekker hier dus elk centje wat we kunnen besparen is belangrijk! Ik heb al veel moeten bezuinigen op de stookkosten en de renovaties van het gebouw gaan ook niet door zoals je kan zien. 
 
+
 ///
+
 
 B_vivienne
 =
 Ik heb zelf niks gezien maar ik zou als ik jou was even kijken naar het werkrooster & to do list. Dat geeft je hopelijk een beetje een betere inkijk in hoe dingen gaan hier. 
 
+
 ///
+
 
 C_vivienne
 =
 Pedro? Ik weet niet gelijk over wie je het hebt, oh hij was artist hier, ik weet het weer, ik heb zo veel aan m’n hoofd! Ja, hij was wel de zwakke schakel als ik eerlijk mag zijn, ik hoorde altijd van Marc dat hij nooit zijn deadlines haalde. Verspilling van geld als je het mij vraagt, maar ontslaan was geen optie, dat was veeeeeel te duur geweest.
 
+
 ///
+
 
 D_vivienne
 =
 Oh geen idee wat dat is, ik ben druk, ik heb liever niet dat je me weer stoort. 
 
+
 ///
+
 
 A_leonardo
 =
 Waar was je? ik was in de audio room schoonmaken, de audio room wordt nooit meer gebruikt. Het was me niet eens gevraagd om schoon te maken, maar het was hoog tijd dat die weer een schoonmaakbeurt kreeg.
 
+
 ///
+
 
 B_leonardo
 =
 Jeremy zat al de hele dag achter zijn computer, hij deed erg geheimzinnig over wat hij aan het doen was.
 
+
 ///
+
 
 C_leonardo
 =
 Ik mocht Pedro wel, hij was een aardige knaap, je merkte wel dat de andere collegas hem ook aardig vonden. Hij was alleen niet heel goed met deadlines, hij raakte super overwerkt, het zou me niet verbazen als hij zijn eigen leven had genomen omdat hij zo gestresst was . Ik hoorde ook dat hij AI had gebruikt om zijn werk sneller af te werken, dat is echt een schande, elke zelf respecterende Artiest zou nooit AI gebruiken.
 
+
 ///
+
 
 D_leonardo
 =
