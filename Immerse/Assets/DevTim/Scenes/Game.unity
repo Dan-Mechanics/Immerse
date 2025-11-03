@@ -4170,6 +4170,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
+      propertyPath: props.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.size
       value: 21
       objectReference: {fileID: 0}
