@@ -44,6 +44,10 @@ namespace Immerse
         public override void DoFrame()
         {
             base.DoFrame();
+
+            if (!gameObject.activeSelf)
+                return;
+
             if (Input.GetKeyDown(showKey))
                 SetVisible(true);
 
