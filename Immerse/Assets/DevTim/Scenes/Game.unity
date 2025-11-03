@@ -2430,6 +2430,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8277483808742490420, guid: 62cf8c6ef4bd16946b5106d757c99f39, type: 3}
   m_PrefabInstance: {fileID: 7398435387983777683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393637924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393637926}
+  - component: {fileID: 1393637925}
+  m_Layer: 0
+  m_Name: ArduinoCom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1393637925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393637924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a596d8bd5b9c73842b296fe18bb50451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 1464656454}
+--- !u!4 &1393637926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393637924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 850.0166, y: 748.46655, z: 220.48654}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1464656454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6866554769340692345, guid: f146a3ab02d6a114aa58fc144a89cbb9, type: 3}
@@ -5105,3 +5150,4 @@ SceneRoots:
   - {fileID: 316534523426537462}
   - {fileID: 1942549928}
   - {fileID: 1973876941}
+  - {fileID: 1393637926}

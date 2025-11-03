@@ -43,5 +43,25 @@ namespace Immerse
 
             OnScanString?.Invoke(holder.Dialogue[number].name);
         }
+
+        public void Jeremy()
+        {
+            OnScanString?.Invoke("jeremy");
+        }
+
+        public void Marc()
+        {
+            OnScanString?.Invoke("marc");
+        }
+
+        public void Leonardo()
+        {
+            OnScanString?.Invoke("leonardo");
+        }
+
+        public void Vivienne()
+        {
+            OnScanString?.Invoke("vivienne");
+        }
     }
 }
