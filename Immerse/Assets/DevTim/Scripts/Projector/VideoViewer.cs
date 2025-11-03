@@ -17,7 +17,6 @@ namespace Immerse
         public override void DoTick()
         {
             base.DoTick();
-
             rawImage.SetActive(doneTime > 0f && videoPlayer.isPrepared);
 
             if (doneTime <= 0f)
