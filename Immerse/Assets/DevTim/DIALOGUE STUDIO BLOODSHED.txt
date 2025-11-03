@@ -1,16 +1,4 @@
-﻿Intro
-=
-[SIEBE HIER SCRIPT MAKEN]
-
-///
-
-Outro
-=
-[SIEBE TIM HIER SCRIPT MAKEN]
-
-///
-
-FluffyHandcuffs
+﻿FluffyHandcuffs
 =
 *Ew, wat doet dit hier?*
 
@@ -37,37 +25,37 @@ Gokwebsite
 
 Kunstwerk
 =
-*Hmm, er staat hier een handtekening op. Van wie zou die zijn?*
+*Hmm, een gesigneerd werk van een bekende game artist, Leonardo moet vast een groot fan zijn. ?*
 
 ///
 
 Koffiebeker
 =
-*Oh, Huh. hij heeft veel nachten doorgehaalt om de deadlines te halen*
+*Poeh al die energy blikjes. hij heeft vast veel nachten doorgehaalt om de deadlines te halen*
 
 ///
 
 A_marc
 =
-Waar bemoei jij je mee? Ik was in de audio-room. Bezig met… audio dingen.
+Ik was in de audio-room. Bezig met… audio dingen. Waar bemoei jij je eigenlijk mee? 
 
 ///
 
 B_marc
 =
-Hang lekker ergens anders de detective uit. Hier betaal ik je niet voor.
+Hang lekker ergens anders de detective uit. Hier betaal ik je niet voor. Madelief: Pff ik krijg niet eens betaald…
 
 ///
 
 C_marc
-=
-Pedro was een goede, of ja, prima werknemer. Persoonlijk kende ik ‘m nooit goed.
+= 
+Ik heb Pedro nooit echt leren kennen, hij leek altijd te druk met werken, dat terwijl hij altijd achter liep op schema! Dat was gewoon totaal haalbaar als hij harder werkte.
 
 ///
 
 D_marc
 =
-Waarom neus jij rond in mijn kantoor? Dit zijn grote-mensenpullen, dus afblijven.
+Waarom neus jij rond in mijn kantoor? Dit zijn allemaal grote-mensenpullen, dus afblijven.
 
 ///
 
@@ -85,7 +73,7 @@ Ehm… ja, ik heb inderdaad iets tantoe raars gezien. Marc en Vivienne gedragen 
 
 C_jeremy
 =
-Pedro was echt m’n tjabo, weet je. We deden alles samen, er ging geen weekend voorbij zonder een biertje en een potje voetbal.
+Pedro was echt m’n tjabo, weet je. We deden alles samen, er ging geen weekend voorbij zonder een biertje en wedden op een potje voetbal.
 
 ///
 
@@ -121,7 +109,7 @@ Oh geen idee wat dat is, ik ben druk, ik heb liever niet dat je me weer stoort.
 
 A_leonardo
 =
-Waar was je? ik was in de audio room schoonmaken, de audio room wordt nooit meer gebruikt. Het was me niet eens gevraagd om schoon te maken, maar het was hoog tijd dat die weer een schoonmaakbeurt kreeg.
+Waar was je? ik had de audio room schoongemaakt, de audio room wordt eigenlijk nooit meer gebruikt. Het was me niet eens gevraagd om schoon te maken, maar het was hoog tijd dat die weer een schoonmaakbeurt kreeg.
 
 ///
 

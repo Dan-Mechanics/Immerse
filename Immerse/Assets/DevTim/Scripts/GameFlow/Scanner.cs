@@ -11,31 +11,22 @@ namespace Immerse
         [SerializeField] private Holder holder = default;
         private readonly Keyboard keyboard = new Keyboard();
 
-        /// <summary>
-        /// ALL OF THIS IS FOR DEBUG !!
-        /// </summary>
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                OnScanString?.Invoke("jeremy");
-                return;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                OnScanString?.Invoke("marc");
-                return;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                OnScanString?.Invoke("leonardo");
-                return;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                OnScanString?.Invoke("vivienne");
-                return;
-            }
+                OnScanInt?.Invoke(0);
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                OnScanInt?.Invoke(1);
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+                OnScanInt?.Invoke(2);
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+                OnScanInt?.Invoke(3);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                OnScanInt?.Invoke(4);
 
             int number = keyboard.GetPressedNumberIndex();
             if (number < 0)
