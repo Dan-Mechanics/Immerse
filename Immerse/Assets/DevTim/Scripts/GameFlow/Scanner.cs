@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 
 namespace Immerse
@@ -49,21 +50,25 @@ namespace Immerse
 
         public void Jeremy()
         {
+            //OnScanString?.Invoke(holder.Actors[0].name);
             OnScanString?.Invoke("jeremy");
         }
 
         public void Marc()
         {
+            //OnScanString?.Invoke(holder.Actors[1].name);
             OnScanString?.Invoke("marc");
         }
 
         public void Leonardo()
         {
+            //OnScanString?.Invoke(holder.Actors[2].name);
             OnScanString?.Invoke("leonardo");
         }
 
         public void Vivienne()
         {
+          //  OnScanString?.Invoke(holder.Actors[3].name);
             OnScanString?.Invoke("vivienne");
         }
     }

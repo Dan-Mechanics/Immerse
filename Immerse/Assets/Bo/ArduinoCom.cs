@@ -7,12 +7,12 @@ public class ArduinoCom : MonoBehaviour
 {
     SerialPort sp = new SerialPort("COM5", 9600);
     [SerializeField] Scanner scanner;
-    string savedLine;
+    public string savedLine;
 
     void Start()
     {
         sp.DtrEnable = true;
-        sp.ReadTimeout = 100;
+        sp.ReadTimeout = 10;
 
         sp.Open();
         if (sp.IsOpen)
@@ -51,9 +51,14 @@ public class ArduinoCom : MonoBehaviour
                 break;
             case "R3":
                 scanner.Marc();
+                Debug.Log("Arduino: " + line);
                 break;
             case "R4":
                 scanner.Vivienne();
+                Debug.Log("Arduino: " + line);
+                break;
+            case "R0":
+                Debug.Log("Arduino: " + line);
                 break;
         }
     }
