@@ -18,7 +18,6 @@ namespace Immerse
                 return;
             
             string[] pages = textAsset.text.Split(FIRSTS_SPLITTER, StringSplitOptions.RemoveEmptyEntries);
-
             foreach (string page in pages)
             {
                 if (!CleverSplit(page, SECOND_SPLITTER, out string[] components, 2))

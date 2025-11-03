@@ -217,17 +217,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 100
+  m_characterSpacing: 200
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanner: {fileID: 1464656454}
+  savedLine: 
 --- !u!4 &166252366
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,7 +2022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1192963708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2816,7 +2817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1642572653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4184,19 +4185,19 @@ PrefabInstance:
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: db33b6298ab93e141aa2a082591663c8, type: 2}
+      objectReference: {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: e9827f183e44a0840b2b4787620e42e6, type: 2}
+      objectReference: {fileID: 11400000, guid: 9e1e0b9372531474d91d7faa0e4bb99c, type: 2}
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 760d2347aede36c43bf31d85457bd9ee, type: 2}
+      objectReference: {fileID: 11400000, guid: e9827f183e44a0840b2b4787620e42e6, type: 2}
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 9e1e0b9372531474d91d7faa0e4bb99c, type: 2}
+      objectReference: {fileID: 11400000, guid: db33b6298ab93e141aa2a082591663c8, type: 2}
     - target: {fileID: 6217906964010726086, guid: c3cbaaef37b75d748aef7e4090926a0c, type: 3}
       propertyPath: dialogueEvents.Array.data[5]
       value: 

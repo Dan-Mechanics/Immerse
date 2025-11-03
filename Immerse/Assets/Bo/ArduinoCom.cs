@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.IO.Ports;
 using Immerse;
+using System.Linq;
 
 public class ArduinoCom : MonoBehaviour
 {
@@ -11,9 +12,15 @@ public class ArduinoCom : MonoBehaviour
 
     void Start()
     {
+        // THIS WAY YOU CAN SEE WHAT IS AVAILABLE.
+        var ports = SerialPort.GetPortNames().ToList();
+        ports.ForEach(x => print($"port {x}"));
+
+        // ===
+
         sp.DtrEnable = true;
         sp.ReadTimeout = 10;
-
+        
         sp.Open();
         if (sp.IsOpen)
         {

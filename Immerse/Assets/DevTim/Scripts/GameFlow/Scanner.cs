@@ -13,6 +13,14 @@ namespace Immerse
 
         private void Update()
         {
+            /*
+            Up = handcuffs
+            Down = computer
+            Left = energy blikjes
+            Right = takenlijst
+            Space = poster Leonardo
+            */
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 InteractWithObject(0);
 

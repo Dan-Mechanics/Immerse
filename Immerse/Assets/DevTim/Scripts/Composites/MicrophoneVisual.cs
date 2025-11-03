@@ -5,8 +5,6 @@ namespace Immerse
     /// <summary>
     /// https://discussions.unity.com/t/check-current-microphone-input-volume/474574/17
     /// https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Microphone.html
-    /// 
-    /// TODO: make mic always active unless destroy focus etc.
     /// </summary>
     public class MicrophoneVisual : StateElement
     {
@@ -31,7 +29,7 @@ namespace Immerse
         {
             foreach (string mic in Microphone.devices)
             {
-                print($"{mic}.");
+                print($"mic: {mic}");
             }
 
             StartMicrophone();
