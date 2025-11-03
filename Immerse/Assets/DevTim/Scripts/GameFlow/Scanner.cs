@@ -14,25 +14,37 @@ namespace Immerse
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
-                OnScanInt?.Invoke(0);
+                InteractWithObject(0);
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
-                OnScanInt?.Invoke(1);
+                InteractWithObject(1);
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
-                OnScanInt?.Invoke(2);
+                InteractWithObject(2);
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
-                OnScanInt?.Invoke(3);
+                InteractWithObject(3);
 
             if (Input.GetKeyDown(KeyCode.Space))
-                OnScanInt?.Invoke(4);
+                InteractWithObject(4);
 
-            int number = keyboard.GetPressedNumberIndex();
-            if (number < 0)
+            InteractWithActor(keyboard.GetPressedNumberIndex());
+        }
+
+        private void InteractWithObject(int index)
+        {
+            if (index < 0 || index > holder.Dialogue.Count - 1)
                 return;
 
-            OnScanString?.Invoke(holder.Dialogue[number].name);
+            OnScanString?.Invoke(holder.Dialogue[index].name);
+        }
+
+        private void InteractWithActor(int index)
+        {
+            if (index < 0 || index > holder.Actors.Count - 1)
+                return;
+
+            OnScanString?.Invoke(holder.Actors[index].name);
         }
 
         public void Jeremy()
