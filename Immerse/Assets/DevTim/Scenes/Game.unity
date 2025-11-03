@@ -4098,24 +4098,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
-      propertyPath: hidekey
-      value: 282
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
-      propertyPath: showKey
-      value: 283
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387114119390529489, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1942549927}
     - target: {fileID: 9061306039459274854, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
       propertyPath: m_Name
       value: notepad
-      objectReference: {fileID: 0}
-    - target: {fileID: 9061306039459274854, guid: eef9a6623eb713e4196876be6ddc229e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

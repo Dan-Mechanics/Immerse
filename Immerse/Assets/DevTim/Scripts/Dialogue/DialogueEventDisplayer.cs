@@ -21,7 +21,6 @@ namespace Immerse
         {
             base.Open();
             notepadHandler.OnOpen += HideDialogue;
-           // notepadHandler.OnClose += HideDialogue;
         }
 
         public override void Close()
@@ -39,7 +38,6 @@ namespace Immerse
             source.Stop();
 
             notepadHandler.OnOpen -= HideDialogue;
-            //notepadHandler.OnClose -= HideDialogue;
         }
 
         public override void DoTick()
@@ -52,10 +50,6 @@ namespace Immerse
                 currentDialogue = null;
         }
 
-        /// <summary>
-        /// Possible todo: make it so that when you press O or L that the shit goes away.
-        /// </summary>
-        /// <param name="dialogue"></param>
         public void Display(DialogueEvent dialogue)
         {
             if (dialogue == null)
