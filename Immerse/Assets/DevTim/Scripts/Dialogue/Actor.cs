@@ -11,7 +11,7 @@ namespace Immerse
         public override void Setup()
         {
             base.Setup();
-            icon = Resources.Load<Sprite>(name);
+            icon = Resources.Load<Sprite>($"Sprites/{name}");
         }
     }
 }

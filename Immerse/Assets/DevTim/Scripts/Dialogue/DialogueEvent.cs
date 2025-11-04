@@ -13,7 +13,7 @@ namespace Immerse
 
         public void Setup()
         {
-            clip = Resources.Load<AudioClip>(name);
+            clip = Resources.Load<AudioClip>($"Sounds/{name}");
         }
     }
 }

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: bec15d6c8cbe9a74da64d97a53582df8, type: 3}
   description: 'Boekhouder. '
-  interactionSounds:
-  - {fileID: 8300000, guid: 370fab2d11493e144bd36821f57f6a8d, type: 3}
+  interactionSounds: []
   index: 3
   prop: {fileID: 11400000, guid: 59774230895df4e4bbe250d85fdabb06, type: 2}
   dialogue:
