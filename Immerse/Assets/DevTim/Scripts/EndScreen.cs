@@ -16,7 +16,7 @@ namespace Immerse
         public void SetWon(bool won)
         {
             writing = writing.Replace(REPLACE_TOKEN.ToString(), won ? "right" : "wrong");
-            writing += won ? "!" : "...";
+            writing += won ? "!" : " ...";
             text.SetColor(won ? Color.green : Color.red);
 
             writing = writing.ToUpperInvariant();
