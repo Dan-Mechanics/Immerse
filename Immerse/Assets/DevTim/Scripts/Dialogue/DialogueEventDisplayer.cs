@@ -12,7 +12,7 @@ namespace Immerse
         [SerializeField] private Lerper lerper = default;   
         [SerializeField] private TMP_Text iconText = default;
         [SerializeField] private AudioSource source = default;
-        [SerializeField, Min(0.1f)] private float endLag = default;
+        // [SerializeField, Min(0.1f)] private float endLag = default;
 
         private DialogueEvent currentDialogue;
         private bool isShowing;
