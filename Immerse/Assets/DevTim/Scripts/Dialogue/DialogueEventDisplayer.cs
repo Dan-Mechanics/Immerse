@@ -15,7 +15,7 @@ namespace Immerse
         [SerializeField, Min(0.1f)] private float endLag = default;
 
         private DialogueEvent currentDialogue;
-        private float doneTime;
+        private bool isShowing;
 
         public override void Open()
         {
@@ -27,7 +27,7 @@ namespace Immerse
         {
             base.Close();
             iconText.text = string.Empty;
-            doneTime = 0f;
+            //doneTime = 0f;
             currentDialogue = null;
             lerper.Force();
 
@@ -40,13 +40,19 @@ namespace Immerse
             notepadHandler.OnOpen -= HideDialogue;
         }
 
+        public override void DoFrame()
+        {
+            base.DoFrame();
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+                HideDialogue();
+        }
+
         public override void DoTick()
         {
             base.DoTick();
 
-            bool done = Time.time > doneTime;
-            lerper.Send(done);
-            if (done)
+            lerper.Send(!isShowing);
+            if (!isShowing)
                 currentDialogue = null;
         }
 
@@ -71,12 +77,12 @@ namespace Immerse
             iconText.text = dialogue.owner.name + " > " + "\n" + dialogue.owner.description;
 
             currentDialogue = dialogue;
-            doneTime = Time.time + endLag + dialogue.script.Length * TextWriter.INTERVAL;
+            isShowing = true;
         }
 
         public void HideDialogue()
         {
-            doneTime = 0f;
+            isShowing = false;
             currentDialogue = null;
             source.Stop();
         }
