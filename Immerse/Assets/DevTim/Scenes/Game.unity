@@ -428,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &166252365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &173168255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -487,6 +487,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7243456495027045527}
+  - {fileID: 1712870818}
   - {fileID: 140270805}
   - {fileID: 1343135239}
   - {fileID: 1422961431}
@@ -986,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &495759426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2413,7 +2414,7 @@ GameObject:
   - component: {fileID: 1422961433}
   - component: {fileID: 1422961432}
   m_Layer: 5
-  m_Name: backgound (1)
+  m_Name: names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2946,6 +2947,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ded73fbca240c409ec80c95e655c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1712870818 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8549875937873006640, guid: 046c5267a164b224f80e848735747946, type: 3}
+  m_PrefabInstance: {fileID: 316534523426537462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1773656238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,7 +3465,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 173168255}
     m_Modifications:
     - target: {fileID: 6207197370257194795, guid: 046c5267a164b224f80e848735747946, type: 3}
       propertyPath: blame
@@ -5034,6 +5040,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1698223068984236042, guid: 93e5d6e2e9cca89489ee7136640e52d7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698223068984236042, guid: 93e5d6e2e9cca89489ee7136640e52d7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698223068984236042, guid: 93e5d6e2e9cca89489ee7136640e52d7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7264151
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5232,7 +5250,6 @@ SceneRoots:
   - {fileID: 6163112673589168489}
   - {fileID: 8772908945300617959}
   - {fileID: 6426345949686325119}
-  - {fileID: 316534523426537462}
   - {fileID: 1942549928}
   - {fileID: 1973876941}
   - {fileID: 166252366}

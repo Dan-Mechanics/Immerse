@@ -27,7 +27,6 @@ namespace Immerse
         {
             base.Close();
             iconText.text = string.Empty;
-            //doneTime = 0f;
             currentDialogue = null;
             lerper.Force();
 
@@ -38,6 +37,7 @@ namespace Immerse
             source.Stop();
 
             notepadHandler.OnOpen -= HideDialogue;
+            HideDialogue();
         }
 
         public override void DoFrame()

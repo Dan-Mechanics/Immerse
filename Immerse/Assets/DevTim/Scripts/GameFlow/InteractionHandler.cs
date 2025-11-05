@@ -7,7 +7,7 @@ namespace Immerse
     /// Listens to ScanRespondder.cs and calls 
     /// other methods.
     /// </summary>
-    public class InteractionHandler : MonoBehaviour, IAnswerListener
+    public class InteractionHandler : StateElement, IAnswerListener
     {
         public Action<DialogueEvent> OnInteractWithAnyDialogue;
 
@@ -21,6 +21,7 @@ namespace Immerse
         [SerializeField] private Question interviewQuestion = default;
 
         private Actor currentActor;
+        private Actor previousActor;
 
         private void Awake()
         {
@@ -28,10 +29,18 @@ namespace Immerse
             scanResponder.OnDirectDialogue += InteractWithDialogue;
         }
 
-        private void OnDestroy()
+        public override void OnDestroy()
         {
             scanResponder.OnInteractWithActor -= OnInteractWithActor;
             scanResponder.OnDirectDialogue -= InteractWithDialogue;
+        }
+
+        public override void DoFrame()
+        {
+            base.DoFrame();
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && previousActor != null)
+                OnInteractWithActor(previousActor);
         }
 
         private void MatchInterviewQuestionToActor(Actor actor, ref Question question)
@@ -56,6 +65,7 @@ namespace Immerse
                 return;
 
             currentActor = actor;
+            previousActor = currentActor;
             MatchInterviewQuestionToActor(currentActor, ref interviewQuestion);
 
             prompter.Ask(interviewQuestion, this);

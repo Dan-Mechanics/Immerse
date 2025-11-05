@@ -69,6 +69,10 @@ namespace Immerse
             if (answer >= current.question.options.Length)
                 return;
 
+            // THIS IS HACKEY
+            if (!spawned[answer].GetComponent<Button>().interactable)
+                return;
+
             // NOTE: THE ORDER OF ALL THIS IS VERY IMPORTANT.
             stateHandler.Open(gameplayState);
             current.listener?.GetAnswer(answer, current.question.options[answer]);
@@ -101,18 +105,18 @@ namespace Immerse
             promptBehaviours.ForEach(x => x.DoTick());
         }
 
-        private void SpawnOption(Option option, int i, bool interactable)
+        private void SpawnOption(Option option, int index, bool interactable)
         {
             GameObject go = Instantiate(promptPrefab, promptHolder);
             RectTransform rect = go.GetComponent<RectTransform>();
             go.transform.localPosition = Vector3.zero;
             go.transform.localRotation = Quaternion.identity;
-            rect.anchoredPosition = Vector2.up * verticalSpacing + (i * verticalSpacing * Vector2.down);
+            rect.anchoredPosition = Vector2.up * verticalSpacing + (index * verticalSpacing * Vector2.down);
 
             go.GetComponent<Image>().color = option.color;
-            go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[i].ToString().ToUpperInvariant() + ": " + option.text;
+            go.GetComponentInChildren<TMP_Text>().text = Utils.alphabet[index].ToString().ToUpperInvariant() + ": " + option.text;
             go.GetComponentsInChildren<Image>()[1].sprite = option.icon;
-            go.GetComponent<Button>().onClick.AddListener(delegate { GetAnswer(i); });
+            go.GetComponent<Button>().onClick.AddListener(delegate { GetAnswer(index); });
             go.GetComponent<Button>().interactable = interactable;
             go.GetComponent<Lerper>().Send(false);
 
