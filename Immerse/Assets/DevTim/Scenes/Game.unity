@@ -4396,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: openingVideo
       value: 
-      objectReference: {fileID: 32900000, guid: 41e976b4bf4ea8649acf321ed874e88a, type: 3}
+      objectReference: {fileID: 32900000, guid: 266e6953c8b621944aa54f6098421dda, type: 3}
     - target: {fileID: 2649143123052953911, guid: ac486bb939970ef4c8888978a33a8944, type: 3}
       propertyPath: stateHandler
       value: 
